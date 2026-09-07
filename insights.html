@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Insights — SoDak EduTech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="nav.css">
+</head>
+<body>
+<div id="site-nav"></div>
+
+<!-- HERO -->
+<section class="s-darker" style="padding:80px 0 72px">
+  <div class="container">
+    <p class="section-eyebrow">Blog</p>
+    <h1 class="t-hero c-white" style="max-width:800px;margin-top:10px">
+      Insights from the<br>training floor
+    </h1>
+    <p class="t-lg" style="color:#94a3b8;max-width:640px;margin-top:20px;line-height:1.75">
+      Field notes from practising engineers — written between code reviews, deployment pipelines, and two-day campus bootcamps. No fluff, no stock photos of laptops.
+    </p>
+  </div>
+</section>
+
+<!-- BLOG LISTING -->
+<section class="s-light" style="padding:60px 0 72px">
+  <div class="container">
+
+    <!-- Filter bar -->
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px;align-items:center">
+      <button class="btn btn-gold btn-sm">All</button>
+      <button class="btn btn-ghost btn-sm">Cloud &amp; AWS</button>
+      <button class="btn btn-ghost btn-sm">AI &amp; ML</button>
+      <button class="btn btn-ghost btn-sm">DevOps</button>
+      <button class="btn btn-ghost btn-sm">Cybersecurity</button>
+      <button class="btn btn-ghost btn-sm">Careers</button>
+    </div>
+
+    <!-- Post grid -->
+    <div class="grid grid-3" style="gap:24px">
+
+      <!-- Post 1 -->
+      <div class="card card-light" style="padding:0;overflow:hidden;display:flex;flex-direction:column">
+        <div class="photo-placeholder" style="height:180px;border-radius:0;font-size:40px">🤖</div>
+        <div style="padding:24px;display:flex;flex-direction:column;gap:12px;flex:1">
+          <div class="flex gap-8 items-center">
+            <span class="badge badge-plum">AI &amp; ML</span>
+            <span class="t-label c-muted">7 min read</span>
+          </div>
+          <h3 class="t-card c-heading" style="line-height:1.4">Why LangChain is the wrong first step for GenAI beginners</h3>
+          <p class="t-sm c-body" style="flex:1;line-height:1.65">The abstraction feels helpful until it breaks. Here's why we teach raw API calls first, and introduce frameworks only after students understand what they're abstracting away.</p>
+          <div class="flex items-center justify-between" style="margin-top:8px;padding-top:16px;border-top:1px solid var(--slate-200)">
+            <div class="flex items-center gap-8">
+              <div class="avatar avatar-xs">NS</div>
+              <div>
+                <p class="t-label fw-600 c-heading">Neeharika Srinivasan</p>
+                <p class="t-label c-muted">14 Aug 2026</p>
+              </div>
+            </div>
+            <a href="insights-post.html" class="t-sm c-gold fw-600">Read →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post 2 -->
+      <div class="card card-light" style="padding:0;overflow:hidden;display:flex;flex-direction:column">
+        <div class="photo-placeholder" style="height:180px;border-radius:0;font-size:40px">☁</div>
+        <div style="padding:24px;display:flex;flex-direction:column;gap:12px;flex:1">
+          <div class="flex gap-8 items-center">
+            <span class="badge badge-blue">Cloud &amp; AWS</span>
+            <span class="t-label c-muted">5 min read</span>
+          </div>
+          <h3 class="t-card c-heading" style="line-height:1.4">Top 5 AWS questions asked in TCS hiring rounds 2026</h3>
+          <p class="t-sm c-body" style="flex:1;line-height:1.65">We aggregated feedback from 80+ students who cleared TCS Digital this season. Here are the exact AWS topics that came up — and how to answer them without sounding theoretical.</p>
+          <div class="flex items-center justify-between" style="margin-top:8px;padding-top:16px;border-top:1px solid var(--slate-200)">
+            <div class="flex items-center gap-8">
+              <div class="avatar avatar-xs">SV</div>
+              <div>
+                <p class="t-label fw-600 c-heading">Sai Varun</p>
+                <p class="t-label c-muted">2 Aug 2026</p>
+              </div>
+            </div>
+            <a href="insights-post.html" class="t-sm c-gold fw-600">Read →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post 3 -->
+      <div class="card card-light" style="padding:0;overflow:hidden;display:flex;flex-direction:column">
+        <div class="photo-placeholder" style="height:180px;border-radius:0;font-size:40px">🔐</div>
+        <div style="padding:24px;display:flex;flex-direction:column;gap:12px;flex:1">
+          <div class="flex gap-8 items-center">
+            <span class="badge badge-red">Cybersecurity</span>
+            <span class="t-label c-muted">9 min read</span>
+          </div>
+          <h3 class="t-card c-heading" style="line-height:1.4">How we built a CTF challenge in 48 hours</h3>
+          <p class="t-sm c-body" style="flex:1;line-height:1.65">What goes into designing a capture-the-flag challenge that's hard enough to teach, simple enough to complete — and won't let students Google the flags. A behind-the-scenes look.</p>
+          <div class="flex items-center justify-between" style="margin-top:8px;padding-top:16px;border-top:1px solid var(--slate-200)">
+            <div class="flex items-center gap-8">
+              <div class="avatar avatar-xs">RP</div>
+              <div>
+                <p class="t-label fw-600 c-heading">Rajendhira Prasath S</p>
+                <p class="t-label c-muted">25 Jul 2026</p>
+              </div>
+            </div>
+            <a href="insights-post.html" class="t-sm c-gold fw-600">Read →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post 4 -->
+      <div class="card card-light" style="padding:0;overflow:hidden;display:flex;flex-direction:column">
+        <div class="photo-placeholder" style="height:180px;border-radius:0;font-size:40px">📊</div>
+        <div style="padding:24px;display:flex;flex-direction:column;gap:12px;flex:1">
+          <div class="flex gap-8 items-center">
+            <span class="badge badge-gold">Careers</span>
+            <span class="t-label c-muted">6 min read</span>
+          </div>
+          <h3 class="t-card c-heading" style="line-height:1.4">What TPOs get wrong about placement training</h3>
+          <p class="t-sm c-body" style="flex:1;line-height:1.65">Most placement preparation conflates aptitude scores with job readiness. After running programs across 6+ colleges, here's what actually moves the placement needle — and what just looks good in a report.</p>
+          <div class="flex items-center justify-between" style="margin-top:8px;padding-top:16px;border-top:1px solid var(--slate-200)">
+            <div class="flex items-center gap-8">
+              <div class="avatar avatar-xs">HR</div>
+              <div>
+                <p class="t-label fw-600 c-heading">Harish Raj</p>
+                <p class="t-label c-muted">18 Jul 2026</p>
+              </div>
+            </div>
+            <a href="insights-post.html" class="t-sm c-gold fw-600">Read →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post 5 -->
+      <div class="card card-light" style="padding:0;overflow:hidden;display:flex;flex-direction:column">
+        <div class="photo-placeholder" style="height:180px;border-radius:0;font-size:40px">⚙</div>
+        <div style="padding:24px;display:flex;flex-direction:column;gap:12px;flex:1">
+          <div class="flex gap-8 items-center">
+            <span class="badge badge-green">DevOps</span>
+            <span class="t-label c-muted">8 min read</span>
+          </div>
+          <h3 class="t-card c-heading" style="line-height:1.4">DevOps roadmap for 3rd year students who want to get serious</h3>
+          <p class="t-sm c-body" style="flex:1;line-height:1.65">There are 47 DevOps roadmaps on the internet. Most of them are written by people who have never onboarded a fresher. Here's the one we actually use when training 3rd-year students at Saveetha and SRM.</p>
+          <div class="flex items-center justify-between" style="margin-top:8px;padding-top:16px;border-top:1px solid var(--slate-200)">
+            <div class="flex items-center gap-8">
+              <div class="avatar avatar-xs">SV</div>
+              <div>
+                <p class="t-label fw-600 c-heading">Sai Varun</p>
+                <p class="t-label c-muted">9 Jul 2026</p>
+              </div>
+            </div>
+            <a href="insights-post.html" class="t-sm c-gold fw-600">Read →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post 6 -->
+      <div class="card card-light" style="padding:0;overflow:hidden;display:flex;flex-direction:column">
+        <div class="photo-placeholder" style="height:180px;border-radius:0;font-size:40px">💻</div>
+        <div style="padding:24px;display:flex;flex-direction:column;gap:12px;flex:1">
+          <div class="flex gap-8 items-center">
+            <span class="badge badge-gold">Careers</span>
+            <span class="t-label c-muted">10 min read</span>
+          </div>
+          <h3 class="t-card c-heading" style="line-height:1.4">System design prep: the most underestimated interview skill</h3>
+          <p class="t-sm c-body" style="flex:1;line-height:1.65">Students memorise LRU caches but can't answer "how would you build a URL shortener?" — a gap between knowledge and application that shows up in every Amazon and Zoho campus drive. Here's how to close it.</p>
+          <div class="flex items-center justify-between" style="margin-top:8px;padding-top:16px;border-top:1px solid var(--slate-200)">
+            <div class="flex items-center gap-8">
+              <div class="avatar avatar-xs">N</div>
+              <div>
+                <p class="t-label fw-600 c-heading">Nithesh</p>
+                <p class="t-label c-muted">1 Jul 2026</p>
+              </div>
+            </div>
+            <a href="insights-post.html" class="t-sm c-gold fw-600">Read →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SUBSCRIBE -->
+<section class="s-dark">
+  <div class="container">
+    <div style="max-width:600px;margin:0 auto;text-align:center">
+      <p class="section-eyebrow">Stay updated</p>
+      <h2 class="t-h2 c-white" style="margin-top:8px">New posts, direct to your inbox</h2>
+      <p class="t-lg" style="color:#94a3b8;margin-top:12px;margin-bottom:32px">No marketing emails. When a trainer writes something useful, you'll hear about it.</p>
+      <div class="flex gap-12 items-center" style="justify-content:center;flex-wrap:wrap">
+        <input type="email" class="form-input" placeholder="your@email.com" style="max-width:320px;background:rgba(255,255,255,0.07);border-color:rgba(255,255,255,0.12);color:#fff">
+        <button class="btn btn-gold">Subscribe</button>
+      </div>
+      <p class="t-label c-muted" style="margin-top:14px">Unsubscribe any time. No spam, ever.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA GOLD -->
+<section class="cta-gold">
+  <div class="container">
+    <div>
+      <h2>Want us to train your batch?</h2>
+      <p>Share your calendar and batch size — we'll scope a programme around your students and placement targets.</p>
+    </div>
+    <a href="contact.html" class="btn-cta">Book a campus program →</a>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<div id="site-float"></div>
+<script src="layout.js"></script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media — SoDak EduTech Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../nav.css">
+  <style>
+    body { background: var(--slate-50, #f8fafc); }
+    .admin-layout { display: flex; min-height: 100vh; }
+    .admin-sidebar { width: 220px; flex-shrink: 0; background: var(--navy-950, #060d1a); padding: 24px 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+    .admin-sidebar-logo { padding: 0 20px 24px; border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 16px; font-size: 16px; font-weight: 800; color: #c8a035; }
+    .admin-nav-item { display: block; padding: 9px 20px; font-size: 13px; color: #94a3b8; border-left: 3px solid transparent; transition: color 0.15s, border-color 0.15s; }
+    .admin-nav-item:hover { color: #e2e8f0; }
+    .admin-nav-item.active { color: #c8a035; border-left-color: #c8a035; background: rgba(200,160,53,0.06); font-weight: 600; }
+    .admin-main { flex: 1; padding: 32px 40px; max-width: calc(100vw - 220px); }
+    .admin-topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; }
+    .admin-topbar h1 { font-size: 22px; font-weight: 700; color: #0f172a; }
+    .stat-card-admin { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 20px 24px; }
+    .stat-card-admin .stat-num { font-size: 32px; font-weight: 800; color: #0f172a; }
+    .stat-card-admin .stat-lbl { font-size: 12px; color: #64748b; margin-top: 2px; }
+    .admin-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 10px; overflow: hidden; border: 1px solid #e2e8f0; }
+    .admin-table th { background: #f1f5f9; padding: 10px 14px; text-align: left; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #64748b; }
+    .admin-table td { padding: 11px 14px; font-size: 13px; color: #334155; border-top: 1px solid #f1f5f9; }
+    .admin-table tr:hover td { background: #f8fafc; }
+    .upload-area { border: 2px dashed #cbd5e1; border-radius: 10px; padding: 48px; text-align: center; background: #fff; cursor: pointer; }
+    .upload-area:hover { border-color: #c8a035; background: rgba(200,160,53,0.03); }
+    .media-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; }
+    .media-thumb { height: 140px; background: #e2e8f0; display: flex; align-items: center; justify-content: center; font-size: 32px; }
+    .media-info { padding: 12px; }
+    .media-tabs { display: flex; gap: 0; border-bottom: 2px solid #e2e8f0; margin-bottom: 24px; }
+    .media-tab { padding: 10px 18px; font-size: 13px; font-weight: 500; color: #64748b; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: color 0.15s; }
+    .media-tab:hover { color: #334155; }
+    .media-tab.active { color: #c8a035; border-bottom-color: #c8a035; font-weight: 600; }
+    .media-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .media-card-inner { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; }
+    .media-thumb-inner { height: 160px; background: #e8ecf0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: #94a3b8; font-size: 36px; cursor: pointer; transition: background 0.15s; }
+    .media-thumb-inner:hover { background: #dde3ea; }
+    .media-camera-label { font-size: 11px; font-weight: 600; color: #94a3b8; letter-spacing: 0.05em; text-transform: uppercase; }
+    .media-body { padding: 14px; }
+    .media-filename { font-size: 13px; font-weight: 600; color: #0f172a; margin-bottom: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .media-date-lbl { font-size: 11px; color: #94a3b8; margin-bottom: 10px; }
+    .media-alt-input { width: 100%; padding: 7px 10px; border: 1px solid #e2e8f0; border-radius: 5px; font-size: 12px; color: #334155; background: #f8fafc; margin-bottom: 10px; }
+    .media-alt-input:focus { outline: none; border-color: #c8a035; }
+    .media-actions { display: flex; align-items: center; gap: 8px; }
+    .btn-delete { padding: 5px 11px; border-radius: 5px; font-size: 11px; font-weight: 600; border: 1px solid rgba(239,68,68,0.25); background: rgba(239,68,68,0.07); color: #ef4444; cursor: pointer; }
+    .toggle { position: relative; width: 36px; height: 20px; display: inline-block; }
+    .toggle input { opacity: 0; width: 0; height: 0; }
+    .toggle-slider { position: absolute; cursor: pointer; inset: 0; background: #cbd5e1; border-radius: 20px; transition: 0.2s; }
+    .toggle-slider::before { content: ''; position: absolute; width: 14px; height: 14px; left: 3px; top: 3px; background: #fff; border-radius: 50%; transition: 0.2s; }
+    .toggle input:checked + .toggle-slider { background: #22c55e; }
+    .toggle input:checked + .toggle-slider::before { transform: translateX(16px); }
+  </style>
+</head>
+<body>
+
+  <div id="site-nav"></div>
+
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <div class="admin-sidebar-logo">SoDak EduTech</div>
+      <nav>
+        <a href="dashboard.html" class="admin-nav-item">&#9632; Dashboard</a>
+        <a href="leads.html" class="admin-nav-item">&#9632; Leads</a>
+        <a href="trainers.html" class="admin-nav-item">&#9632; Trainers</a>
+        <a href="media.html" class="admin-nav-item active">&#9632; Media</a>
+      </nav>
+    </aside>
+
+    <main class="admin-main">
+      <div class="admin-topbar">
+        <div>
+          <h1>Media Gallery</h1>
+          <p style="font-size:13px;color:#64748b;margin-top:2px;">Upload, organise and publish training photos</p>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px;">
+          <span style="font-size:13px;color:#64748b;">admin@sodakedutech.in</span>
+          <a href="../index.html" style="padding:7px 14px;font-size:12px;font-weight:600;background:#f1f5f9;color:#334155;border:1px solid #e2e8f0;border-radius:6px;">Logout &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Upload Area -->
+      <div class="upload-area" style="margin-bottom:24px;" onclick="this.querySelector('input').click()">
+        <input type="file" accept="image/jpeg,image/png,image/webp" multiple style="display:none;">
+        <div style="font-size:48px;margin-bottom:12px;">&#128247;</div>
+        <p style="font-size:15px;font-weight:700;color:#0f172a;margin-bottom:6px;">Drop images here or click to upload</p>
+        <p style="font-size:13px;color:#94a3b8;margin-bottom:4px;">Accepts JPG, PNG, WEBP &mdash; max 10 MB per file</p>
+        <p style="font-size:12px;color:#c8a035;font-weight:600;">Select multiple files at once for batch upload</p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="media-tabs">
+        <div class="media-tab active">All (24)</div>
+        <div class="media-tab">Training Sessions (14)</div>
+        <div class="media-tab">Events (6)</div>
+        <div class="media-tab">Team Photos (4)</div>
+      </div>
+
+      <!-- Media Grid — 6 cards -->
+      <div class="media-grid">
+
+        <div class="media-card-inner">
+          <div class="media-thumb-inner">
+            <span>&#128247;</span>
+            <span class="media-camera-label">Training Session</span>
+          </div>
+          <div class="media-body">
+            <div class="media-filename">dsa-session-psg-aug26.jpg</div>
+            <div class="media-date-lbl">Uploaded: 28 Aug 2026 &mdash; 2.4 MB</div>
+            <input class="media-alt-input" type="text" value="Nithesh conducting DSA session at PSG College">
+            <div class="media-actions">
+              <button class="btn-delete">Delete</button>
+              <div style="margin-left:auto;display:flex;align-items:center;gap:6px;">
+                <span style="font-size:11px;color:#64748b;">Published</span>
+                <label class="toggle"><input type="checkbox" checked><span class="toggle-slider"></span></label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-card-inner">
+          <div class="media-thumb-inner">
+            <span>&#128247;</span>
+            <span class="media-camera-label">Training Session</span>
+          </div>
+          <div class="media-body">
+            <div class="media-filename">aws-bootcamp-rajalakshmi-2.png</div>
+            <div class="media-date-lbl">Uploaded: 25 Aug 2026 &mdash; 1.8 MB</div>
+            <input class="media-alt-input" type="text" value="Sai Varun explaining AWS architecture at REC Chennai">
+            <div class="media-actions">
+              <button class="btn-delete">Delete</button>
+              <div style="margin-left:auto;display:flex;align-items:center;gap:6px;">
+                <span style="font-size:11px;color:#64748b;">Published</span>
+                <label class="toggle"><input type="checkbox" checked><span class="toggle-slider"></span></label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-card-inner">
+          <div class="media-thumb-inner">
+            <span>&#128247;</span>
+            <span class="media-camera-label">Events</span>
+          </div>
+          <div class="media-body">
+            <div class="media-filename">mou-signing-kcg-sep26.webp</div>
+            <div class="media-date-lbl">Uploaded: 02 Sep 2026 &mdash; 3.1 MB</div>
+            <input class="media-alt-input" type="text" value="MoU signing ceremony at KCG College of Technology">
+            <div class="media-actions">
+              <button class="btn-delete">Delete</button>
+              <div style="margin-left:auto;display:flex;align-items:center;gap:6px;">
+                <span style="font-size:11px;color:#94a3b8;">Unpublished</span>
+                <label class="toggle"><input type="checkbox"><span class="toggle-slider"></span></label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-card-inner">
+          <div class="media-thumb-inner">
+            <span>&#128247;</span>
+            <span class="media-camera-label">Training Session</span>
+          </div>
+          <div class="media-body">
+            <div class="media-filename">ai-ml-session-thiagarajar.jpg</div>
+            <div class="media-date-lbl">Uploaded: 20 Aug 2026 &mdash; 2.2 MB</div>
+            <input class="media-alt-input" type="text" value="Neeharika Srinivasan presenting GenAI concepts at TCE Madurai">
+            <div class="media-actions">
+              <button class="btn-delete">Delete</button>
+              <div style="margin-left:auto;display:flex;align-items:center;gap:6px;">
+                <span style="font-size:11px;color:#64748b;">Published</span>
+                <label class="toggle"><input type="checkbox" checked><span class="toggle-slider"></span></label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-card-inner">
+          <div class="media-thumb-inner">
+            <span>&#128247;</span>
+            <span class="media-camera-label">Team Photos</span>
+          </div>
+          <div class="media-body">
+            <div class="media-filename">team-photo-sodak-2026.jpg</div>
+            <div class="media-date-lbl">Uploaded: 14 Aug 2026 &mdash; 4.5 MB</div>
+            <input class="media-alt-input" type="text" value="SoDak EduTech trainer team at Chennai HQ, August 2026">
+            <div class="media-actions">
+              <button class="btn-delete">Delete</button>
+              <div style="margin-left:auto;display:flex;align-items:center;gap:6px;">
+                <span style="font-size:11px;color:#64748b;">Published</span>
+                <label class="toggle"><input type="checkbox" checked><span class="toggle-slider"></span></label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-card-inner">
+          <div class="media-thumb-inner">
+            <span>&#128247;</span>
+            <span class="media-camera-label">Training Session</span>
+          </div>
+          <div class="media-body">
+            <div class="media-filename">cybersec-ctf-velammal.png</div>
+            <div class="media-date-lbl">Uploaded: 10 Aug 2026 &mdash; 1.6 MB</div>
+            <input class="media-alt-input" type="text" value="Rajendhira Prasath running CTF workshop at Velammal Engineering">
+            <div class="media-actions">
+              <button class="btn-delete">Delete</button>
+              <div style="margin-left:auto;display:flex;align-items:center;gap:6px;">
+                <span style="font-size:11px;color:#94a3b8;">Unpublished</span>
+                <label class="toggle"><input type="checkbox"><span class="toggle-slider"></span></label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="margin-top:20px;padding:10px 14px;font-size:12px;color:#94a3b8;">
+        Showing 6 of 24 media files &mdash; <a href="#" style="color:#c8a035;font-weight:600;">Load more</a>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="../layout.js"></script>
+</body>
+</html>

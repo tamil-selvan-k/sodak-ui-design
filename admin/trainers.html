@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trainers — SoDak EduTech Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../nav.css">
+  <style>
+    body { background: var(--slate-50, #f8fafc); }
+    .admin-layout { display: flex; min-height: 100vh; }
+    .admin-sidebar { width: 220px; flex-shrink: 0; background: var(--navy-950, #060d1a); padding: 24px 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+    .admin-sidebar-logo { padding: 0 20px 24px; border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 16px; font-size: 16px; font-weight: 800; color: #c8a035; }
+    .admin-nav-item { display: block; padding: 9px 20px; font-size: 13px; color: #94a3b8; border-left: 3px solid transparent; transition: color 0.15s, border-color 0.15s; }
+    .admin-nav-item:hover { color: #e2e8f0; }
+    .admin-nav-item.active { color: #c8a035; border-left-color: #c8a035; background: rgba(200,160,53,0.06); font-weight: 600; }
+    .admin-main { flex: 1; padding: 32px 40px; max-width: calc(100vw - 220px); }
+    .admin-topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; }
+    .admin-topbar h1 { font-size: 22px; font-weight: 700; color: #0f172a; }
+    .stat-card-admin { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 20px 24px; }
+    .stat-card-admin .stat-num { font-size: 32px; font-weight: 800; color: #0f172a; }
+    .stat-card-admin .stat-lbl { font-size: 12px; color: #64748b; margin-top: 2px; }
+    .admin-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 10px; overflow: hidden; border: 1px solid #e2e8f0; }
+    .admin-table th { background: #f1f5f9; padding: 10px 14px; text-align: left; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #64748b; }
+    .admin-table td { padding: 11px 14px; font-size: 13px; color: #334155; border-top: 1px solid #f1f5f9; vertical-align: middle; }
+    .admin-table tr:hover td { background: #f8fafc; }
+    .upload-area { border: 2px dashed #cbd5e1; border-radius: 10px; padding: 48px; text-align: center; background: #fff; cursor: pointer; }
+    .upload-area:hover { border-color: #c8a035; background: rgba(200,160,53,0.03); }
+    .media-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; }
+    .media-thumb { height: 140px; background: #e2e8f0; display: flex; align-items: center; justify-content: center; font-size: 32px; }
+    .media-info { padding: 12px; }
+    .trainer-photo { width: 44px; height: 44px; border-radius: 50%; background: #1a2342; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; color: #c8a035; flex-shrink: 0; }
+    .action-btn { padding: 6px 12px; border-radius: 5px; font-size: 11px; font-weight: 600; border: 1px solid #e2e8f0; background: #f8fafc; color: #334155; cursor: pointer; transition: all 0.15s; }
+    .action-btn.edit { background: rgba(59,130,246,0.07); color: #3b82f6; border-color: rgba(59,130,246,0.2); }
+    .action-btn.deactivate { background: rgba(239,68,68,0.07); color: #ef4444; border-color: rgba(239,68,68,0.2); }
+  </style>
+</head>
+<body>
+
+  <div id="site-nav"></div>
+
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <div class="admin-sidebar-logo">SoDak EduTech</div>
+      <nav>
+        <a href="dashboard.html" class="admin-nav-item">&#9632; Dashboard</a>
+        <a href="leads.html" class="admin-nav-item">&#9632; Leads</a>
+        <a href="trainers.html" class="admin-nav-item active">&#9632; Trainers</a>
+        <a href="media.html" class="admin-nav-item">&#9632; Media</a>
+      </nav>
+    </aside>
+
+    <main class="admin-main">
+      <div class="admin-topbar">
+        <div>
+          <h1>Trainer Management</h1>
+          <p style="font-size:13px;color:#64748b;margin-top:2px;">Manage trainer profiles, domains and programs</p>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span style="font-size:13px;color:#64748b;">admin@sodakedutech.in</span>
+          <button style="padding:9px 18px;font-size:13px;font-weight:700;background:#c8a035;color:#0a0f1e;border:none;border-radius:6px;cursor:pointer;">+ Add Trainer</button>
+          <a href="../index.html" style="padding:7px 14px;font-size:12px;font-weight:600;background:#f1f5f9;color:#334155;border:1px solid #e2e8f0;border-radius:6px;">Logout &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Summary -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px;">
+        <div class="stat-card-admin"><div class="stat-lbl">TOTAL TRAINERS</div><div class="stat-num">5</div></div>
+        <div class="stat-card-admin"><div class="stat-lbl">ACTIVE</div><div class="stat-num" style="color:#22c55e;">5</div></div>
+        <div class="stat-card-admin"><div class="stat-lbl">DOMAINS COVERED</div><div class="stat-num">5</div></div>
+        <div class="stat-card-admin"><div class="stat-lbl">PROGRAMS DELIVERED</div><div class="stat-num">18</div></div>
+      </div>
+
+      <!-- Trainers Table -->
+      <div style="overflow:hidden;border-radius:10px;border:1px solid #e2e8f0;">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Photo</th>
+              <th>Name</th>
+              <th>Company</th>
+              <th>Domain</th>
+              <th>Status</th>
+              <th>Programs Delivered</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="trainer-photo">N</div></td>
+              <td><strong>Nithesh</strong><br><span style="font-size:11px;color:#94a3b8;">SDE-II</span></td>
+              <td><strong style="font-size:13px;">Amazon</strong></td>
+              <td><span style="display:inline-block;padding:3px 8px;border-radius:4px;font-size:11px;font-weight:600;background:rgba(234,179,8,0.1);color:#b45309;">DSA &amp; Competitive Prog.</span></td>
+              <td><span class="badge badge-green">Active</span></td>
+              <td><span style="font-size:12px;">Placement Prep — 5 colleges</span><br><span style="font-size:11px;color:#94a3b8;">System Design, LeetCode Masterclass</span></td>
+              <td><div style="display:flex;gap:6px;"><button class="action-btn edit">Edit</button><button class="action-btn deactivate">Deactivate</button></div></td>
+            </tr>
+            <tr>
+              <td><div class="trainer-photo" style="background:#0f2a1f;">SV</div></td>
+              <td><strong>Sai Varun</strong><br><span style="font-size:11px;color:#94a3b8;">Cloud Engineer</span></td>
+              <td><strong style="font-size:13px;">Zoho Corporation</strong></td>
+              <td><span style="display:inline-block;padding:3px 8px;border-radius:4px;font-size:11px;font-weight:600;background:rgba(59,130,246,0.1);color:#1d4ed8;">Cloud &amp; AWS</span></td>
+              <td><span class="badge badge-green">Active</span></td>
+              <td><span style="font-size:12px;">Cloud &amp; AWS Bootcamp — 4 colleges</span><br><span style="font-size:11px;color:#94a3b8;">DevOps Fundamentals, IaC with Terraform</span></td>
+              <td><div style="display:flex;gap:6px;"><button class="action-btn edit">Edit</button><button class="action-btn deactivate">Deactivate</button></div></td>
+            </tr>
+            <tr>
+              <td><div class="trainer-photo" style="background:#2a1442;">NS</div></td>
+              <td><strong>Neeharika Srinivasan</strong><br><span style="font-size:11px;color:#94a3b8;">AI/ML Engineer</span></td>
+              <td><strong style="font-size:13px;">TCS</strong></td>
+              <td><span style="display:inline-block;padding:3px 8px;border-radius:4px;font-size:11px;font-weight:600;background:rgba(124,58,237,0.1);color:#6d28d9;">AI/ML &amp; Generative AI</span></td>
+              <td><span class="badge badge-green">Active</span></td>
+              <td><span style="font-size:12px;">Generative AI &amp; LLM Track — 3 colleges</span><br><span style="font-size:11px;color:#94a3b8;">ML Foundations, Prompt Engineering</span></td>
+              <td><div style="display:flex;gap:6px;"><button class="action-btn edit">Edit</button><button class="action-btn deactivate">Deactivate</button></div></td>
+            </tr>
+            <tr>
+              <td><div class="trainer-photo" style="background:#2a0f0f;">RP</div></td>
+              <td><strong>Rajendhira Prasath S</strong><br><span style="font-size:11px;color:#94a3b8;">Security Consultant</span></td>
+              <td><strong style="font-size:13px;">Accenture</strong></td>
+              <td><span style="display:inline-block;padding:3px 8px;border-radius:4px;font-size:11px;font-weight:600;background:rgba(239,68,68,0.1);color:#b91c1c;">Cybersecurity</span></td>
+              <td><span class="badge badge-green">Active</span></td>
+              <td><span style="font-size:12px;">Cybersecurity Essentials — 3 colleges</span><br><span style="font-size:11px;color:#94a3b8;">Ethical Hacking, CTF Workshops</span></td>
+              <td><div style="display:flex;gap:6px;"><button class="action-btn edit">Edit</button><button class="action-btn deactivate">Deactivate</button></div></td>
+            </tr>
+            <tr>
+              <td><div class="trainer-photo" style="background:#0a1a2a;">HR</div></td>
+              <td><strong>Harish Raj</strong><br><span style="font-size:11px;color:#94a3b8;">Data Analyst</span></td>
+              <td><strong style="font-size:13px;">Northern Arc Capital</strong></td>
+              <td><span style="display:inline-block;padding:3px 8px;border-radius:4px;font-size:11px;font-weight:600;background:rgba(200,160,53,0.12);color:#92400e;">Data &amp; Career Readiness</span></td>
+              <td><span class="badge badge-green">Active</span></td>
+              <td><span style="font-size:12px;">Data Analytics Track — 3 colleges</span><br><span style="font-size:11px;color:#94a3b8;">SQL, Excel, Power BI, Resume Building</span></td>
+              <td><div style="display:flex;gap:6px;"><button class="action-btn edit">Edit</button><button class="action-btn deactivate">Deactivate</button></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="margin-top:16px;padding:12px 16px;background:#fffbeb;border:1px solid #fde68a;border-radius:8px;font-size:12px;color:#78350f;">
+        <strong>Note:</strong> Deactivating a trainer hides their profile from the public site. Their program history is preserved. Contact admin@sodakedutech.in for permanent deletion.
+      </div>
+
+    </main>
+  </div>
+
+  <script src="../layout.js"></script>
+</body>
+</html>

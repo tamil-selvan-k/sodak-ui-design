@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Why LangChain is the wrong first step for GenAI beginners — SoDak EduTech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="nav.css">
+</head>
+<body>
+<div id="site-nav"></div>
+
+<!-- POST HERO -->
+<section class="s-darker" style="padding:72px 0 60px">
+  <div class="container" style="max-width:1100px">
+    <a href="insights.html" class="t-sm c-muted" style="display:inline-flex;align-items:center;gap:6px;margin-bottom:24px">← Back to Insights</a>
+    <div class="flex gap-10 items-center" style="margin-bottom:16px;flex-wrap:wrap">
+      <span class="badge badge-plum">AI &amp; ML</span>
+      <span class="t-label c-muted">7 min read</span>
+      <span class="t-label c-muted">·</span>
+      <span class="t-label c-muted">14 August 2026</span>
+    </div>
+    <h1 class="t-hero c-white" style="max-width:780px;line-height:1.1">
+      Why LangChain is the wrong first step for GenAI beginners
+    </h1>
+    <p class="t-lg" style="color:#94a3b8;max-width:680px;margin-top:18px;line-height:1.75">
+      The abstraction feels helpful until it breaks. Here's why we teach raw API calls first — and introduce frameworks only after students understand what they're wrapping.
+    </p>
+    <div class="flex items-center gap-12" style="margin-top:32px">
+      <div class="avatar avatar-md">NS</div>
+      <div>
+        <p class="t-card c-white">Neeharika Srinivasan</p>
+        <p class="t-sm c-muted">Software Engineer · TCS &nbsp;·&nbsp; AI &amp; ML Trainer, SoDak EduTech</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POST BODY -->
+<section class="s-light" style="padding:64px 0 80px">
+  <div class="container" style="max-width:1100px">
+    <div class="grid grid-2-1" style="gap:48px;align-items:flex-start">
+
+      <!-- Article content -->
+      <article class="prose">
+
+        <h2>The framework trap</h2>
+        <p>Every semester, we see the same pattern. A student hears about LangChain on YouTube, installs it, runs <code>from langchain import LLMChain</code>, copies an example from the docs, and believes they understand generative AI. They don't. And when something breaks — a callback doesn't fire, a chain fails silently, a prompt template produces garbage output — they have no mental model to debug with.</p>
+        <p>LangChain is a powerful tool. But it is an abstraction layer over OpenAI (or Anthropic, or Mistral) API calls, memory management, vector retrieval, and prompt construction. When you hand a beginner an abstraction before they've seen what's underneath it, you create a student who can copy patterns but can't reason about them.</p>
+
+        <h2>What we teach instead</h2>
+        <p>In our GenAI track, the first session is raw. No frameworks. We start with the OpenAI Python SDK and write every call by hand:</p>
+
+        <div class="code-block" style="margin:24px 0">
+          <code>import openai
+
+client = openai.OpenAI(api_key="...")
+
+response = client.chat.completions.create(
+    model="gpt-4o-mini",
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user",   "content": "Explain vector embeddings in 2 sentences."}
+    ],
+    temperature=0.3
+)
+
+print(response.choices[0].message.content)</code>
+        </div>
+
+        <p>Fifteen lines. No magic. The student can see exactly what goes over the wire, what comes back, and how temperature affects the output. Then we ask them to break it — intentionally pass a bad API key, set temperature to 2.0, send an empty messages list. This hands-on debugging builds intuition that no framework hides.</p>
+
+        <h3>Session 2: building your own chain</h3>
+        <p>Once students are comfortable making raw completions calls, we have them build a simple chain manually — a Python class with a <code>run()</code> method that chains two LLM calls, passing the output of the first as context to the second. It's maybe 60 lines of Python. When it works, they understand exactly why. When they open LangChain for the first time in session 3, the LCEL syntax makes immediate sense because they know what each step is doing behind it.</p>
+
+        <h3>The debugging argument</h3>
+        <p>Here's the practical reason beyond pedagogy: your students will debug in interviews. Interviewers at companies like Juspay and PayPal ask candidates to trace through a failing chain and explain what's happening. A student who built the abstraction themselves can do that. A student who only ever imported it cannot.</p>
+        <p>LangChain is not the enemy. The sequencing is. Teach foundations first — completions, tokens, context windows, embeddings, similarity search. Then introduce frameworks as productivity tools that accelerate work they already understand. That's the order that builds engineers, not prompt-copy-pasters.</p>
+
+        <blockquote>The best time to introduce LangChain is after your students have been frustrated enough by writing it manually that they appreciate what the framework does for them.</blockquote>
+
+        <h2>What this means for your campus program</h2>
+        <p>If your college is planning a GenAI workshop, push back on any trainer who opens with a framework demo. Ask to see the curriculum's raw API section. If it doesn't have one, it's teaching students how to use a hammer without explaining what nails are.</p>
+        <p>We'd be happy to share our GenAI session plan — drop us a note at <a href="mailto:hello@sodakedutech.in" class="c-gold">hello@sodakedutech.in</a> and we'll send it across.</p>
+
+      </article>
+
+      <!-- Sidebar -->
+      <aside style="position:sticky;top:88px;display:flex;flex-direction:column;gap:24px">
+
+        <!-- Author card -->
+        <div class="card card-light" style="padding:24px">
+          <p class="t-label c-muted" style="margin-bottom:14px;text-transform:uppercase;letter-spacing:0.08em">About the author</p>
+          <div class="flex items-center gap-12" style="margin-bottom:14px">
+            <div class="avatar avatar-lg">NS</div>
+            <div>
+              <p class="t-card c-heading">Neeharika Srinivasan</p>
+              <p class="t-sm c-muted">Software Engineer, TCS</p>
+            </div>
+          </div>
+          <p class="t-sm c-body" style="line-height:1.65">Neeharika works on ML infrastructure at TCS and trains engineering students in AI fundamentals, LLM applications, and RAG pipelines at SoDak EduTech.</p>
+          <a href="trainer-profile.html" class="t-sm c-gold" style="display:block;margin-top:14px">View full profile →</a>
+        </div>
+
+        <!-- Related posts -->
+        <div class="card card-light" style="padding:24px">
+          <p class="t-label c-muted" style="margin-bottom:16px;text-transform:uppercase;letter-spacing:0.08em">Related posts</p>
+          <div style="display:flex;flex-direction:column;gap:16px">
+            <div>
+              <span class="badge badge-plum" style="margin-bottom:6px">AI &amp; ML</span>
+              <p class="t-sm fw-600 c-heading" style="line-height:1.4">System design prep: the underestimated skill</p>
+              <a href="insights-post.html" class="t-label c-gold">Read →</a>
+            </div>
+            <div style="border-top:1px solid var(--slate-200);padding-top:16px">
+              <span class="badge badge-blue" style="margin-bottom:6px">Cloud &amp; AWS</span>
+              <p class="t-sm fw-600 c-heading" style="line-height:1.4">Top 5 AWS questions in TCS hiring rounds 2026</p>
+              <a href="insights-post.html" class="t-label c-gold">Read →</a>
+            </div>
+            <div style="border-top:1px solid var(--slate-200);padding-top:16px">
+              <span class="badge badge-gold" style="margin-bottom:6px">Careers</span>
+              <p class="t-sm fw-600 c-heading" style="line-height:1.4">What TPOs get wrong about placement training</p>
+              <a href="insights-post.html" class="t-label c-gold">Read →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA card -->
+        <div class="card" style="background:var(--navy-950);border:1px solid rgba(200,160,53,0.2);padding:24px">
+          <p class="t-card c-white" style="margin-bottom:8px">Want this training for your batch?</p>
+          <p class="t-sm c-muted" style="margin-bottom:18px;line-height:1.6">We run this GenAI curriculum inside engineering colleges. Bring it to your students.</p>
+          <a href="contact.html" class="btn btn-gold btn-sm btn-full">Book a session →</a>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- RELATED POSTS ROW -->
+<section class="s-light" style="padding:0 0 72px">
+  <div class="container" style="max-width:1100px">
+    <hr class="divider" style="margin-bottom:40px">
+    <p class="section-eyebrow" style="margin-bottom:24px">More from the blog</p>
+    <div class="grid grid-3" style="gap:20px">
+
+      <div class="card card-light" style="padding:24px">
+        <span class="badge badge-blue" style="margin-bottom:12px">Cloud &amp; AWS</span>
+        <h3 class="t-card c-heading" style="line-height:1.4;margin-bottom:8px">Top 5 AWS questions asked in TCS hiring rounds 2026</h3>
+        <p class="t-sm c-body" style="line-height:1.65;margin-bottom:16px">We aggregated feedback from 80+ students who cleared TCS Digital this season. Here are the exact AWS topics that came up.</p>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-8">
+            <div class="avatar avatar-xs">SV</div>
+            <p class="t-label c-muted">Sai Varun · 2 Aug</p>
+          </div>
+          <a href="insights-post.html" class="t-sm c-gold fw-600">Read →</a>
+        </div>
+      </div>
+
+      <div class="card card-light" style="padding:24px">
+        <span class="badge badge-green" style="margin-bottom:12px">DevOps</span>
+        <h3 class="t-card c-heading" style="line-height:1.4;margin-bottom:8px">DevOps roadmap for 3rd year students who want to get serious</h3>
+        <p class="t-sm c-body" style="line-height:1.65;margin-bottom:16px">There are 47 DevOps roadmaps on the internet. Most are written by people who have never onboarded a fresher. Here's the one we actually use.</p>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-8">
+            <div class="avatar avatar-xs">SV</div>
+            <p class="t-label c-muted">Sai Varun · 9 Jul</p>
+          </div>
+          <a href="insights-post.html" class="t-sm c-gold fw-600">Read →</a>
+        </div>
+      </div>
+
+      <div class="card card-light" style="padding:24px">
+        <span class="badge badge-gold" style="margin-bottom:12px">Careers</span>
+        <h3 class="t-card c-heading" style="line-height:1.4;margin-bottom:8px">System design prep: the most underestimated interview skill</h3>
+        <p class="t-sm c-body" style="line-height:1.65;margin-bottom:16px">Students memorise LRU caches but can't answer "how would you build a URL shortener?" — a gap between knowledge and application.</p>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-8">
+            <div class="avatar avatar-xs">N</div>
+            <p class="t-label c-muted">Nithesh · 1 Jul</p>
+          </div>
+          <a href="insights-post.html" class="t-sm c-gold fw-600">Read →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA GOLD -->
+<section class="cta-gold">
+  <div class="container">
+    <div>
+      <h2>Book an AI training session for your campus</h2>
+      <p>We run GenAI, LLM fundamentals, and RAG pipeline workshops inside engineering colleges across Chennai.</p>
+    </div>
+    <a href="contact.html" class="btn-cta">Get in touch →</a>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<div id="site-float"></div>
+<script src="layout.js"></script>
+</body>
+</html>

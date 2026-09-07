@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leads — SoDak EduTech Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../nav.css">
+  <style>
+    body { background: var(--slate-50, #f8fafc); }
+    .admin-layout { display: flex; min-height: 100vh; }
+    .admin-sidebar { width: 220px; flex-shrink: 0; background: var(--navy-950, #060d1a); padding: 24px 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+    .admin-sidebar-logo { padding: 0 20px 24px; border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 16px; font-size: 16px; font-weight: 800; color: #c8a035; }
+    .admin-nav-item { display: block; padding: 9px 20px; font-size: 13px; color: #94a3b8; border-left: 3px solid transparent; transition: color 0.15s, border-color 0.15s; }
+    .admin-nav-item:hover { color: #e2e8f0; }
+    .admin-nav-item.active { color: #c8a035; border-left-color: #c8a035; background: rgba(200,160,53,0.06); font-weight: 600; }
+    .admin-main { flex: 1; padding: 32px 40px; max-width: calc(100vw - 220px); }
+    .admin-topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; }
+    .admin-topbar h1 { font-size: 22px; font-weight: 700; color: #0f172a; }
+    .stat-card-admin { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 20px 24px; }
+    .stat-card-admin .stat-num { font-size: 32px; font-weight: 800; color: #0f172a; }
+    .stat-card-admin .stat-lbl { font-size: 12px; color: #64748b; margin-top: 2px; }
+    .admin-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 10px; overflow: hidden; border: 1px solid #e2e8f0; }
+    .admin-table th { background: #f1f5f9; padding: 10px 14px; text-align: left; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #64748b; }
+    .admin-table td { padding: 11px 14px; font-size: 13px; color: #334155; border-top: 1px solid #f1f5f9; }
+    .admin-table tr:hover td { background: #f8fafc; }
+    .upload-area { border: 2px dashed #cbd5e1; border-radius: 10px; padding: 48px; text-align: center; background: #fff; cursor: pointer; }
+    .upload-area:hover { border-color: #c8a035; background: rgba(200,160,53,0.03); }
+    .media-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; }
+    .media-thumb { height: 140px; background: #e2e8f0; display: flex; align-items: center; justify-content: center; font-size: 32px; }
+    .media-info { padding: 12px; }
+    .filter-bar-admin { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 14px 18px; margin-bottom: 20px; }
+    .filter-bar-admin input[type="text"] { padding: 8px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 13px; color: #334155; width: 240px; background: #f8fafc; }
+    .filter-bar-admin input[type="text"]:focus { outline: none; border-color: #c8a035; }
+    .filter-bar-admin select { padding: 8px 32px 8px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 13px; color: #334155; background: #f8fafc; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2394a3b8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; }
+    .filter-bar-admin input[type="date"] { padding: 8px 10px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 13px; color: #334155; background: #f8fafc; }
+    .action-btn { padding: 6px 12px; border-radius: 5px; font-size: 11px; font-weight: 600; border: 1px solid #e2e8f0; background: #f8fafc; color: #334155; cursor: pointer; transition: all 0.15s; }
+    .action-btn:hover { background: #e2e8f0; }
+    .action-btn.primary { background: rgba(200,160,53,0.08); color: #c8a035; border-color: rgba(200,160,53,0.25); }
+    .action-btn.primary:hover { background: rgba(200,160,53,0.15); }
+    .pagination { display: flex; align-items: center; gap: 4px; margin-top: 20px; justify-content: flex-end; }
+    .page-btn { width: 32px; height: 32px; border-radius: 6px; border: 1px solid #e2e8f0; background: #fff; font-size: 13px; color: #334155; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+    .page-btn.active { background: #0f172a; color: #fff; border-color: #0f172a; font-weight: 700; }
+  </style>
+</head>
+<body>
+
+  <div id="site-nav"></div>
+
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <div class="admin-sidebar-logo">SoDak EduTech</div>
+      <nav>
+        <a href="dashboard.html" class="admin-nav-item">&#9632; Dashboard</a>
+        <a href="leads.html" class="admin-nav-item active">&#9632; Leads</a>
+        <a href="trainers.html" class="admin-nav-item">&#9632; Trainers</a>
+        <a href="media.html" class="admin-nav-item">&#9632; Media</a>
+      </nav>
+    </aside>
+
+    <main class="admin-main">
+      <div class="admin-topbar">
+        <div>
+          <h1>Lead Management</h1>
+          <p style="font-size:13px;color:#64748b;margin-top:2px;">Track and manage all college enquiries</p>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px;">
+          <span style="font-size:13px;color:#64748b;">admin@sodakedutech.in</span>
+          <a href="../index.html" style="padding:7px 14px;font-size:12px;font-weight:600;background:#f1f5f9;color:#334155;border:1px solid #e2e8f0;border-radius:6px;">Logout &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Filter Bar -->
+      <div class="filter-bar-admin">
+        <input type="text" placeholder="&#128269; Search by name, college, phone...">
+        <select>
+          <option value="">All Statuses</option>
+          <option>New</option>
+          <option>Contacted</option>
+          <option>Converted</option>
+          <option>Closed</option>
+        </select>
+        <select>
+          <option value="">All Programs</option>
+          <option>Placement Prep</option>
+          <option>Cloud &amp; AWS Bootcamp</option>
+          <option>Generative AI &amp; LLM</option>
+          <option>Cybersecurity Essentials</option>
+          <option>Data Analytics</option>
+        </select>
+        <span style="font-size:12px;color:#94a3b8;">From</span>
+        <input type="date" value="2026-08-01">
+        <span style="font-size:12px;color:#94a3b8;">To</span>
+        <input type="date" value="2026-09-07">
+        <div style="margin-left:auto;">
+          <button style="padding:8px 16px;font-size:12px;font-weight:700;background:#c8a035;color:#0a0f1e;border:none;border-radius:6px;cursor:pointer;">&#8595; Export CSV</button>
+        </div>
+      </div>
+
+      <!-- Leads Table -->
+      <div style="overflow:hidden;border-radius:10px;border:1px solid #e2e8f0;">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name &amp; Role</th>
+              <th>Institution</th>
+              <th>Phone</th>
+              <th>Programs</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="color:#94a3b8;font-size:12px;">01</td>
+              <td><strong>Dr. Kavitha Rajan</strong><br><span style="font-size:11px;color:#94a3b8;">Training &amp; Placement Officer</span></td>
+              <td>PSG College of Technology, Coimbatore</td>
+              <td style="font-size:12px;">+91 98421 10234</td>
+              <td style="font-size:12px;">Placement Prep, Cloud &amp; AWS</td>
+              <td style="font-size:12px;color:#64748b;">02 Sep 2026</td>
+              <td><span class="badge badge-blue">Contacted</span></td>
+              <td><div style="display:flex;gap:6px;"><button class="action-btn">View</button><button class="action-btn primary">Mark Contacted</button></div></td>
+            </tr>
+            <tr>
+              <td style="color:#94a3b8;font-size:12px;">02</td>
+              <td><strong>Prof. Anand Sundarajan</strong><br><span style="font-size:11px;color:#94a3b8;">Head of CSE Department</span></td>
+              <td>Rajalakshmi Engineering College, Chennai</td>
+              <td style="font-size:12px;">+91 94455 78901</td>
+              <td style="font-size:12px;">Generative AI &amp; LLM Track</td>
+              <td style="font-size:12px;color:#64748b;">01 Sep 2026</td>
+              <td><span class="badge badge-green">New</span></td>
+              <td><div style="display:flex;gap:6px;"><button class="action-btn">View</button><button class="action-btn primary">Mark Contacted</button></div></td>
+            </tr>
+            <tr>
+              <td style="color:#94a3b8;font-size:12px;">03</td>
+              <td><strong>Ms. Deepa Krishnamurthy</strong><br><span style="font-size:11px;color:#94a3b8;">Campus Training Coordinator</span></td>
+              <td>Thiagarajar College of Engineering, Madurai</td>
+              <td style="font-size:12px;">+91 96001 34567</td>
+              <td style="font-size:12px;">Cybersecurity Essentials</td>
+              <td style="font-size:12px;color:#64748b;">30 Aug 2026</td>
+              <td><span class="badge badge-gold">Converted</span></td>
+              <td><div style="display:flex;gap:6px;"><button class="action-btn">View</button><button class="action-btn" style="opacity:0.4;cursor:not-allowed;">Converted</button></div></td>
+            </tr>
+            <tr>
+              <td style="color:#94a3b8;font-size:12px;">04</td>
+              <td><strong>Dr. Selvam Murugesan</strong><br><span style="font-size:11px;color:#94a3b8;">Principal</span></td>
+              <td>Sri Krishna College of Technology, Coimbatore</td>
+              <td style="font-size:12px;">+91 73973 55421</td>
+              <td style="font-size:12px;">Placement Prep, Data Analytics</td>
+              <td style="font-size:12px;color:#64748b;">28 Aug 2026</td>
+              <td><span class="badge badge-blue">Contacted</span></td>
+              <td><div style="display:flex;gap:6px;"><button class="action-btn">View</button><button class="action-btn primary">Mark Contacted</button></div></td>
+            </tr>
+            <tr>
+              <td style="color:#94a3b8;font-size:12px;">05</td>
+              <td><strong>Prof. Narmadha Balasubramanian</strong><br><span style="font-size:11px;color:#94a3b8;">Placement Officer</span></td>
+              <td>Velammal Engineering College, Chennai</td>
+              <td style="font-size:12px;">+91 89393 22110</td>
+              <td style="font-size:12px;">Cloud &amp; AWS Bootcamp</td>
+              <td style="font-size:12px;color:#64748b;">26 Aug 2026</td>
+              <td><span class="badge badge-green">New</span></td>
+              <td><div style="display:flex;gap:6px;"><button class="action-btn">View</button><button class="action-btn primary">Mark Contacted</button></div></td>
+            </tr>
+            <tr>
+              <td style="color:#94a3b8;font-size:12px;">06</td>
+              <td><strong>Mr. Rajesh Pandiyan</strong><br><span style="font-size:11px;color:#94a3b8;">Dean of Students</span></td>
+              <td>KCG College of Technology, Chennai</td>
+              <td style="font-size:12px;">+91 98840 66230</td>
+              <td style="font-size:12px;">Placement Prep</td>
+              <td style="font-size:12px;color:#64748b;">24 Aug 2026</td>
+              <td><span class="badge badge-gold">Converted</span></td>
+              <td><div style="display:flex;gap:6px;"><button class="action-btn">View</button><button class="action-btn" style="opacity:0.4;cursor:not-allowed;">Converted</button></div></td>
+            </tr>
+            <tr>
+              <td style="color:#94a3b8;font-size:12px;">07</td>
+              <td><strong>Dr. Priya Subramanian</strong><br><span style="font-size:11px;color:#94a3b8;">Vice-Principal (Academics)</span></td>
+              <td>SRM Institute of Science and Technology, Kattankulathur</td>
+              <td style="font-size:12px;">+91 77080 14988</td>
+              <td style="font-size:12px;">AI/ML, Cloud &amp; AWS</td>
+              <td style="font-size:12px;color:#64748b;">22 Aug 2026</td>
+              <td><span class="badge badge-blue">Contacted</span></td>
+              <td><div style="display:flex;gap:6px;"><button class="action-btn">View</button><button class="action-btn primary">Mark Contacted</button></div></td>
+            </tr>
+            <tr>
+              <td style="color:#94a3b8;font-size:12px;">08</td>
+              <td><strong>Prof. Karthik Natarajan</strong><br><span style="font-size:11px;color:#94a3b8;">Industry Relations</span></td>
+              <td>Sri Manakula Vinayagar Engineering College, Puducherry</td>
+              <td style="font-size:12px;">+91 93451 87623</td>
+              <td style="font-size:12px;">Cybersecurity, Data Analytics</td>
+              <td style="font-size:12px;color:#64748b;">19 Aug 2026</td>
+              <td><span class="badge" style="background:#f1f5f9;color:#64748b;border:1px solid #e2e8f0;padding:4px 10px;border-radius:100px;font-size:11px;font-weight:600;">Closed</span></td>
+              <td><div style="display:flex;gap:6px;"><button class="action-btn">View</button><button class="action-btn" style="opacity:0.4;cursor:not-allowed;">Closed</button></div></td>
+            </tr>
+            <tr>
+              <td style="color:#94a3b8;font-size:12px;">09</td>
+              <td><strong>Dr. Meenakshi Sundaram</strong><br><span style="font-size:11px;color:#94a3b8;">Training &amp; Placement Officer</span></td>
+              <td>Coimbatore Institute of Technology</td>
+              <td style="font-size:12px;">+91 82200 43701</td>
+              <td style="font-size:12px;">Placement Prep, Generative AI</td>
+              <td style="font-size:12px;color:#64748b;">15 Aug 2026</td>
+              <td><span class="badge badge-green">New</span></td>
+              <td><div style="display:flex;gap:6px;"><button class="action-btn">View</button><button class="action-btn primary">Mark Contacted</button></div></td>
+            </tr>
+            <tr>
+              <td style="color:#94a3b8;font-size:12px;">10</td>
+              <td><strong>Prof. Gokul Ramachandran</strong><br><span style="font-size:11px;color:#94a3b8;">CSE Department Coordinator</span></td>
+              <td>Anna University Regional Campus, Coimbatore</td>
+              <td style="font-size:12px;">+91 90032 56811</td>
+              <td style="font-size:12px;">Cloud &amp; AWS, DevOps</td>
+              <td style="font-size:12px;color:#64748b;">12 Aug 2026</td>
+              <td><span class="badge badge-gold">Converted</span></td>
+              <td><div style="display:flex;gap:6px;"><button class="action-btn">View</button><button class="action-btn" style="opacity:0.4;cursor:not-allowed;">Converted</button></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <span style="font-size:12px;color:#94a3b8;margin-right:8px;">Showing 1–10 of 47 leads</span>
+        <button class="page-btn">&laquo;</button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <button class="page-btn">4</button>
+        <button class="page-btn">5</button>
+        <button class="page-btn">&raquo;</button>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="../layout.js"></script>
+</body>
+</html>

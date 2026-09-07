@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cloud &amp; DevOps Bootcamp — SoDak EduTech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="nav.css">
+</head>
+<body>
+  <div id="site-nav"></div>
+
+  <!-- Hero -->
+  <section class="page-hero s-darker">
+    <div class="container" style="flex-direction:row;align-items:center;gap:48px;flex-wrap:wrap">
+      <div style="flex:1;min-width:280px">
+        <div class="breadcrumb"><a href="index.html">Home</a> <span>›</span> <a href="programs.html">Programs</a> <span>›</span> Track B</div>
+        <div class="flex gap-12 items-center mt-4 flex-wrap">
+          <span class="badge badge-gold" style="font-size:16px;font-weight:800;padding:8px 16px">Track B</span>
+          <span class="badge badge-blue">☁ Cloud</span>
+          <span class="badge badge-green">⚙ DevOps</span>
+        </div>
+        <h1 class="t-page c-white" style="margin-top:16px">Cloud &amp; DevOps Bootcamp</h1>
+        <p class="t-body c-muted" style="max-width:500px;margin-top:12px">From AWS fundamentals to Kubernetes in production — a hands-on 3-week intensive.</p>
+      </div>
+      <div class="hero-img-box" style="flex:0 0 380px;max-width:380px;align-self:stretch">
+        <div style="background:#ffffff;border-radius:12px;height:100%;min-height:200px;width:100%"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detail layout -->
+  <section class="s-white">
+    <div class="container flex gap-48" style="flex-wrap:wrap;align-items:flex-start">
+
+      <!-- Main content -->
+      <div style="flex:2;min-width:280px">
+
+        <h3 class="t-h3">Overview</h3>
+        <p class="t-body c-body" style="margin-top:12px;line-height:1.75">
+          Track B gives 2nd and 3rd year engineering students a structured path through cloud infrastructure and DevOps tooling — the skills most commonly tested in placements at product companies. Students work on live AWS accounts from Day 1, not sandboxes.
+        </p>
+        <p class="t-body c-body" style="margin-top:12px;line-height:1.75">
+          The program runs in-person at your campus over 3 weeks (sessions scheduled around your timetable), with optional evening lab hours for hands-on practice. Batch sizes up to 60. A post-training assessment benchmarks each student against the question bank.
+        </p>
+
+        <h3 class="t-h3" style="margin-top:32px">What students will be able to do</h3>
+        <ul class="feature-list" style="margin-top:12px">
+          <li class="feature-item"><span class="feature-icon">✓</span><span class="feature-text">Deploy a full application on AWS EC2 with auto-scaling</span></li>
+          <li class="feature-item"><span class="feature-icon">✓</span><span class="feature-text">Build and run Docker containers, write production-quality Dockerfiles</span></li>
+          <li class="feature-item"><span class="feature-icon">✓</span><span class="feature-text">Set up a CI/CD pipeline with GitHub Actions from scratch</span></li>
+          <li class="feature-item"><span class="feature-icon">✓</span><span class="feature-text">Manage cloud infrastructure with Terraform</span></li>
+          <li class="feature-item"><span class="feature-icon">✓</span><span class="feature-text">Debug and monitor applications with CloudWatch &amp; logs</span></li>
+        </ul>
+
+        <h3 class="t-h3" style="margin-top:32px">Syllabus</h3>
+        <div class="accordion mt-12">
+
+          <div class="accordion-item">
+            <div class="accordion-header">Module 1: AWS Fundamentals <span style="color:var(--slate-400);font-weight:400">(6 hrs)</span></div>
+            <div class="accordion-body">
+              <ul style="padding-left:20px;color:var(--slate-600);line-height:2">
+                <li>IAM &amp; Security — users, roles, policies</li>
+                <li>EC2 &amp; Auto Scaling groups</li>
+                <li>S3 &amp; CloudFront — storage and CDN</li>
+                <li>VPC &amp; Networking basics</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">Module 2: Containers &amp; Docker <span style="color:var(--slate-400);font-weight:400">(4 hrs)</span></div>
+            <div class="accordion-body">
+              <ul style="padding-left:20px;color:var(--slate-600);line-height:2">
+                <li>Docker concepts and architecture</li>
+                <li>Writing Dockerfiles and multi-stage builds</li>
+                <li>docker-compose for local development</li>
+                <li>Image registries — ECR, Docker Hub</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">Module 3: CI/CD Pipelines <span style="color:var(--slate-400);font-weight:400">(6 hrs)</span></div>
+            <div class="accordion-body">
+              <ul style="padding-left:20px;color:var(--slate-600);line-height:2">
+                <li>GitHub Actions — workflows, triggers, secrets</li>
+                <li>Automated testing in the pipeline</li>
+                <li>Deployment automation to EC2 / ECS</li>
+                <li>Branch strategies and environment promotion</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">Module 4: Kubernetes Basics <span style="color:var(--slate-400);font-weight:400">(4 hrs)</span></div>
+            <div class="accordion-body">
+              <ul style="padding-left:20px;color:var(--slate-600);line-height:2">
+                <li>Pods, Deployments and ReplicaSets</li>
+                <li>Services &amp; Ingress controllers</li>
+                <li>ConfigMaps &amp; Secrets management</li>
+                <li>kubectl essentials and debugging</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">Module 5: Terraform &amp; Infrastructure as Code <span style="color:var(--slate-400);font-weight:400">(4 hrs)</span></div>
+            <div class="accordion-body">
+              <ul style="padding-left:20px;color:var(--slate-600);line-height:2">
+                <li>HCL syntax — providers, resources, variables</li>
+                <li>Resource blocks and data sources</li>
+                <li>State management and remote backends</li>
+                <li>Reusable Terraform modules</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <a href="#" class="btn btn-dark" style="margin-top:20px;display:inline-flex;align-items:center;gap:8px">
+          📄 Download PDF Syllabus
+        </a>
+
+      </div>
+
+      <!-- Sidebar -->
+      <div style="flex:1;min-width:240px">
+        <div class="card card-light" style="position:sticky;top:80px">
+          <p class="t-card c-heading" style="margin-bottom:16px">Programme Details</p>
+          <div class="flex flex-col gap-10">
+            <div class="flex justify-between gap-8"><span class="t-sm c-muted">Duration</span><span class="t-sm c-heading">3 weeks</span></div>
+            <div class="flex justify-between gap-8"><span class="t-sm c-muted">Mode</span><span class="t-sm c-heading">In-person</span></div>
+            <div class="flex justify-between gap-8"><span class="t-sm c-muted">Batch size</span><span class="t-sm c-heading">Up to 60</span></div>
+            <div class="flex justify-between gap-8"><span class="t-sm c-muted">Prerequisites</span><span class="t-sm c-heading">Basic programming</span></div>
+            <div class="flex justify-between gap-8"><span class="t-sm c-muted">Stacks</span><span class="t-sm c-heading">Cloud, DevOps</span></div>
+            <div class="flex justify-between gap-8"><span class="t-sm c-muted">Trainers</span><span class="t-sm c-heading">Nithesh, Sai Varun</span></div>
+          </div>
+          <a href="contact.html" class="btn btn-gold btn-lg" style="margin-top:20px;display:block;text-align:center">Enquire for This Programme →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-gold">
+    <div class="container flex justify-between items-center gap-48">
+      <div>
+        <h2>Ready to bring Track B to your campus?</h2>
+        <p>We'll schedule sessions around your semester calendar and batch size.</p>
+      </div>
+      <a href="contact.html" class="btn-cta">Book This Programme →</a>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+  <div id="site-float"></div>
+  <script src="layout.js"></script>
+</body>
+</html>

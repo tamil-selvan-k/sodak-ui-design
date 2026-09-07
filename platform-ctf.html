@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CTF Platform — SoDak EduTech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="nav.css">
+</head>
+<body>
+<div id="site-nav"></div>
+
+<!-- HERO -->
+<section class="s-darker" style="padding:88px 0 80px">
+  <div class="container">
+    <p class="section-eyebrow">CTF Platform</p>
+    <h1 class="t-hero c-white" style="max-width:820px;margin-top:10px">
+      Real cybersecurity labs,<br>not simulations.
+    </h1>
+    <p class="t-lg" style="color:#94a3b8;max-width:680px;margin-top:20px;line-height:1.75">
+      SoDak's Capture The Flag platform runs live Linux and network lab environments for campus batches. Students don't click through guided tutorials — they exploit real vulnerabilities, capture real flags, and compete on a live leaderboard.
+    </p>
+    <div class="flex gap-16 items-center" style="margin-top:36px;flex-wrap:wrap">
+      <a href="contact.html" class="btn btn-gold btn-lg">Request a CTF Demo →</a>
+      <a href="platform.html" class="btn btn-outline btn-lg">Platform Overview</a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE GRID -->
+<section class="s-light">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">Features</p>
+      <h2 class="t-h2 c-heading">Built for campus cybersecurity training</h2>
+      <p class="dark">Every feature is designed to work with batches of 30–120 students in a college lab setting.</p>
+    </div>
+    <div class="grid grid-3" style="gap:20px">
+      <div class="card card-light">
+        <div style="width:44px;height:44px;border-radius:10px;background:rgba(239,68,68,0.1);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px">🚩</div>
+        <p class="t-card c-heading" style="margin-bottom:6px">Flag-based scoring</p>
+        <p class="t-sm c-body">Students submit captured flags to earn points. Each challenge has a unique flag preventing answer-sharing. Partial scoring supported for multi-stage challenges.</p>
+      </div>
+      <div class="card card-light">
+        <div style="width:44px;height:44px;border-radius:10px;background:rgba(59,130,246,0.1);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px">👥</div>
+        <p class="t-card c-heading" style="margin-bottom:6px">Team &amp; individual mode</p>
+        <p class="t-sm c-body">Run as individual competition or team-based. Teams of 2–5, auto-balanced by trainer. Leaderboard reflects both individual and team standings simultaneously.</p>
+      </div>
+      <div class="card card-light">
+        <div style="width:44px;height:44px;border-radius:10px;background:rgba(34,197,94,0.1);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px">🖥️</div>
+        <p class="t-card c-heading" style="margin-bottom:6px">Real lab environments</p>
+        <p class="t-sm c-body">Challenges run on actual Linux VMs and network topologies — not browser-based simulations. Students use standard tools: nmap, Burp Suite, Wireshark, netcat.</p>
+      </div>
+      <div class="card card-light">
+        <div style="width:44px;height:44px;border-radius:10px;background:rgba(124,58,237,0.1);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px">📚</div>
+        <p class="t-card c-heading" style="margin-bottom:6px">Custom challenge library</p>
+        <p class="t-sm c-body">Trainers can build custom challenges mapped to the batch's syllabus. Challenges are versioned, reusable across batches, and difficulty-tagged.</p>
+      </div>
+      <div class="card card-light">
+        <div style="width:44px;height:44px;border-radius:10px;background:rgba(200,160,53,0.1);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px">📊</div>
+        <p class="t-card c-heading" style="margin-bottom:6px">Live leaderboard</p>
+        <p class="t-sm c-body">Real-time scoring updates visible to all students. Leaderboard can be frozen at the trainer's discretion during the final phase for suspense. Exportable after session.</p>
+      </div>
+      <div class="card card-light">
+        <div style="width:44px;height:44px;border-radius:10px;background:rgba(234,179,8,0.1);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px">⚙️</div>
+        <p class="t-card c-heading" style="margin-bottom:6px">Trainer dashboard</p>
+        <p class="t-sm c-body">Monitor solve rates per challenge, release hints with timing control, see which students are stuck and intervene. Full session analytics available post-debrief.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS TIMELINE -->
+<section class="s-dark">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">How It Works</p>
+      <h2 class="t-h2 c-white">How a CTF session runs</h2>
+      <p>From setup to debrief — a typical campus CTF session runs in 3–4 hours.</p>
+    </div>
+    <div style="max-width:780px">
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-line">
+            <div class="timeline-dot"></div>
+            <div class="timeline-rail"></div>
+          </div>
+          <div class="timeline-content" style="padding-left:20px">
+            <div class="flex items-center gap-12" style="margin-bottom:6px">
+              <span class="badge badge-gold">Step 1</span>
+              <p class="t-card c-white">Trainer creates the challenge set</p>
+            </div>
+            <p class="t-sm c-muted">Trainer selects from the challenge library or builds custom challenges. Sets difficulty distribution, time limit, hint release schedule, and team configuration.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-line">
+            <div class="timeline-dot"></div>
+            <div class="timeline-rail"></div>
+          </div>
+          <div class="timeline-content" style="padding-left:20px">
+            <div class="flex items-center gap-12" style="margin-bottom:6px">
+              <span class="badge badge-gold">Step 2</span>
+              <p class="t-card c-white">Students join the batch</p>
+            </div>
+            <p class="t-sm c-muted">Students access the platform via a session code. Lab environments spin up per student or team. Each student gets their own isolated flag instance.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-line">
+            <div class="timeline-dot"></div>
+            <div class="timeline-rail"></div>
+          </div>
+          <div class="timeline-content" style="padding-left:20px">
+            <div class="flex items-center gap-12" style="margin-bottom:6px">
+              <span class="badge badge-gold">Step 3</span>
+              <p class="t-card c-white">Live solving with hints</p>
+            </div>
+            <p class="t-sm c-muted">Students solve challenges in real time. Trainer monitors progress and releases hints at set intervals or on demand. Leaderboard updates live throughout the session.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-line">
+            <div class="timeline-dot"></div>
+          </div>
+          <div class="timeline-content" style="padding-left:20px">
+            <div class="flex items-center gap-12" style="margin-bottom:6px">
+              <span class="badge badge-gold">Step 4</span>
+              <p class="t-card c-white">Leaderboard reveal + debrief</p>
+            </div>
+            <p class="t-sm c-muted">Final leaderboard is revealed. Trainer walks through each challenge's intended solution. Solve-rate analytics exported for placement records and batch assessment reports.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHALLENGE CATEGORIES -->
+<section class="s-light">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">Challenge Categories</p>
+      <h2 class="t-h2 c-heading">What students actually solve</h2>
+      <p class="dark">Challenges span six categories aligned to real-world security roles and interview assessments at product companies.</p>
+    </div>
+    <div class="grid grid-3" style="gap:20px">
+      <div class="card card-light">
+        <div class="flex items-center gap-12" style="margin-bottom:10px">
+          <span class="badge badge-red">WEB</span>
+          <p class="t-card c-heading">Web Exploitation</p>
+        </div>
+        <p class="t-sm c-body">SQL injection, XSS, CSRF, authentication bypass, IDOR, API vulnerabilities. Challenges use real web apps with intentional flaws.</p>
+      </div>
+      <div class="card card-light">
+        <div class="flex items-center gap-12" style="margin-bottom:10px">
+          <span class="badge badge-plum">BIN</span>
+          <p class="t-card c-heading">Binary / Reverse Engineering</p>
+        </div>
+        <p class="t-sm c-body">ELF binary analysis, buffer overflows, disassembly with Ghidra, format string vulnerabilities. Progressive difficulty from beginner to advanced.</p>
+      </div>
+      <div class="card card-light">
+        <div class="flex items-center gap-12" style="margin-bottom:10px">
+          <span class="badge badge-blue">NET</span>
+          <p class="t-card c-heading">Network Forensics</p>
+        </div>
+        <p class="t-sm c-body">PCAP analysis with Wireshark, protocol dissection, traffic reconstruction, man-in-the-middle detection, firewall rule analysis.</p>
+      </div>
+      <div class="card card-light">
+        <div class="flex items-center gap-12" style="margin-bottom:10px">
+          <span class="badge badge-gold">CRYP</span>
+          <p class="t-card c-heading">Cryptography</p>
+        </div>
+        <p class="t-sm c-body">Classical ciphers, RSA attacks, hash cracking, encoding/decoding, XOR challenges, certificate analysis. Calibrated to Anna University cryptography syllabus.</p>
+      </div>
+      <div class="card card-light">
+        <div class="flex items-center gap-12" style="margin-bottom:10px">
+          <span class="badge badge-green">OSINT</span>
+          <p class="t-card c-heading">OSINT</p>
+        </div>
+        <p class="t-sm c-body">Open source intelligence challenges: social media investigation, domain research, metadata extraction, geolocation from images. No special tools required.</p>
+      </div>
+      <div class="card card-light">
+        <div class="flex items-center gap-12" style="margin-bottom:10px">
+          <span class="badge badge-dark">MISC</span>
+          <p class="t-card c-heading">Miscellaneous</p>
+        </div>
+        <p class="t-sm c-body">Steganography, file carving, log analysis, trivia, and puzzle challenges. Good warm-up challenges for batches new to CTF format.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRACK D INTEGRATION -->
+<section class="s-darker">
+  <div class="container">
+    <div class="flex gap-48 items-center" style="flex-wrap:wrap">
+      <div style="flex:1;min-width:300px">
+        <p class="section-eyebrow">Program Integration</p>
+        <h2 class="t-h2 c-white" style="margin-top:10px">Part of Track D: Cybersecurity &amp; CTF Labs</h2>
+        <p class="t-lg" style="color:#94a3b8;margin-top:16px;line-height:1.75">
+          The CTF platform is the practical engine behind SoDak's Track D program — Cybersecurity &amp; CTF Labs. Students spend 40% of their track time solving challenges on the platform, with theory delivered by Rajendhira Prasath S from Accenture.
+        </p>
+        <ul style="display:flex;flex-direction:column;gap:10px;margin-top:24px">
+          <li class="t-sm" style="color:#94a3b8">✓ 3 live CTF sessions per batch across 5-day intensive</li>
+          <li class="t-sm" style="color:#94a3b8">✓ Challenge sets updated each semester to prevent answer circulation</li>
+          <li class="t-sm" style="color:#94a3b8">✓ Completion certificates include CTF solve-rate data</li>
+          <li class="t-sm" style="color:#94a3b8">✓ Aligned to CEH and CompTIA Security+ competency domains</li>
+        </ul>
+        <a href="programs.html" class="btn btn-gold" style="margin-top:28px;display:inline-flex">View Track D Syllabus →</a>
+      </div>
+      <div style="width:340px;flex-shrink:0">
+        <div class="card card-ghost">
+          <span class="badge badge-red" style="margin-bottom:14px">Track D</span>
+          <p class="t-card c-white" style="margin-bottom:4px">Cybersecurity &amp; CTF Labs</p>
+          <p class="t-sm c-muted" style="margin-top:6px">5-day intensive. Ethical hacking, VAPT, SOC, and live CTF sessions on real lab environments.</p>
+          <hr class="divider-dark" style="margin:16px 0;border-top:1px solid rgba(255,255,255,0.08)">
+          <div class="flex flex-col gap-8">
+            <div class="flex justify-between">
+              <span class="t-sm c-muted">Duration</span>
+              <span class="t-sm c-white fw-600">5 days / 30 hours</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="t-sm c-muted">Trainer</span>
+              <span class="t-sm c-white fw-600">Rajendhira Prasath S</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="t-sm c-muted">Company</span>
+              <span class="t-sm c-white fw-600">Accenture</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="t-sm c-muted">CTF Sessions</span>
+              <span class="t-sm c-white fw-600">3 live sessions</span>
+            </div>
+          </div>
+          <a href="contact.html" class="btn btn-outline btn-sm" style="margin-top:16px;display:inline-flex">Book Track D →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-gold">
+  <div class="container">
+    <div>
+      <h2>Request a CTF demo</h2>
+      <p>We'll run a live 30-minute CTF session with your team so you can see exactly what your students will experience.</p>
+    </div>
+    <a href="contact.html" class="btn-cta">Request a Demo →</a>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<div id="site-float"></div>
+<script src="layout.js"></script>
+</body>
+</html>

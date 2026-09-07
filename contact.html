@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact & Enquiry — SoDak EduTech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="nav.css">
+</head>
+<body>
+<div id="site-nav"></div>
+
+<!-- PAGE HERO -->
+<section class="s-darker" style="padding:72px 0 60px">
+  <div class="container">
+    <p class="section-eyebrow">Get in Touch</p>
+    <h1 class="t-h1 c-white" style="max-width:600px;margin-top:10px">Book a campus program or ask a question</h1>
+    <p class="t-lg" style="color:#94a3b8;margin-top:14px;max-width:560px;line-height:1.75">
+      Share your placement calendar, batch size, and target companies — we'll design the right program and get back to you within 24 hours.
+    </p>
+  </div>
+</section>
+
+<!-- MAIN CONTENT: FORM + DETAILS -->
+<section class="s-light">
+  <div class="container">
+    <div class="two-col gap-48" style="align-items:start">
+
+      <!-- ENQUIRY FORM -->
+      <div>
+        <h2 class="t-h2 c-heading" style="margin-bottom:6px">Send an enquiry</h2>
+        <p class="t-sm c-body" style="margin-bottom:28px">We read every message. Typical response time: <strong>under 24 hours</strong> on working days.</p>
+        <form class="form-card" onsubmit="return false;">
+
+          <!-- Contact type -->
+          <div class="form-group">
+            <label class="form-label">I am a <span style="color:#e05252">*</span></label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="contact_type" value="tpo" checked>
+                <span class="radio-box">
+                  <span class="radio-icon">🎓</span>
+                  <span class="radio-label">Training & Placement Officer</span>
+                </span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="contact_type" value="faculty">
+                <span class="radio-box">
+                  <span class="radio-icon">🏫</span>
+                  <span class="radio-label">Faculty / HoD</span>
+                </span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="contact_type" value="corporate">
+                <span class="radio-box">
+                  <span class="radio-icon">🏢</span>
+                  <span class="radio-label">Corporate / HR</span>
+                </span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="contact_type" value="other">
+                <span class="radio-box">
+                  <span class="radio-icon">👤</span>
+                  <span class="radio-label">Other</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="name">Full name <span style="color:#e05252">*</span></label>
+              <input type="text" id="name" class="form-input" placeholder="Dr. Ramesh Kumar" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="role">Designation</label>
+              <input type="text" id="role" class="form-input" placeholder="T&P Officer">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="institution">Institution / Organisation <span style="color:#e05252">*</span></label>
+              <input type="text" id="institution" class="form-input" placeholder="St. Joseph's College of Engineering" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="city">City</label>
+              <input type="text" id="city" class="form-input" placeholder="Chennai">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="email">Email <span style="color:#e05252">*</span></label>
+              <input type="email" id="email" class="form-input" placeholder="tpo@sjce.ac.in" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="phone">WhatsApp / Phone <span style="color:#e05252">*</span></label>
+              <input type="tel" id="phone" class="form-input" placeholder="+91 98765 43210" required>
+            </div>
+          </div>
+
+          <!-- Programs of interest -->
+          <div class="form-group">
+            <label class="form-label">Program(s) of interest</label>
+            <div class="checkbox-group">
+              <label class="checkbox-option"><input type="checkbox" name="programs" value="placement"><span>Track A — Elite Placement Prep</span></label>
+              <label class="checkbox-option"><input type="checkbox" name="programs" value="cloud"><span>Track B — Cloud & DevOps</span></label>
+              <label class="checkbox-option"><input type="checkbox" name="programs" value="ai"><span>Track C — Generative AI</span></label>
+              <label class="checkbox-option"><input type="checkbox" name="programs" value="cyber"><span>Track D — Cybersecurity & CTF</span></label>
+              <label class="checkbox-option"><input type="checkbox" name="programs" value="assess"><span>Track E — Assessment & Screening</span></label>
+              <label class="checkbox-option"><input type="checkbox" name="programs" value="custom"><span>Custom / FDP</span></label>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="batch_size">Estimated batch size</label>
+              <select id="batch_size" class="form-select">
+                <option value="">Select…</option>
+                <option>Under 30</option>
+                <option>30 – 60</option>
+                <option>60 – 120</option>
+                <option>120 – 250</option>
+                <option>250+</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="timeline">Preferred timeline</label>
+              <input type="text" id="timeline" class="form-input" placeholder="e.g. Oct – Nov 2026">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="message">Message / Requirements</label>
+            <textarea id="message" class="form-textarea" rows="4" placeholder="Tell us about your batch, branch, target companies, or any specific needs…"></textarea>
+          </div>
+
+          <!-- How did you hear -->
+          <div class="form-group">
+            <label class="form-label" for="source">How did you hear about us?</label>
+            <select id="source" class="form-select">
+              <option value="">Select…</option>
+              <option>LinkedIn</option>
+              <option>Referral from another college</option>
+              <option>Google Search</option>
+              <option>WhatsApp forward</option>
+              <option>From a trainer directly</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-gold btn-lg" style="width:100%;margin-top:8px">Submit enquiry →</button>
+          <p class="t-label c-muted text-center" style="margin-top:10px">We reply within 24 hours on working days. No spam.</p>
+        </form>
+      </div>
+
+      <!-- CONTACT DETAILS -->
+      <div class="contact-sidebar" style="display:flex;flex-direction:column;gap:24px;padding-top:40px">
+
+        <div class="card card-light" style="padding:28px">
+          <p class="t-sm fw-700 c-heading" style="margin-bottom:16px;text-transform:uppercase;letter-spacing:0.06em;font-size:11px">Direct contact</p>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <a href="tel:+918939366259" class="flex items-center gap-12 c-body" style="text-decoration:none">
+              <span style="font-size:20px">📞</span>
+              <div>
+                <p class="t-sm fw-600 c-heading">+91 89393 66259</p>
+                <p class="t-label c-muted">Mon–Sat, 9 AM – 7 PM IST</p>
+              </div>
+            </a>
+            <a href="mailto:hello@sodakedutech.in" class="flex items-center gap-12 c-body" style="text-decoration:none">
+              <span style="font-size:20px">✉</span>
+              <div>
+                <p class="t-sm fw-600 c-heading">hello@sodakedutech.in</p>
+                <p class="t-label c-muted">General enquiries</p>
+              </div>
+            </a>
+            <a href="https://wa.me/918939366259" target="_blank" class="flex items-center gap-12 c-body" style="text-decoration:none">
+              <span style="font-size:20px">💬</span>
+              <div>
+                <p class="t-sm fw-600 c-heading">WhatsApp us</p>
+                <p class="t-label c-muted">Fastest response channel</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="card card-light" style="padding:28px">
+          <p class="t-sm fw-700 c-heading" style="margin-bottom:16px;text-transform:uppercase;letter-spacing:0.06em;font-size:11px">Location</p>
+          <div class="flex items-start gap-12">
+            <span style="font-size:20px">📍</span>
+            <div>
+              <p class="t-sm fw-600 c-heading">Chennai, Tamil Nadu</p>
+              <p class="t-sm c-body" style="margin-top:4px;line-height:1.7">We're campus-first — we come to you. Programs are delivered at your institution.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card-light" style="padding:28px">
+          <p class="t-sm fw-700 c-heading" style="margin-bottom:16px;text-transform:uppercase;letter-spacing:0.06em;font-size:11px">Follow us</p>
+          <div class="flex gap-10">
+            <a href="#" class="footer-social" style="width:40px;height:40px;font-size:13px">in</a>
+            <a href="#" class="footer-social" style="width:40px;height:40px;font-size:13px">tw</a>
+            <a href="#" class="footer-social" style="width:40px;height:40px;font-size:13px">yt</a>
+          </div>
+        </div>
+
+        <div class="card card-dark" style="padding:28px;background:var(--navy-900)">
+          <p class="t-sm c-white fw-600" style="margin-bottom:8px">Typical next steps</p>
+          <ol style="display:flex;flex-direction:column;gap:10px;padding-left:0;list-style:none">
+            <li class="flex items-center gap-10 t-sm c-muted">
+              <span style="background:var(--gold-500);color:var(--navy-950);width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0">1</span>
+              We review your enquiry (within 24h)
+            </li>
+            <li class="flex items-center gap-10 t-sm c-muted">
+              <span style="background:var(--gold-500);color:var(--navy-950);width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0">2</span>
+              30-min call to understand your needs
+            </li>
+            <li class="flex items-center gap-10 t-sm c-muted">
+              <span style="background:var(--gold-500);color:var(--navy-950);width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0">3</span>
+              Custom program proposal sent
+            </li>
+            <li class="flex items-center gap-10 t-sm c-muted">
+              <span style="background:var(--gold-500);color:var(--navy-950);width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0">4</span>
+              Training scheduled and confirmed
+            </li>
+          </ol>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ ACCORDION -->
+<section class="s-dark">
+  <div class="container" style="max-width:760px">
+    <div class="section-header text-center">
+      <p class="section-eyebrow">FAQs</p>
+      <h2 class="t-h2 c-white">Common questions</h2>
+    </div>
+    <div class="accordion">
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span>What is the minimum batch size you accept?</span>
+          <span class="accordion-icon">＋</span>
+        </button>
+        <div class="accordion-body">
+          <p class="t-sm c-muted" style="line-height:1.8">There's no hard minimum, but programs are most effective with 20+ students. We've delivered workshops for batches of 30 up to 250. Smaller batches get more 1:1 time; larger batches leverage our assessment platform for efficient screening.</p>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span>Do you come to the campus or do students travel to you?</span>
+          <span class="accordion-icon">＋</span>
+        </button>
+        <div class="accordion-body">
+          <p class="t-sm c-muted" style="line-height:1.8">We come to you. All programs are delivered at your institution — in your labs, lecture halls, or online. We don't require students to travel anywhere.</p>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span>How long does a typical program run?</span>
+          <span class="accordion-icon">＋</span>
+        </button>
+        <div class="accordion-body">
+          <p class="t-sm c-muted" style="line-height:1.8">Programs range from a 1-day bootcamp to a 6-week intensive depending on the track and batch calendar. We design around your academic schedule — not the other way around.</p>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span>Can we combine multiple tracks?</span>
+          <span class="accordion-icon">＋</span>
+        </button>
+        <div class="accordion-body">
+          <p class="t-sm c-muted" style="line-height:1.8">Yes. Many colleges combine Placement Prep (Track A) with Cloud & DevOps (Track B) for final-year batches, or Assessment Screening (Track E) with any other track as the exit exam. Tell us what you want and we'll scope it.</p>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span>Do you offer certifications?</span>
+          <span class="accordion-icon">＋</span>
+        </button>
+        <div class="accordion-body">
+          <p class="t-sm c-muted" style="line-height:1.8">We issue SoDak EduTech completion certificates. For cloud tracks, we align content to AWS/Azure certification paths and run practice assessments — but the certification exam is taken separately through the vendor.</p>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span>What about corporate and FDP training?</span>
+          <span class="accordion-icon">＋</span>
+        </button>
+        <div class="accordion-body">
+          <p class="t-sm c-muted" style="line-height:1.8">Yes — we run Faculty Development Programs (FDPs) and corporate upskilling programs. The process is the same: enquire here, we'll scope and propose. See the <a href="corporate.html" class="c-gold">Corporate & FDP page</a> for details.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<div id="site-float"></div>
+<script src="layout.js"></script>
+
+<style>
+/* Page-local: radio/checkbox option groups */
+.radio-group { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.radio-option { cursor:pointer; }
+.radio-option input { display:none; }
+.radio-box {
+  display:flex; align-items:center; gap:10px;
+  padding:10px 14px; border-radius:8px;
+  border:1px solid #e2e8f0; background:#fff;
+  transition:border-color 0.15s, background 0.15s;
+  font-size:13px; color:#334155;
+}
+.radio-option input:checked + .radio-box {
+  border-color:var(--gold-500); background:rgba(200,160,53,0.06);
+  color:#1e293b; font-weight:500;
+}
+.radio-icon { font-size:16px; }
+.checkbox-group { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.checkbox-option { display:flex; align-items:center; gap:8px; font-size:13px; color:#334155; cursor:pointer; }
+.checkbox-option input { accent-color:var(--gold-500); width:15px;height:15px; }
+.form-card { background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:36px; }
+@media(max-width:600px){
+  .radio-group,.checkbox-group{grid-template-columns:1fr;}
+}
+</style>
+</body>
+</html>
