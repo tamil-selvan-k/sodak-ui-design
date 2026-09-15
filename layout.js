@@ -126,74 +126,97 @@
   /* ── Build footer HTML ── */
   function buildFooter() {
     return `
-<footer class="site-footer s-darker">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="nav-logo" style="margin-bottom:12px">
-          <span class="nav-logo-text">SoDak</span>
-          <span class="nav-logo-sub">EduTech</span>
+<footer class="site-footer" style="background:#0a1628;border-top:1px solid rgba(7,88,146,0.2);">
+  <div class="container" style="padding-top:64px;">
+
+    <!-- Top strip: brand + CTA -->
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:32px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.07);flex-wrap:wrap;">
+      <div style="max-width:300px;">
+        <div class="nav-logo" style="margin-bottom:14px;">
+          <span class="nav-logo-text" style="color:#fff !important;font-size:22px;">SoDak</span>
+          <span class="nav-logo-sub" style="color:rgba(255,255,255,0.5) !important;font-size:22px;">EduTech</span>
         </div>
-        <p class="t-sm" style="color:var(--slate-400);max-width:220px;line-height:1.7">Campus training by engineers who cleared the interviews your students are sitting for.</p>
-        <div class="flex gap-12 mt-16">
-          <a href="#" class="footer-social">in</a>
-          <a href="#" class="footer-social">tw</a>
-          <a href="#" class="footer-social">yt</a>
+        <p style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.75;margin-bottom:20px;">Campus training by engineers who cleared the interviews your students are preparing for. Placement-first. Practice-led. Industry-backed.</p>
+        <div style="display:flex;gap:8px;">
+          <a href="#" style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:rgba(255,255,255,0.6);transition:background 0.15s,color 0.15s;" onmouseover="this.style.background='rgba(7,88,146,0.4)';this.style.color='#fff'" onmouseout="this.style.background='rgba(255,255,255,0.07)';this.style.color='rgba(255,255,255,0.6)'">in</a>
+          <a href="#" style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:rgba(255,255,255,0.6);transition:background 0.15s,color 0.15s;" onmouseover="this.style.background='rgba(7,88,146,0.4)';this.style.color='#fff'" onmouseout="this.style.background='rgba(255,255,255,0.07)';this.style.color='rgba(255,255,255,0.6)'">tw</a>
+          <a href="#" style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:rgba(255,255,255,0.6);transition:background 0.15s,color 0.15s;" onmouseover="this.style.background='rgba(7,88,146,0.4)';this.style.color='#fff'" onmouseout="this.style.background='rgba(255,255,255,0.07)';this.style.color='rgba(255,255,255,0.6)'">yt</a>
+          <a href="https://wa.me/918939366259" target="_blank" style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:14px;color:rgba(255,255,255,0.6);" onmouseover="this.style.background='rgba(7,88,146,0.4)';this.style.color='#fff'" onmouseout="this.style.background='rgba(255,255,255,0.07)';this.style.color='rgba(255,255,255,0.6)'">💬</a>
         </div>
       </div>
+      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+        <div style="text-align:right;">
+          <p style="font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:4px;">Ready to upskill your campus?</p>
+          <p style="font-size:13px;color:rgba(255,255,255,0.6);">📞 +91 89393 66259 &nbsp;·&nbsp; ✉ hello@sodakedutech.in</p>
+        </div>
+        <a href="${ROOT}contact.html" style="display:inline-flex;align-items:center;gap:8px;padding:10px 22px;background:#075892;color:#fff;border-radius:8px;font-size:14px;font-weight:600;white-space:nowrap;transition:background 0.15s;" onmouseover="this.style.background='#0669ab'" onmouseout="this.style.background='#075892'">Book a Program →</a>
+      </div>
+    </div>
+
+    <!-- Link columns -->
+    <div class="footer-grid" style="padding-top:40px;padding-bottom:48px;">
       <div>
         <p class="footer-col-title">Programs</p>
         <ul class="footer-links">
-          <li><a href="${ROOT}programs.html">All Programs</a></li>
+          <li><a href="${ROOT}programs.html">All Campus Programs</a></li>
           <li><a href="${ROOT}program-detail.html">Track A — Placement Prep</a></li>
-          <li><a href="${ROOT}program-detail.html">Track B — Cloud & DevOps</a></li>
+          <li><a href="${ROOT}program-detail.html">Track B — Cloud &amp; DevOps</a></li>
           <li><a href="${ROOT}program-detail.html">Track C — Generative AI</a></li>
           <li><a href="${ROOT}program-detail.html">Track D — Cybersecurity</a></li>
-          <li><a href="${ROOT}program-detail.html">Track E — Assessments</a></li>
-          <li><a href="${ROOT}corporate.html">Corporate & FDP</a></li>
+          <li><a href="${ROOT}corporate.html">Corporate &amp; FDP</a></li>
         </ul>
       </div>
       <div>
         <p class="footer-col-title">Learn</p>
         <ul class="footer-links">
           <li><a href="${ROOT}courses.html">Courses</a></li>
-          <li><a href="${ROOT}mentors.html">Mentors</a></li>
+          <li><a href="${ROOT}training.html">Training Stacks</a></li>
+          <li><a href="${ROOT}mentors.html">1-on-1 Mentors</a></li>
           <li><a href="${ROOT}webinars.html">Webinars</a></li>
           <li><a href="${ROOT}internships.html">Internships</a></li>
-          <li><a href="${ROOT}programs.html">Campus Programs</a></li>
-          <li><a href="${ROOT}training.html">Training Stacks</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Platform</p>
+        <ul class="footer-links">
+          <li><a href="${ROOT}platform.html">Platform Overview</a></li>
+          <li><a href="#">SoDak CTF ↗</a></li>
+          <li><a href="#">SoDak LMS ↗</a></li>
+          <li><a href="#">Assessment Engine ↗</a></li>
         </ul>
       </div>
       <div>
         <p class="footer-col-title">Company</p>
         <ul class="footer-links">
-          <li><a href="${ROOT}about.html">About Us</a></li>
+          <li><a href="${ROOT}about.html">About SoDak</a></li>
           <li><a href="${ROOT}trainers.html">Our Trainers</a></li>
-          <li><a href="${ROOT}institutions.html">Institutions</a></li>
-          <li><a href="${ROOT}insights.html">Blog</a></li>
+          <li><a href="${ROOT}institutions.html">Partner Institutions</a></li>
+          <li><a href="${ROOT}insights.html">Blog &amp; Insights</a></li>
           <li><a href="${ROOT}careers.html">Careers</a></li>
-          <li><a href="${ROOT}platform.html">Platform</a></li>
+          <li><a href="${ROOT}gallery.html">Gallery</a></li>
         </ul>
       </div>
       <div>
-        <p class="footer-col-title">Contact</p>
-        <ul class="footer-links" style="gap:10px">
-          <li style="color:var(--slate-400)">📍 Chennai, Tamil Nadu</li>
+        <p class="footer-col-title">Location</p>
+        <ul class="footer-links" style="gap:10px;">
+          <li style="color:rgba(255,255,255,0.45);font-size:13px;line-height:1.6;">📍 Chennai, Tamil Nadu<br>India — 600 001</li>
           <li><a href="tel:+918939366259">📞 +91 89393 66259</a></li>
-          <li><a href="mailto:hello@sodakedutech.in">✉  hello@sodakedutech.in</a></li>
-          <li><a href="https://wa.me/918939366259" target="_blank">💬 WhatsApp us</a></li>
+          <li><a href="mailto:hello@sodakedutech.in">✉ hello@sodakedutech.in</a></li>
+          <li><a href="https://wa.me/918939366259" target="_blank">💬 Chat on WhatsApp</a></li>
         </ul>
-        <a href="${ROOT}contact.html" class="btn btn-gold btn-sm" style="margin-top:16px">Book a Program →</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 SoDak EduTech. All rights reserved.</span>
-      <div class="flex gap-20">
-        <a href="${ROOT}privacy.html">Privacy Policy</a>
-        <a href="${ROOT}terms.html">Terms of Service</a>
-        <a href="${ROOT}admin/dashboard.html" style="color:var(--navy-600)">Admin ↗</a>
+
+    <!-- Bottom bar -->
+    <div style="border-top:1px solid rgba(255,255,255,0.07);padding:20px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+      <span style="font-size:13px;color:rgba(255,255,255,0.3);">© 2026 SoDak EduTech Pvt. Ltd. All rights reserved.</span>
+      <div style="display:flex;align-items:center;gap:20px;font-size:13px;">
+        <a href="${ROOT}privacy.html" style="color:rgba(255,255,255,0.35);transition:color 0.12s;" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Privacy Policy</a>
+        <a href="${ROOT}terms.html" style="color:rgba(255,255,255,0.35);transition:color 0.12s;" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Terms of Service</a>
+        <a href="${ROOT}admin/dashboard.html" style="color:rgba(7,88,146,0.5);transition:color 0.12s;" onmouseover="this.style.color='rgba(7,88,146,0.9)'" onmouseout="this.style.color='rgba(7,88,146,0.5)'">Admin ↗</a>
       </div>
     </div>
+
   </div>
 </footer>`;
   }
