@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Media — SoDak EduTech Admin</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin-fonts.css">
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="../nav.css">
   <style>
@@ -64,9 +65,13 @@
       <div class="admin-sidebar-logo">SoDak EduTech</div>
       <nav>
         <a href="dashboard.html" class="admin-nav-item">&#9632; Dashboard</a>
+        <a href="enquiries.html" class="admin-nav-item">✉ Enquiries</a>
         <a href="leads.html" class="admin-nav-item">&#9632; Leads</a>
+        <div style="padding:14px 20px 4px;font-size:10px;font-weight:700;color:#354470;text-transform:uppercase;letter-spacing:0.08em">Content</div>
         <a href="trainers.html" class="admin-nav-item">&#9632; Trainers</a>
-        <a href="media.html" class="admin-nav-item active">&#9632; Media</a>
+        <a href="mentors.html" class="admin-nav-item">&#9632; Mentors</a>
+        <a href="courses.html" class="admin-nav-item">&#9632; Courses</a>
+        <a href="media.html" class="admin-nav-item active">&#9632; Media / RBAC</a>
       </nav>
     </aside>
 
@@ -82,13 +87,64 @@
         </div>
       </div>
 
-      <!-- Upload Area -->
-      <div class="upload-area" style="margin-bottom:24px;" onclick="this.querySelector('input').click()">
-        <input type="file" accept="image/jpeg,image/png,image/webp" multiple style="display:none;">
-        <div style="font-size:48px;margin-bottom:12px;">&#128247;</div>
-        <p style="font-size:15px;font-weight:700;color:#0f172a;margin-bottom:6px;">Drop images here or click to upload</p>
-        <p style="font-size:13px;color:#94a3b8;margin-bottom:4px;">Accepts JPG, PNG, WEBP &mdash; max 10 MB per file</p>
-        <p style="font-size:12px;color:#c8a035;font-weight:600;">Select multiple files at once for batch upload</p>
+      <!-- RBAC Header Note -->
+      <div style="background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px 20px;margin-bottom:20px;display:flex;align-items:center;gap:12px">
+        <span style="font-size:22px">🔒</span>
+        <div>
+          <p style="font-size:13px;font-weight:600;color:#0f172a">Role-Based Access Control (RBAC) is active</p>
+          <p style="font-size:12px;color:#64748b;margin-top:3px">Each uploaded resource can be restricted by role. <strong>Admin</strong> can upload anything. <strong>Trainer</strong> can upload session materials. <strong>Institution</strong> can upload course thumbnails. <strong>Student</strong> has read-only access.</p>
+        </div>
+      </div>
+
+      <!-- RBAC Role Legend -->
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px">
+        <span class="badge rbac-admin" style="padding:5px 12px;font-size:12px">&#9632; Admin — full upload &amp; delete</span>
+        <span class="badge rbac-trainer" style="padding:5px 12px;font-size:12px">&#9632; Trainer — upload materials &amp; photos</span>
+        <span class="badge rbac-institution" style="padding:5px 12px;font-size:12px">&#9632; Institution — upload thumbnails only</span>
+        <span class="badge rbac-student" style="padding:5px 12px;font-size:12px">&#9632; Student — view only</span>
+      </div>
+
+      <!-- Upload Area with Role selector -->
+      <div style="background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin-bottom:24px">
+        <p style="font-size:14px;font-weight:600;color:#0f172a;margin-bottom:14px">Upload New Resource</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px">
+          <div>
+            <label style="font-size:12px;font-weight:500;color:#64748b;display:block;margin-bottom:4px">Category</label>
+            <select style="width:100%;padding:8px 12px;border:1px solid #e2e8f0;border-radius:6px;font-size:13px;color:#334155;background:#f8fafc">
+              <option>Training Session Photos</option>
+              <option>Event Photos</option>
+              <option>Team Photos</option>
+              <option>Course Thumbnails</option>
+              <option>Documents / PDFs</option>
+              <option>Webinar Recordings</option>
+            </select>
+          </div>
+          <div>
+            <label style="font-size:12px;font-weight:500;color:#64748b;display:block;margin-bottom:4px">Visible to (Role)</label>
+            <select style="width:100%;padding:8px 12px;border:1px solid #e2e8f0;border-radius:6px;font-size:13px;color:#334155;background:#f8fafc">
+              <option>Everyone (Public)</option>
+              <option>Admin only</option>
+              <option>Admin + Trainer</option>
+              <option>Admin + Institution</option>
+              <option>All authenticated users</option>
+            </select>
+          </div>
+          <div>
+            <label style="font-size:12px;font-weight:500;color:#64748b;display:block;margin-bottom:4px">Uploaded by (Role)</label>
+            <select style="width:100%;padding:8px 12px;border:1px solid #e2e8f0;border-radius:6px;font-size:13px;color:#334155;background:#f8fafc">
+              <option>Admin</option>
+              <option>Trainer</option>
+              <option>Institution</option>
+            </select>
+          </div>
+        </div>
+        <div class="upload-area" style="margin-bottom:0" onclick="this.querySelector('input').click()">
+          <input type="file" accept="image/jpeg,image/png,image/webp,application/pdf,video/mp4" multiple style="display:none;">
+          <div style="font-size:48px;margin-bottom:12px;">&#128247;</div>
+          <p style="font-size:15px;font-weight:700;color:#0f172a;margin-bottom:6px;">Drop files here or click to upload</p>
+          <p style="font-size:13px;color:#94a3b8;margin-bottom:4px;">Accepts JPG, PNG, WEBP, PDF, MP4 &mdash; max 50 MB per file</p>
+          <p style="font-size:12px;color:#c8a035;font-weight:600;">Visibility is set by the role controls above</p>
+        </div>
       </div>
 
       <!-- Filter Tabs -->
@@ -110,6 +166,10 @@
           <div class="media-body">
             <div class="media-filename">dsa-session-psg-aug26.jpg</div>
             <div class="media-date-lbl">Uploaded: 28 Aug 2026 &mdash; 2.4 MB</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">
+              <span class="badge rbac-trainer" style="font-size:10px;padding:2px 8px">Trainer upload</span>
+              <span class="badge rbac-student" style="font-size:10px;padding:2px 8px">Public</span>
+            </div>
             <input class="media-alt-input" type="text" value="Nithesh conducting DSA session at PSG College">
             <div class="media-actions">
               <button class="btn-delete">Delete</button>

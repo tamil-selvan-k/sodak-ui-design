@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Webinars — SoDak EduTech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="nav.css">
+  <style>
+    body { font-family: 'Open Sans', sans-serif; }
+    h1,h2,h3,.t-hero,.t-h1,.t-h2,.t-h3,.t-card { font-family: 'Instrument Sans', sans-serif; }
+    .c-dm-accent { color: #075892; }
+    .btn-dm { background: #075892; color: #fff; border-radius: 6px; padding: 10px 20px; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; transition: opacity 0.15s; cursor: pointer; border: none; text-decoration: none; }
+    .btn-dm:hover { opacity: 0.88; }
+    .webinar-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 14px; transition: transform 0.18s, box-shadow 0.18s; }
+    .webinar-card:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,0,0,0.07); }
+    .webinar-upcoming { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 100px; font-size: 11px; font-weight: 700; background: rgba(34,197,94,0.1); color: #22c55e; border: 1px solid rgba(34,197,94,0.25); }
+    .webinar-past { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 100px; font-size: 11px; font-weight: 700; background: rgba(148,163,184,0.1); color: #94a3b8; border: 1px solid rgba(148,163,184,0.2); }
+    .webinar-past-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 12px; transition: border-color 0.18s; }
+    .webinar-past-card:hover { border-color: rgba(200,160,53,0.25); }
+    .date-chip { display: inline-flex; align-items: center; padding: 4px 12px; border-radius: 100px; font-size: 12px; font-weight: 600; background: rgba(7,88,146,0.1); color: #075892; border: 1px solid rgba(7,88,146,0.2); }
+    .speaker-row { display: flex; align-items: center; gap: 10px; }
+    .views-badge { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; color: #94a3b8; }
+    .register-form { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 32px; max-width: 600px; margin: 0 auto; }
+    .newsletter-form { display: flex; gap: 10px; max-width: 420px; margin: 0 auto; }
+    .newsletter-form input { flex: 1; padding: 11px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.06); color: #fff; font-size: 14px; font-family: inherit; }
+    .newsletter-form input::placeholder { color: #64748b; }
+    .newsletter-form input:focus { outline: none; border-color: rgba(200,160,53,0.4); }
+  </style>
+</head>
+<body>
+<div id="site-nav"></div>
+
+<!-- HERO -->
+<section class="s-darker" style="padding:80px 0 72px">
+  <div class="container">
+    <p class="section-eyebrow">Webinars</p>
+    <h1 class="t-hero c-white" style="max-width:760px;margin-top:10px">
+      Live Webinars &amp;<br>Recorded Sessions
+    </h1>
+    <p class="t-lg" style="color:#94a3b8;max-width:580px;margin-top:20px;line-height:1.75">
+      Free, practitioner-led webinars on in-demand technology topics — every session run by an engineer who uses the tool in production, not someone who read the docs.
+    </p>
+    <div class="flex gap-12" style="margin-top:32px;flex-wrap:wrap">
+      <span class="badge badge-green">3 Upcoming</span>
+      <span class="badge badge-dark">6 Recorded</span>
+      <span class="badge badge-gold">All Free</span>
+    </div>
+  </div>
+</section>
+
+<!-- UPCOMING WEBINARS -->
+<section class="s-light">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">Upcoming</p>
+      <h2 class="t-h2 c-heading">Live Webinars</h2>
+      <p class="dark">Register to get the Zoom link and a reminder — sessions start on time and run interactive Q&amp;A.</p>
+    </div>
+    <div class="grid grid-3" style="gap:20px">
+
+      <!-- Webinar 1 -->
+      <div class="webinar-card">
+        <div class="flex items-center justify-between" style="flex-wrap:wrap;gap:8px">
+          <span class="webinar-upcoming">● Live Soon</span>
+          <span class="date-chip">Jan 28, 2026 · 6:00 PM IST</span>
+        </div>
+        <p class="t-card c-heading">Building Production-Grade RAG Systems</p>
+        <p class="t-sm c-body" style="line-height:1.65">Go beyond the LangChain quickstart — chunking strategies, retrieval evaluation, hallucination mitigation, and deploying to production with monitoring.</p>
+        <div class="speaker-row">
+          <div class="avatar avatar-sm" style="background:#1a2342;color:#8b5cf6">DR</div>
+          <div>
+            <p class="t-sm c-heading" style="font-weight:600">Divya Rajan</p>
+            <p class="t-label c-muted">Senior Data Scientist · Amazon</p>
+          </div>
+        </div>
+        <div class="flex gap-6" style="flex-wrap:wrap">
+          <span class="badge badge-blue">AI / ML</span>
+          <span class="badge badge-plum">LangChain</span>
+          <span class="badge badge-dark">RAG</span>
+        </div>
+        <a href="#register" class="btn-dm" style="justify-content:center">Register Free →</a>
+      </div>
+
+      <!-- Webinar 2 -->
+      <div class="webinar-card">
+        <div class="flex items-center justify-between" style="flex-wrap:wrap;gap:8px">
+          <span class="webinar-upcoming">● Live Soon</span>
+          <span class="date-chip">Feb 4, 2026 · 6:30 PM IST</span>
+        </div>
+        <p class="t-card c-heading">Kubernetes for Campus Engineers</p>
+        <p class="t-sm c-body" style="line-height:1.65">Pods, deployments, services, ingress, and secrets — a fast-paced intro with live cluster demos. Zero fluff, real kubectl commands throughout.</p>
+        <div class="speaker-row">
+          <div class="avatar avatar-sm" style="background:#1a2342;color:#3b82f6">SV</div>
+          <div>
+            <p class="t-sm c-heading" style="font-weight:600">Suresh Venkataraman</p>
+            <p class="t-label c-muted">DevOps Lead · TCS</p>
+          </div>
+        </div>
+        <div class="flex gap-6" style="flex-wrap:wrap">
+          <span class="badge badge-green">DevOps</span>
+          <span class="badge badge-blue">Kubernetes</span>
+          <span class="badge badge-dark">Containers</span>
+        </div>
+        <a href="#register" class="btn-dm" style="justify-content:center">Register Free →</a>
+      </div>
+
+      <!-- Webinar 3 -->
+      <div class="webinar-card">
+        <div class="flex items-center justify-between" style="flex-wrap:wrap;gap:8px">
+          <span class="webinar-upcoming">● Live Soon</span>
+          <span class="date-chip">Feb 11, 2026 · 7:00 PM IST</span>
+        </div>
+        <p class="t-card c-heading">Breaking into Product Companies: What Actually Works</p>
+        <p class="t-sm c-body" style="line-height:1.65">Real data on what separates candidates who get callbacks from those who don't — resume, DSA, communication, and navigating the offer stage.</p>
+        <div class="speaker-row">
+          <div class="avatar avatar-sm" style="background:#1a2342;color:#22c55e">PN</div>
+          <div>
+            <p class="t-sm c-heading" style="font-weight:600">Priya Nair</p>
+            <p class="t-label c-muted">Engineering Manager · Zoho</p>
+          </div>
+        </div>
+        <div class="flex gap-6" style="flex-wrap:wrap">
+          <span class="badge badge-gold">Career</span>
+          <span class="badge badge-amber">Placement Prep</span>
+          <span class="badge badge-dark">Interviews</span>
+        </div>
+        <a href="#register" class="btn-dm" style="justify-content:center">Register Free →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- REGISTRATION FORM -->
+<section class="s-dark" id="register">
+  <div class="container container-sm">
+    <div class="section-header text-center">
+      <p class="section-eyebrow">Register</p>
+      <h2 class="t-h2 c-white">Get the Zoom link instantly</h2>
+      <p style="max-width:440px;margin:10px auto 0">Fill in the form and we'll send the webinar link + calendar invite to your email immediately.</p>
+    </div>
+    <div class="register-form">
+      <div class="form-row" style="margin-bottom:16px">
+        <div class="form-group">
+          <label class="form-label" style="color:#94a3b8">Full Name *</label>
+          <input class="form-input" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.1);color:#fff" type="text" placeholder="Your name" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" style="color:#94a3b8">Email Address *</label>
+          <input class="form-input" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.1);color:#fff" type="email" placeholder="you@college.edu" />
+        </div>
+      </div>
+      <div class="form-row" style="margin-bottom:16px">
+        <div class="form-group">
+          <label class="form-label" style="color:#94a3b8">College / Organisation *</label>
+          <input class="form-input" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.1);color:#fff" type="text" placeholder="Your college name" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" style="color:#94a3b8">Phone Number</label>
+          <input class="form-input" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.1);color:#fff" type="tel" placeholder="+91 98XXX XXXXX" />
+        </div>
+      </div>
+      <div class="form-group" style="margin-bottom:20px">
+        <label class="form-label" style="color:#94a3b8">Select Webinar *</label>
+        <select class="form-select" style="background:#1a2342;border-color:rgba(255,255,255,0.1);color:#e2e8f0">
+          <option value="">Choose a webinar…</option>
+          <option>Jan 28 — Building Production-Grade RAG Systems</option>
+          <option>Feb 4 — Kubernetes for Campus Engineers</option>
+          <option>Feb 11 — Breaking into Product Companies</option>
+        </select>
+      </div>
+      <button class="btn btn-gold btn-full" style="font-size:15px;padding:14px 0">Register Now →</button>
+      <p class="t-label text-center" style="color:#64748b;margin-top:12px">We'll email your Zoom link within 5 minutes of registration.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PAST RECORDINGS -->
+<section class="s-darker">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">Past Recordings</p>
+      <h2 class="t-h2 c-white">Watch on demand</h2>
+      <p>All past webinars are available to watch for free — no login required.</p>
+    </div>
+    <div class="grid grid-3" style="gap:16px">
+
+      <div class="webinar-past-card">
+        <span class="webinar-past">⏺ Recorded</span>
+        <p class="t-card c-white">AWS Cost Optimisation Deep Dive</p>
+        <div class="speaker-row">
+          <div class="avatar avatar-xs" style="background:#253054;color:#38bdf8">AP</div>
+          <span class="t-sm c-muted">Anand Pillai · Dec 2025</span>
+        </div>
+        <div class="flex items-center justify-between" style="flex-wrap:wrap;gap:8px">
+          <span class="badge badge-blue">Cloud</span>
+          <span class="views-badge">▶ 1,240 views</span>
+        </div>
+        <a href="#" class="btn btn-ghost btn-sm">Watch Recording →</a>
+      </div>
+
+      <div class="webinar-past-card">
+        <span class="webinar-past">⏺ Recorded</span>
+        <p class="t-card c-white">React 19 + Server Components</p>
+        <div class="speaker-row">
+          <div class="avatar avatar-xs" style="background:#253054;color:#c8a035">LB</div>
+          <span class="t-sm c-muted">Latha Balakrishnan · Nov 2025</span>
+        </div>
+        <div class="flex items-center justify-between" style="flex-wrap:wrap;gap:8px">
+          <span class="badge badge-amber">Full Stack</span>
+          <span class="views-badge">▶ 892 views</span>
+        </div>
+        <a href="#" class="btn btn-ghost btn-sm">Watch Recording →</a>
+      </div>
+
+      <div class="webinar-past-card">
+        <span class="webinar-past">⏺ Recorded</span>
+        <p class="t-card c-white">Ethical Hacking with Kali Linux</p>
+        <div class="speaker-row">
+          <div class="avatar avatar-xs" style="background:#253054;color:#ef4444">AM</div>
+          <span class="t-sm c-muted">Aravind Mohan · Nov 2025</span>
+        </div>
+        <div class="flex items-center justify-between" style="flex-wrap:wrap;gap:8px">
+          <span class="badge badge-red">Security</span>
+          <span class="views-badge">▶ 2,100 views</span>
+        </div>
+        <a href="#" class="btn btn-ghost btn-sm">Watch Recording →</a>
+      </div>
+
+      <div class="webinar-past-card">
+        <span class="webinar-past">⏺ Recorded</span>
+        <p class="t-card c-white">System Design for Freshers</p>
+        <div class="speaker-row">
+          <div class="avatar avatar-xs" style="background:#253054;color:#c8a035">KS</div>
+          <span class="t-sm c-muted">Karthik Subramaniam · Oct 2025</span>
+        </div>
+        <div class="flex items-center justify-between" style="flex-wrap:wrap;gap:8px">
+          <span class="badge badge-dark">System Design</span>
+          <span class="views-badge" style="color:#c8a035">▶ 3,450 views</span>
+        </div>
+        <a href="#" class="btn btn-ghost btn-sm">Watch Recording →</a>
+      </div>
+
+      <div class="webinar-past-card">
+        <span class="webinar-past">⏺ Recorded</span>
+        <p class="t-card c-white">LangChain + OpenAI Crash Course</p>
+        <div class="speaker-row">
+          <div class="avatar avatar-xs" style="background:#253054;color:#a78bfa">MK</div>
+          <span class="t-sm c-muted">Meena Krishnan · Oct 2025</span>
+        </div>
+        <div class="flex items-center justify-between" style="flex-wrap:wrap;gap:8px">
+          <span class="badge badge-plum">AI / ML</span>
+          <span class="views-badge">▶ 1,876 views</span>
+        </div>
+        <a href="#" class="btn btn-ghost btn-sm">Watch Recording →</a>
+      </div>
+
+      <div class="webinar-past-card">
+        <span class="webinar-past">⏺ Recorded</span>
+        <p class="t-card c-white">Career Pivot: Service to Product</p>
+        <div class="speaker-row">
+          <div class="avatar avatar-xs" style="background:#253054;color:#f97316">RC</div>
+          <span class="t-sm c-muted">Raj Chandrasekaran · Sep 2025</span>
+        </div>
+        <div class="flex items-center justify-between" style="flex-wrap:wrap;gap:8px">
+          <span class="badge badge-gold">Career</span>
+          <span class="views-badge">▶ 1,102 views</span>
+        </div>
+        <a href="#" class="btn btn-ghost btn-sm">Watch Recording →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="s-dark" style="padding:64px 0">
+  <div class="container text-center">
+    <p class="section-eyebrow">Stay Updated</p>
+    <h2 class="t-h2 c-white" style="margin-top:8px">Never miss a webinar</h2>
+    <p class="t-lg" style="color:#94a3b8;margin:12px auto 28px;max-width:440px;line-height:1.7">Get upcoming webinar announcements in your inbox — one email per event, no spam.</p>
+    <div class="newsletter-form" style="justify-content:center">
+      <input type="email" placeholder="your@email.com" />
+      <button class="btn btn-gold">Subscribe →</button>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<div id="site-float"></div>
+<script src="layout.js"></script>
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Course Management — Admin · SoDak EduTech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin-fonts.css">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../nav.css">
+  <style>
+    body { background: var(--slate-50); }
+    .admin-wrap { display: flex; min-height: 100vh; }
+    .sidebar { width: 220px; flex-shrink: 0; background: var(--navy-950); position: sticky; top: 0; height: 100vh; overflow-y: auto; display: flex; flex-direction: column; }
+    .sidebar-logo { padding: 0 20px; height: 56px; display: flex; align-items: center; gap: 6px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .sidebar-logo span { font-size: 16px; font-weight: 800; color: var(--gold-500); }
+    .sidebar-section { padding: 20px 20px 6px; font-size: 10px; font-weight: 700; color: var(--navy-600); text-transform: uppercase; letter-spacing: 0.08em; }
+    .sidebar-item { display: flex; align-items: center; gap: 10px; padding: 0 20px; height: 40px; font-size: 13px; color: var(--slate-400); border-left: 3px solid transparent; text-decoration: none; transition: background 0.15s, color 0.15s; }
+    .sidebar-item:hover { background: rgba(255,255,255,0.04); color: var(--slate-200); }
+    .sidebar-item.active { background: rgba(200,160,53,0.1); color: var(--gold-500); border-left-color: var(--gold-500); font-weight: 600; }
+    .sidebar-user { margin-top: auto; padding: 12px 16px; background: rgba(255,255,255,0.04); border-top: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; gap: 10px; }
+    .main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+    .topbar { height: 56px; background: #fff; border-bottom: 1px solid var(--slate-200); padding: 0 28px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; position: sticky; top: 0; z-index: 10; }
+    .content { padding: 28px; flex: 1; overflow-y: auto; }
+    .t-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--slate-200); background: #fff; }
+    .admin-table { width: 100%; border-collapse: collapse; }
+    .admin-table th { background: var(--slate-50); padding: 10px 14px; text-align: left; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--slate-500); border-bottom: 1px solid var(--slate-200); white-space: nowrap; }
+    .admin-table td { padding: 11px 14px; font-size: 13px; color: var(--slate-700); border-bottom: 1px solid var(--slate-100); vertical-align: middle; }
+    .admin-table tr:last-child td { border-bottom: none; }
+    .admin-table tr:hover td { background: var(--slate-50); }
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 200; align-items: center; justify-content: center; }
+    .modal-overlay.open { display: flex; }
+    .modal-box { background: #fff; border-radius: 12px; padding: 32px; width: 620px; max-width: 95vw; max-height: 88vh; overflow-y: auto; }
+    .assign-panel { background: var(--slate-50); border: 1px solid var(--slate-200); border-radius: 10px; padding: 20px; margin-top: 20px; }
+    .college-chip { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.2); border-radius: 100px; font-size: 12px; color: var(--green); margin: 4px; }
+    .college-chip .remove { cursor: pointer; font-size: 14px; line-height: 1; color: var(--red); }
+  </style>
+</head>
+<body>
+
+<div class="admin-wrap">
+  <aside class="sidebar">
+    <div class="sidebar-logo"><span>SoDak</span> <span style="font-weight:400;color:var(--slate-400)">Admin</span></div>
+    <nav>
+      <div class="sidebar-section">Main</div>
+      <a href="dashboard.html" class="sidebar-item">&#9632;&nbsp; Dashboard</a>
+      <a href="enquiries.html" class="sidebar-item">✉&nbsp; Enquiries</a>
+      <a href="leads.html" class="sidebar-item">&#9632;&nbsp; Leads</a>
+      <div class="sidebar-section">Content</div>
+      <a href="trainers.html" class="sidebar-item">&#9632;&nbsp; Trainers</a>
+      <a href="mentors.html" class="sidebar-item">&#9632;&nbsp; Mentors</a>
+      <a href="courses.html" class="sidebar-item active">&#9632;&nbsp; Courses</a>
+      <a href="media.html" class="sidebar-item">&#9632;&nbsp; Media / RBAC</a>
+    </nav>
+    <div class="sidebar-user">
+      <div class="avatar avatar-xs">A</div>
+      <div>
+        <p style="font-size:12px;font-weight:600;color:#e2e8f0">Admin</p>
+        <p style="font-size:11px;color:var(--slate-600)">admin@sodak.in</p>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <h1 style="font-size:17px;font-weight:700;color:var(--slate-800)">Course Management</h1>
+      <div class="flex items-center gap-12">
+        <button class="btn btn-dm btn-sm" onclick="openAddCourse()">+ Add Course</button>
+        <a href="../index.html" style="padding:6px 12px;font-size:12px;font-weight:600;background:var(--slate-100);color:var(--slate-600);border:1px solid var(--slate-200);border-radius:6px;">← View Site</a>
+      </div>
+    </div>
+
+    <div class="content">
+      <!-- Tabs: Courses / Institution Claims -->
+      <div class="tabs" style="margin-bottom:24px">
+        <div class="tab active" onclick="showTab('courses', this)">All Courses</div>
+        <div class="tab" onclick="showTab('claims', this)">Institution Claims</div>
+      </div>
+
+      <!-- Courses Tab -->
+      <div id="tab-courses">
+        <!-- Stats -->
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:20px">
+          <div class="card card-light" style="padding:16px">
+            <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--slate-400)">Total Courses</div>
+            <div style="font-size:28px;font-weight:800;color:var(--slate-800);margin:4px 0">12</div>
+          </div>
+          <div class="card card-light" style="padding:16px">
+            <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--slate-400)">Published</div>
+            <div style="font-size:28px;font-weight:800;color:var(--green);margin:4px 0">8</div>
+          </div>
+          <div class="card card-light" style="padding:16px">
+            <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--slate-400)">Licensed to Institutions</div>
+            <div style="font-size:28px;font-weight:800;color:var(--dm-accent,#075892);margin:4px 0">6</div>
+          </div>
+          <div class="card card-light" style="padding:16px">
+            <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--slate-400)">Domains</div>
+            <div style="font-size:28px;font-weight:800;color:var(--slate-800);margin:4px 0">6</div>
+          </div>
+        </div>
+
+        <div class="flex gap-12 items-center" style="margin-bottom:14px">
+          <input class="form-input" type="search" placeholder="Search courses…" style="flex:1;max-width:300px">
+          <select class="form-select" style="min-width:150px">
+            <option>All Domains</option>
+            <option>Cloud & AWS</option>
+            <option>AI & ML</option>
+            <option>DevOps</option>
+            <option>Development</option>
+            <option>Cybersecurity</option>
+            <option>Data & Analytics</option>
+          </select>
+          <select class="form-select" style="min-width:130px">
+            <option>All Statuses</option>
+            <option>Published</option>
+            <option>Draft</option>
+            <option>Archived</option>
+          </select>
+        </div>
+
+        <div class="t-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Course Title</th>
+                <th>Domain</th>
+                <th>Modules</th>
+                <th>Duration</th>
+                <th>Licensed To</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>AWS Solutions Architect</strong><div style="font-size:11px;color:var(--slate-400);margin-top:2px">SAA-C03 aligned</div></td>
+                <td><span class="domain-tag">Cloud &amp; AWS</span></td>
+                <td>22</td>
+                <td>48 hrs</td>
+                <td><span class="institution-tag">3 colleges</span></td>
+                <td><span class="badge badge-green">Published</span></td>
+                <td><button class="btn btn-sm btn-ghost" onclick="openAssign()">Assign</button> <button class="btn btn-sm btn-ghost" onclick="openEditCourse()">Edit</button></td>
+              </tr>
+              <tr>
+                <td><strong>Docker &amp; Kubernetes Mastery</strong></td>
+                <td><span class="domain-tag" style="background:rgba(34,197,94,0.1);color:var(--green);border-color:rgba(34,197,94,0.2)">DevOps</span></td>
+                <td>18</td>
+                <td>40 hrs</td>
+                <td><span class="institution-tag">2 colleges</span></td>
+                <td><span class="badge badge-green">Published</span></td>
+                <td><button class="btn btn-sm btn-ghost" onclick="openAssign()">Assign</button> <button class="btn btn-sm btn-ghost" onclick="openEditCourse()">Edit</button></td>
+              </tr>
+              <tr>
+                <td><strong>Generative AI with LangChain</strong></td>
+                <td><span class="domain-tag" style="background:rgba(124,58,237,0.1);color:var(--plum);border-color:rgba(124,58,237,0.2)">AI &amp; ML</span></td>
+                <td>15</td>
+                <td>32 hrs</td>
+                <td><span class="locked-tag">Not assigned</span></td>
+                <td><span class="badge badge-green">Published</span></td>
+                <td><button class="btn btn-sm btn-ghost" onclick="openAssign()">Assign</button> <button class="btn btn-sm btn-ghost" onclick="openEditCourse()">Edit</button></td>
+              </tr>
+              <tr>
+                <td><strong>React + Node Full Stack</strong></td>
+                <td><span class="domain-tag" style="background:rgba(234,179,8,0.1);color:var(--amber);border-color:rgba(234,179,8,0.2)">Development</span></td>
+                <td>20</td>
+                <td>44 hrs</td>
+                <td><span class="institution-tag">1 college</span></td>
+                <td><span class="badge badge-green">Published</span></td>
+                <td><button class="btn btn-sm btn-ghost" onclick="openAssign()">Assign</button> <button class="btn btn-sm btn-ghost" onclick="openEditCourse()">Edit</button></td>
+              </tr>
+              <tr>
+                <td><strong>Ethical Hacking &amp; VAPT</strong></td>
+                <td><span class="domain-tag" style="background:rgba(239,68,68,0.1);color:var(--red);border-color:rgba(239,68,68,0.2)">Cybersecurity</span></td>
+                <td>16</td>
+                <td>36 hrs</td>
+                <td><span class="locked-tag">Not assigned</span></td>
+                <td><span class="badge badge-amber">Draft</span></td>
+                <td><button class="btn btn-sm btn-ghost" onclick="openAssign()">Assign</button> <button class="btn btn-sm btn-ghost" onclick="openEditCourse()">Edit</button></td>
+              </tr>
+              <tr>
+                <td><strong>Python for Data Science</strong></td>
+                <td><span class="domain-tag" style="background:rgba(200,160,53,0.1);color:var(--gold-500);border-color:rgba(200,160,53,0.2)">Data</span></td>
+                <td>14</td>
+                <td>28 hrs</td>
+                <td><span class="institution-tag">2 colleges</span></td>
+                <td><span class="badge badge-green">Published</span></td>
+                <td><button class="btn btn-sm btn-ghost" onclick="openAssign()">Assign</button> <button class="btn btn-sm btn-ghost" onclick="openEditCourse()">Edit</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Claims Tab (hidden initially) -->
+      <div id="tab-claims" style="display:none">
+        <div class="card card-light" style="padding:20px;margin-bottom:20px">
+          <p style="font-size:14px;font-weight:600;color:var(--slate-800);margin-bottom:6px">How institution licensing works</p>
+          <p class="t-sm c-body">When an institution licenses a course, all students registered under that institution get access automatically. Admin assigns courses to institutions from this panel. Students see a "Access via Institution" indicator on the course page.</p>
+        </div>
+        <div class="t-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Institution</th>
+                <th>Courses Licensed</th>
+                <th>Students Enrolled</th>
+                <th>Expiry</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>SRM Institute of Science &amp; Technology</strong></td>
+                <td><span class="domain-tag">AWS</span> <span class="domain-tag">DevOps</span> <span class="domain-tag">Full Stack</span></td>
+                <td>240</td>
+                <td>Dec 2026</td>
+                <td><span class="badge badge-green">Active</span></td>
+                <td><button class="btn btn-sm btn-ghost" onclick="openAssign()">Manage</button></td>
+              </tr>
+              <tr>
+                <td><strong>Easwari Engineering College</strong></td>
+                <td><span class="domain-tag" style="background:rgba(239,68,68,0.1);color:var(--red);border-color:rgba(239,68,68,0.2)">Cybersecurity</span></td>
+                <td>80</td>
+                <td>Jun 2026</td>
+                <td><span class="badge badge-green">Active</span></td>
+                <td><button class="btn btn-sm btn-ghost" onclick="openAssign()">Manage</button></td>
+              </tr>
+              <tr>
+                <td><strong>Saveetha Engineering College</strong></td>
+                <td><span class="domain-tag">AWS</span> <span class="domain-tag" style="background:rgba(200,160,53,0.1);color:var(--gold-500);border-color:rgba(200,160,53,0.2)">Data</span></td>
+                <td>120</td>
+                <td>Mar 2026</td>
+                <td><span class="badge badge-amber">Expiring soon</span></td>
+                <td><button class="btn btn-sm btn-ghost" onclick="openAssign()">Renew</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="flex" style="margin-top:16px">
+          <button class="btn btn-dm btn-sm" onclick="openAssign()">+ Assign Course to Institution</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<!-- Assign / Edit Course Modal -->
+<div class="modal-overlay" id="course-modal">
+  <div class="modal-box">
+    <div class="flex justify-between items-center" style="margin-bottom:24px">
+      <h3 style="font-size:18px;font-weight:700;color:var(--slate-800)" id="modal-title">Assign Course to Institution</h3>
+      <button onclick="closeModal()" style="font-size:20px;color:var(--slate-400);background:none;border:none;cursor:pointer">✕</button>
+    </div>
+    <div class="form-group" style="margin-bottom:16px">
+      <label class="form-label">Course</label>
+      <select class="form-select">
+        <option>AWS Solutions Architect</option>
+        <option>Docker &amp; Kubernetes Mastery</option>
+        <option>Generative AI with LangChain</option>
+        <option>React + Node Full Stack</option>
+        <option>Ethical Hacking &amp; VAPT</option>
+        <option>Python for Data Science</option>
+      </select>
+    </div>
+    <div class="form-group" style="margin-bottom:16px">
+      <label class="form-label">Institution</label>
+      <select class="form-select">
+        <option>SRM Institute of Science &amp; Technology</option>
+        <option>Easwari Engineering College</option>
+        <option>Saveetha Engineering College</option>
+        <option>Rajalakshmi Engineering College</option>
+        <option>St. Joseph's College of Engineering</option>
+        <option>Meenakshi Sundararajan Engineering College</option>
+      </select>
+    </div>
+    <div class="form-row" style="margin-bottom:16px">
+      <div class="form-group"><label class="form-label">License Start</label><input class="form-input" type="date"></div>
+      <div class="form-group"><label class="form-label">License Expiry</label><input class="form-input" type="date"></div>
+    </div>
+    <div class="form-group" style="margin-bottom:16px">
+      <label class="form-label">Max Enrolled Students</label>
+      <input class="form-input" type="number" placeholder="e.g. 240 (0 = unlimited)">
+    </div>
+    <div class="assign-panel">
+      <p style="font-size:13px;font-weight:600;color:var(--slate-700);margin-bottom:8px">Currently assigned institutions:</p>
+      <span class="college-chip">SRM Institute <span class="remove" onclick="this.closest('.college-chip').remove()">×</span></span>
+      <span class="college-chip">Saveetha Engg <span class="remove" onclick="this.closest('.college-chip').remove()">×</span></span>
+    </div>
+    <div class="flex gap-10 justify-end" style="margin-top:20px">
+      <button class="btn btn-ghost btn-sm" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-dm btn-sm">Save Assignment</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function showTab(name, el) {
+    document.getElementById('tab-courses').style.display = name === 'courses' ? '' : 'none';
+    document.getElementById('tab-claims').style.display = name === 'claims' ? '' : 'none';
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+  }
+  function openAssign() { document.getElementById('modal-title').textContent = 'Assign Course to Institution'; document.getElementById('course-modal').classList.add('open'); }
+  function openAddCourse() { document.getElementById('modal-title').textContent = 'Add New Course'; document.getElementById('course-modal').classList.add('open'); }
+  function openEditCourse() { document.getElementById('modal-title').textContent = 'Edit Course'; document.getElementById('course-modal').classList.add('open'); }
+  function closeModal() { document.getElementById('course-modal').classList.remove('open'); }
+  document.getElementById('course-modal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
+</script>
+</body>
+</html>

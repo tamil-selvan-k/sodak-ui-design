@@ -12,10 +12,13 @@
     { href: 'about.html',             label: 'About' },
     { href: 'trainers.html',          label: 'Trainers',     group: 'Trainers' },
     { href: 'trainer-profile.html',   label: 'Trainer Profile', group: 'Trainers', parent: 'trainers.html' },
-    { href: 'programs.html',          label: 'Programs',     group: 'Programs' },
-    { href: 'program-detail.html',    label: 'Program Detail', group: 'Programs', parent: 'programs.html' },
-    { href: 'training.html',          label: 'Training',     group: 'Training' },
-    { href: 'training-cloud.html',    label: 'Cloud & AWS',  group: 'Training', parent: 'training.html' },
+    { href: 'mentors.html',           label: 'Mentors',      group: 'Learn' },
+    { href: 'mentor-profile.html',    label: 'Mentor Profile', group: 'Learn', parent: 'mentors.html' },
+    { href: 'courses.html',           label: 'Courses',      group: 'Learn' },
+    { href: 'programs.html',          label: 'Programs',     group: 'Learn' },
+    { href: 'program-detail.html',    label: 'Program Detail', group: 'Learn', parent: 'programs.html' },
+    { href: 'training.html',          label: 'Training',     group: 'Learn' },
+    { href: 'training-cloud.html',    label: 'Cloud & AWS',  group: 'Learn', parent: 'training.html' },
     { href: 'institutions.html',      label: 'Institutions', group: 'Institutions' },
     { href: 'institution-detail.html',label: 'SJCE',         group: 'Institutions', parent: 'institutions.html' },
     { href: 'gallery.html',           label: 'Gallery' },
@@ -23,6 +26,8 @@
     { href: 'platform-ctf.html',      label: 'CTF',          group: 'Platform', parent: 'platform.html' },
     { href: 'platform-lms.html',      label: 'LMS',          group: 'Platform', parent: 'platform.html' },
     { href: 'platform-assessments.html', label: 'Assessments', group: 'Platform', parent: 'platform.html' },
+    { href: 'webinars.html',          label: 'Webinars',     group: 'Learn' },
+    { href: 'internships.html',       label: 'Internships',  group: 'Learn' },
     { href: 'corporate.html',         label: 'Corporate' },
     { href: 'insights.html',          label: 'Blog',         group: 'Blog' },
     { href: 'insights-post.html',     label: 'Post',         group: 'Blog', parent: 'insights.html' },
@@ -32,32 +37,30 @@
     { href: 'privacy.html',           label: 'Privacy Policy' },
     { href: 'terms.html',             label: 'Terms' },
     { href: 'admin/dashboard.html',   label: 'Admin' },
+    { href: 'admin/enquiries.html',   label: 'Enquiries',    group: 'Admin' },
+    { href: 'admin/mentors.html',     label: 'Mentors Admin',group: 'Admin' },
+    { href: 'admin/courses.html',     label: 'Courses Admin',group: 'Admin' },
   ];
 
   /* ── Nav dropdown data ── */
   const DROPDOWNS = {
-    Programs: [
-      { href: 'programs.html',       label: 'All Programs' },
-      { href: 'program-detail.html', label: 'Track A — Placement Prep' },
-      { href: 'program-detail.html', label: 'Track B — Cloud & DevOps' },
-      { href: 'program-detail.html', label: 'Track C — Generative AI' },
-      { href: 'program-detail.html', label: 'Track D — Cybersecurity' },
-      { href: 'program-detail.html', label: 'Track E — Assessments' },
-    ],
-    Training: [
-      { href: 'training.html',       label: 'All Stacks' },
-      { href: 'training-cloud.html', label: '☁  Cloud & AWS' },
-      { href: 'training.html',       label: '🤖  AI & Machine Learning' },
-      { href: 'training.html',       label: '⚙  DevOps & Infrastructure' },
-      { href: 'training.html',       label: '💻  Development' },
-      { href: 'training.html',       label: '🔐  Cybersecurity' },
-      { href: 'training.html',       label: '📊  Data & Career Readiness' },
+    Learn: [
+      { href: 'courses.html',        label: '📘  Courses (Domain-based)' },
+      { href: 'programs.html',       label: '🎯  Campus Programs' },
+      { href: 'training.html',       label: '⚙  Training Stacks' },
+      { href: 'mentors.html',        label: '🧑‍💼  Mentors (1-on-1)' },
+      { href: 'webinars.html',       label: '🎙  Webinars' },
+      { href: 'internships.html',    label: '🎓  Internships' },
     ],
     Platform: [
-      { href: 'platform.html',              label: 'Platform Overview' },
-      { href: 'platform-ctf.html',          label: '🏴  CTF Platform' },
-      { href: 'platform-lms.html',          label: '📚  Learning Management' },
-      { href: 'platform-assessments.html',  label: '📋  Assessment Engine' },
+      { href: 'platform.html',    label: 'Platform Overview',       external: false },
+      { href: '#',                label: '🏴  SoDak CTF Platform ↗', external: true },
+      { href: '#',                label: '📚  SoDak LMS ↗',          external: true },
+      { href: '#',                label: '📋  Assessment Engine ↗',   external: true },
+    ],
+    Careers: [
+      { href: 'careers.html',        label: 'Work at SoDak' },
+      { href: 'internships.html',    label: '🎓  Internships' },
     ],
   };
 
@@ -79,16 +82,12 @@
   /* ── Build navbar HTML ── */
   function buildNavbar() {
     const navItems = [
-      { label: 'Home',         href: 'index.html' },
       { label: 'About',        href: 'about.html' },
       { label: 'Trainers',     href: 'trainers.html' },
-      { label: 'Programs',     href: 'programs.html',  dropdown: 'Programs' },
-      { label: 'Training',     href: 'training.html',  dropdown: 'Training' },
+      { label: 'Learn',        href: 'courses.html',   dropdown: 'Learn' },
       { label: 'Institutions', href: 'institutions.html' },
-      { label: 'Gallery',      href: 'gallery.html' },
       { label: 'Platform',     href: 'platform.html',  dropdown: 'Platform' },
-      { label: 'Blog',         href: 'insights.html' },
-      { label: 'Careers',      href: 'careers.html' },
+      { label: 'Careers',      href: 'careers.html',   dropdown: 'Careers' },
       { label: 'Contact',      href: 'contact.html' },
     ];
 
@@ -100,7 +99,7 @@
       const dd = item.dropdown && DROPDOWNS[item.dropdown];
       const ddHTML = dd ? `
         <div class="nav-dropdown">
-          ${dd.map(d => `<a href="${resolveHref(d.href)}" class="nav-dropdown-item">${d.label}</a>`).join('')}
+          ${dd.map(d => `<a href="${resolveHref(d.href)}" class="nav-dropdown-item"${d.external ? ' target="_blank" rel="noopener"' : ''}>${d.label}</a>`).join('')}
         </div>` : '';
       return `<li class="nav-item${dd ? ' has-dropdown' : ''}">
         <a href="${resolveHref(item.href)}" class="nav-link${isActive ? ' active' : ''}">${item.label}${dd ? '<span class="nav-arrow">▾</span>' : ''}</a>
@@ -155,12 +154,22 @@
         </ul>
       </div>
       <div>
+        <p class="footer-col-title">Learn</p>
+        <ul class="footer-links">
+          <li><a href="${ROOT}courses.html">Courses</a></li>
+          <li><a href="${ROOT}mentors.html">Mentors</a></li>
+          <li><a href="${ROOT}webinars.html">Webinars</a></li>
+          <li><a href="${ROOT}internships.html">Internships</a></li>
+          <li><a href="${ROOT}programs.html">Campus Programs</a></li>
+          <li><a href="${ROOT}training.html">Training Stacks</a></li>
+        </ul>
+      </div>
+      <div>
         <p class="footer-col-title">Company</p>
         <ul class="footer-links">
           <li><a href="${ROOT}about.html">About Us</a></li>
           <li><a href="${ROOT}trainers.html">Our Trainers</a></li>
           <li><a href="${ROOT}institutions.html">Institutions</a></li>
-          <li><a href="${ROOT}gallery.html">Gallery</a></li>
           <li><a href="${ROOT}insights.html">Blog</a></li>
           <li><a href="${ROOT}careers.html">Careers</a></li>
           <li><a href="${ROOT}platform.html">Platform</a></li>
@@ -231,6 +240,16 @@
         const item = header.closest('.accordion-item');
         const wasOpen = item.classList.contains('open');
         document.querySelectorAll('.accordion-item.open').forEach(i => i.classList.remove('open'));
+        if (!wasOpen) item.classList.add('open');
+      });
+    });
+
+    /* FAQ toggle */
+    document.querySelectorAll('.faq-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const item = header.closest('.faq-item');
+        const wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
         if (!wasOpen) item.classList.add('open');
       });
     });

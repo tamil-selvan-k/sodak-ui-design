@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Internships — SoDak EduTech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="nav.css">
+  <style>
+    body { font-family: 'Open Sans', sans-serif; }
+    h1,h2,h3,.t-hero,.t-h1,.t-h2,.t-h3,.t-card { font-family: 'Instrument Sans', sans-serif; }
+    .c-dm-accent { color: #075892; }
+    .btn-dm { background: #075892; color: #fff; border-radius: 6px; padding: 10px 20px; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; transition: opacity 0.15s; cursor: pointer; border: none; text-decoration: none; }
+    .btn-dm:hover { opacity: 0.88; }
+    .internship-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px; transition: transform 0.18s, box-shadow 0.18s; }
+    .internship-card:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,0,0,0.08); }
+    .company-logo { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; flex-shrink: 0; font-family: 'Instrument Sans', sans-serif; }
+    .stipend-tag { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 100px; font-size: 11px; font-weight: 700; background: rgba(200,160,53,0.1); color: #c8a035; border: 1px solid rgba(200,160,53,0.2); }
+    .prereq-note { font-size: 11px; color: #94a3b8; background: rgba(148,163,184,0.08); border: 1px solid rgba(148,163,184,0.15); border-radius: 6px; padding: 7px 10px; line-height: 1.5; }
+    .filter-bar-light { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 14px 0; position: sticky; top: 64px; z-index: 10; }
+    .why-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 28px 24px; text-align: center; }
+    .why-icon { width: 56px; height: 56px; border-radius: 50%; background: rgba(7,88,146,0.12); border: 1px solid rgba(7,88,146,0.2); display: flex; align-items: center; justify-content: center; font-size: 26px; margin: 0 auto 16px; }
+    .sodak-tag { display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 100px; font-size: 10px; font-weight: 700; background: rgba(200,160,53,0.12); color: #c8a035; border: 1px solid rgba(200,160,53,0.25); text-transform: uppercase; letter-spacing: 0.04em; }
+    /* Push Apply button row to bottom so all cards align uniformly */
+    .internship-card > div:last-child { margin-top: auto; }
+    /* Grid stretches cards to equal row height */
+    .grid.grid-2 { align-items: stretch; }
+  </style>
+</head>
+<body>
+<div id="site-nav"></div>
+
+<!-- HERO -->
+<section class="s-darker" style="padding:80px 0 72px">
+  <div class="container">
+    <p class="section-eyebrow">Internships</p>
+    <h1 class="t-hero c-white" style="max-width:760px;margin-top:10px">
+      Internship<br>Opportunities
+    </h1>
+    <p class="t-lg" style="color:#94a3b8;max-width:600px;margin-top:20px;line-height:1.75">
+      Curated internships at product companies, startups, and SoDak itself — for students who've completed a training program and are ready to work on real projects.
+    </p>
+    <div class="flex gap-12 items-center" style="margin-top:32px;flex-wrap:wrap">
+      <span class="badge badge-green">12 Active Openings</span>
+      <span class="badge badge-blue">8 Partner Companies</span>
+      <span class="badge badge-dark">Last updated: Jan 2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- FILTER BAR -->
+<div class="filter-bar-light">
+  <div class="container">
+    <div class="flex items-center gap-10" style="flex-wrap:wrap">
+      <select class="filter-select">
+        <option>All Domains</option>
+        <option>Cloud &amp; AWS</option>
+        <option>Full Stack</option>
+        <option>AI / ML</option>
+        <option>DevOps</option>
+        <option>Cybersecurity</option>
+        <option>Data Analytics</option>
+      </select>
+      <select class="filter-select">
+        <option>Any Duration</option>
+        <option>3 Months</option>
+        <option>4 Months</option>
+        <option>6 Months</option>
+      </select>
+      <select class="filter-select">
+        <option>Any Stipend</option>
+        <option>₹5,000–10,000</option>
+        <option>₹10,000–15,000</option>
+        <option>₹15,000+</option>
+      </select>
+      <select class="filter-select">
+        <option>Any Mode</option>
+        <option>Remote</option>
+        <option>Hybrid</option>
+        <option>On-site</option>
+      </select>
+      <span class="filter-count t-label c-muted" style="margin-left:auto">8 openings</span>
+    </div>
+  </div>
+</div>
+
+<!-- INTERNSHIP LISTINGS -->
+<section class="s-light">
+  <div class="container">
+    <div class="grid grid-2" style="gap:20px;padding-top:8px">
+
+      <!-- 1 -->
+      <div class="internship-card">
+        <div class="flex items-center gap-20">
+          <div class="company-logo" style="background:rgba(59,130,246,0.1);color:#3b82f6">TC</div>
+          <div>
+            <p class="t-card c-heading" style="margin-bottom:2px">Cloud Infrastructure Intern</p>
+            <p class="t-sm c-body">TechCorp Chennai</p>
+          </div>
+        </div>
+        <div class="flex gap-8 items-center" style="flex-wrap:wrap">
+          <span class="badge badge-dark">3 Months</span>
+          <span class="badge badge-amber">Hybrid</span>
+          <span class="stipend-tag">₹10,000/mo</span>
+        </div>
+        <div class="flex gap-6" style="flex-wrap:wrap">
+          <span class="badge badge-blue">AWS</span>
+          <span class="badge badge-blue">Linux</span>
+          <span class="badge badge-blue">Python</span>
+        </div>
+        <p class="prereq-note">⚡ Prerequisites: Completed SoDak Cloud track OR equivalent AWS fundamentals.</p>
+        <div class="flex items-center justify-between" style="flex-wrap:wrap;gap:10px">
+          <span class="t-label c-muted">📍 Chennai · In-office 3 days/wk</span>
+          <a href="#apply" class="btn-dm">Apply Now →</a>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="internship-card">
+        <div class="flex items-center gap-20">
+          <div class="company-logo" style="background:rgba(234,179,8,0.1);color:#ca8a04">SX</div>
+          <div>
+            <p class="t-card c-heading" style="margin-bottom:2px">Full Stack Developer Intern</p>
+            <p class="t-sm c-body">Startup XYZ</p>
+          </div>
+        </div>
+        <div class="flex gap-8 items-center" style="flex-wrap:wrap">
+          <span class="badge badge-dark">6 Months</span>
+          <span class="badge badge-green">Remote</span>
+          <span class="stipend-tag">₹8,000/mo</span>
+        </div>
+        <div class="flex gap-6" style="flex-wrap:wrap">
+          <span class="badge badge-blue">React</span>
+          <span class="badge badge-blue">Node.js</span>
+          <span class="badge badge-blue">MongoDB</span>
+        </div>
+        <p class="prereq-note">⚡ Prerequisites: Completed SoDak Full Stack track OR personal project portfolio.</p>
+        <div class="flex items-center justify-between" style="flex-wrap:wrap;gap:10px">
+          <span class="t-label c-muted">🌐 Fully remote</span>
+          <a href="#apply" class="btn-dm">Apply Now →</a>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="internship-card">
+        <div class="flex items-center gap-20">
+          <div class="company-logo" style="background:rgba(139,92,246,0.1);color:#7c3aed">DL</div>
+          <div>
+            <p class="t-card c-heading" style="margin-bottom:2px">AI/ML Research Intern</p>
+            <p class="t-sm c-body">DataLabs</p>
+          </div>
+        </div>
+        <div class="flex gap-8 items-center" style="flex-wrap:wrap">
+          <span class="badge badge-dark">3 Months</span>
+          <span class="badge badge-red">On-site</span>
+          <span class="stipend-tag">₹15,000/mo</span>
+        </div>
+        <div class="flex gap-6" style="flex-wrap:wrap">
+          <span class="badge badge-blue">Python</span>
+          <span class="badge badge-blue">TensorFlow</span>
+          <span class="badge badge-blue">Research</span>
+        </div>
+        <p class="prereq-note">⚡ Prerequisites: Completed SoDak AI track + demonstrated ML project.</p>
+        <div class="flex items-center justify-between" style="flex-wrap:wrap;gap:10px">
+          <span class="t-label c-muted">📍 Chennai or Bangalore</span>
+          <a href="#apply" class="btn-dm">Apply Now →</a>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="internship-card">
+        <div class="flex items-center gap-20">
+          <div class="company-logo" style="background:rgba(34,197,94,0.1);color:#22c55e">CB</div>
+          <div>
+            <p class="t-card c-heading" style="margin-bottom:2px">DevOps Intern</p>
+            <p class="t-sm c-body">CloudBuilders</p>
+          </div>
+        </div>
+        <div class="flex gap-8 items-center" style="flex-wrap:wrap">
+          <span class="badge badge-dark">4 Months</span>
+          <span class="badge badge-green">Remote</span>
+          <span class="stipend-tag">₹12,000/mo</span>
+        </div>
+        <div class="flex gap-6" style="flex-wrap:wrap">
+          <span class="badge badge-blue">Docker</span>
+          <span class="badge badge-blue">Kubernetes</span>
+          <span class="badge badge-blue">CI/CD</span>
+        </div>
+        <p class="prereq-note">⚡ Prerequisites: Completed SoDak DevOps track OR equivalent container experience.</p>
+        <div class="flex items-center justify-between" style="flex-wrap:wrap;gap:10px">
+          <span class="t-label c-muted">🌐 Fully remote · IST working hours</span>
+          <a href="#apply" class="btn-dm">Apply Now →</a>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="internship-card">
+        <div class="flex items-center gap-20">
+          <div class="company-logo" style="background:rgba(239,68,68,0.1);color:#ef4444">SN</div>
+          <div>
+            <p class="t-card c-heading" style="margin-bottom:2px">Cybersecurity Intern</p>
+            <p class="t-sm c-body">SecureNet</p>
+          </div>
+        </div>
+        <div class="flex gap-8 items-center" style="flex-wrap:wrap">
+          <span class="badge badge-dark">3 Months</span>
+          <span class="badge badge-amber">Hybrid</span>
+          <span class="stipend-tag">₹10,000/mo</span>
+        </div>
+        <div class="flex gap-6" style="flex-wrap:wrap">
+          <span class="badge badge-blue">VAPT</span>
+          <span class="badge badge-blue">Kali Linux</span>
+          <span class="badge badge-blue">Networking</span>
+        </div>
+        <p class="prereq-note">⚡ Prerequisites: Completed SoDak Cybersecurity track + CTF participation.</p>
+        <div class="flex items-center justify-between" style="flex-wrap:wrap;gap:10px">
+          <span class="t-label c-muted">📍 Chennai · 2 days on-site/wk</span>
+          <a href="#apply" class="btn-dm">Apply Now →</a>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="internship-card">
+        <div class="flex items-center gap-20">
+          <div class="company-logo" style="background:rgba(200,160,53,0.1);color:#c8a035">FC</div>
+          <div>
+            <p class="t-card c-heading" style="margin-bottom:2px">Data Analyst Intern</p>
+            <p class="t-sm c-body">FinTech Co.</p>
+          </div>
+        </div>
+        <div class="flex gap-8 items-center" style="flex-wrap:wrap">
+          <span class="badge badge-dark">6 Months</span>
+          <span class="badge badge-green">Remote</span>
+          <span class="stipend-tag">₹9,000/mo</span>
+        </div>
+        <div class="flex gap-6" style="flex-wrap:wrap">
+          <span class="badge badge-blue">SQL</span>
+          <span class="badge badge-blue">Python</span>
+          <span class="badge badge-blue">Tableau</span>
+        </div>
+        <p class="prereq-note">⚡ Prerequisites: Completed SoDak Data track OR SQL + Python proficiency.</p>
+        <div class="flex items-center justify-between" style="flex-wrap:wrap;gap:10px">
+          <span class="t-label c-muted">🌐 Fully remote</span>
+          <a href="#apply" class="btn-dm">Apply Now →</a>
+        </div>
+      </div>
+
+      <!-- 7 SoDak -->
+      <div class="internship-card" style="border-color:rgba(200,160,53,0.3);background:linear-gradient(135deg,#fff 0%,rgba(200,160,53,0.03) 100%)">
+        <div class="flex items-center gap-20">
+          <div class="company-logo" style="background:rgba(200,160,53,0.12);color:#c8a035">SD</div>
+          <div>
+            <div class="flex items-center gap-8" style="margin-bottom:4px">
+              <p class="t-card c-heading">Platform Engineering Intern</p>
+              <span class="sodak-tag">SoDak</span>
+            </div>
+            <p class="t-sm c-body">SoDak EduTech</p>
+          </div>
+        </div>
+        <div class="flex gap-8 items-center" style="flex-wrap:wrap">
+          <span class="badge badge-dark">3 Months</span>
+          <span class="badge badge-amber">Hybrid · Chennai</span>
+          <span class="stipend-tag">₹12,000/mo</span>
+        </div>
+        <div class="flex gap-6" style="flex-wrap:wrap">
+          <span class="badge badge-blue">React</span>
+          <span class="badge badge-blue">Node.js</span>
+          <span class="badge badge-blue">PostgreSQL</span>
+        </div>
+        <p class="prereq-note">⚡ Prerequisites: Completed SoDak Full Stack track. Work directly on our LMS and assessment engine.</p>
+        <div class="flex items-center justify-between" style="flex-wrap:wrap;gap:10px">
+          <span class="t-label c-muted">📍 Velachery, Chennai · 3 days/wk</span>
+          <a href="#apply" class="btn-dm">Apply Now →</a>
+        </div>
+      </div>
+
+      <!-- 8 SoDak -->
+      <div class="internship-card" style="border-color:rgba(200,160,53,0.3);background:linear-gradient(135deg,#fff 0%,rgba(200,160,53,0.03) 100%)">
+        <div class="flex items-center gap-20">
+          <div class="company-logo" style="background:rgba(200,160,53,0.12);color:#c8a035">SD</div>
+          <div>
+            <div class="flex items-center gap-8" style="margin-bottom:4px">
+              <p class="t-card c-heading">Content &amp; Curriculum Intern</p>
+              <span class="sodak-tag">SoDak</span>
+            </div>
+            <p class="t-sm c-body">SoDak EduTech</p>
+          </div>
+        </div>
+        <div class="flex gap-8 items-center" style="flex-wrap:wrap">
+          <span class="badge badge-dark">3 Months</span>
+          <span class="badge badge-amber">Hybrid · Chennai</span>
+          <span class="stipend-tag">₹8,000/mo</span>
+        </div>
+        <div class="flex gap-6" style="flex-wrap:wrap">
+          <span class="badge badge-gold">EdTech</span>
+          <span class="badge badge-gold">Writing</span>
+          <span class="badge badge-gold">Curriculum Design</span>
+        </div>
+        <p class="prereq-note">⚡ Prerequisites: Strong technical writing skills. Engineering background preferred. Help build course modules.</p>
+        <div class="flex items-center justify-between" style="flex-wrap:wrap;gap:10px">
+          <span class="t-label c-muted">📍 Velachery, Chennai · 3 days/wk</span>
+          <a href="#apply" class="btn-dm">Apply Now →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATION FORM -->
+<section class="s-dark" id="apply">
+  <div class="container container-sm">
+    <div class="section-header text-center">
+      <p class="section-eyebrow">Apply</p>
+      <h2 class="t-h2 c-white">Apply for an Internship</h2>
+      <p style="max-width:480px;margin:10px auto 0">Applications are reviewed within 3 business days. You'll receive an email confirmation and we'll reach out if your profile matches.</p>
+    </div>
+    <div class="card card-dark" style="padding:32px">
+      <div class="form-dark">
+        <div class="form-row" style="margin-bottom:16px">
+          <div class="form-group">
+            <label class="form-label">Full Name *</label>
+            <input class="form-input" type="text" placeholder="Your full name" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address *</label>
+            <input class="form-input" type="email" placeholder="you@college.edu" />
+          </div>
+        </div>
+        <div class="form-row" style="margin-bottom:16px">
+          <div class="form-group">
+            <label class="form-label">College / University *</label>
+            <input class="form-input" type="text" placeholder="Your institution name" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Year of Study *</label>
+            <select class="form-select" style="background:#1a2342;border-color:rgba(255,255,255,0.12);color:#e2e8f0">
+              <option value="">Select year…</option>
+              <option>1st Year</option>
+              <option>2nd Year</option>
+              <option>3rd Year</option>
+              <option>4th Year</option>
+              <option>Final Year (5-yr)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row" style="margin-bottom:16px">
+          <div class="form-group">
+            <label class="form-label">Role Applied For *</label>
+            <select class="form-select" style="background:#1a2342;border-color:rgba(255,255,255,0.12);color:#e2e8f0">
+              <option value="">Select a role…</option>
+              <option>Cloud Infrastructure Intern — TechCorp Chennai</option>
+              <option>Full Stack Developer Intern — Startup XYZ</option>
+              <option>AI/ML Research Intern — DataLabs</option>
+              <option>DevOps Intern — CloudBuilders</option>
+              <option>Cybersecurity Intern — SecureNet</option>
+              <option>Data Analyst Intern — FinTech Co.</option>
+              <option>Platform Engineering Intern — SoDak EduTech</option>
+              <option>Content &amp; Curriculum Intern — SoDak EduTech</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Mode Preference</label>
+            <select class="form-select" style="background:#1a2342;border-color:rgba(255,255,255,0.12);color:#e2e8f0">
+              <option value="">No preference</option>
+              <option>Remote only</option>
+              <option>Hybrid</option>
+              <option>On-site preferred</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group" style="margin-bottom:16px">
+          <label class="form-label">Resume / Portfolio Link *</label>
+          <input class="form-input" type="url" placeholder="https://drive.google.com/… or github.com/…" />
+          <span class="form-hint">Google Drive, GitHub, Notion, or a personal site — anything publicly accessible.</span>
+        </div>
+        <div class="form-group" style="margin-bottom:24px">
+          <label class="form-label">Cover Note</label>
+          <textarea class="form-input form-textarea" rows="4" placeholder="Tell us why you're a great fit for this role — 3–5 sentences is plenty." style="min-height:96px"></textarea>
+          <span class="form-hint">Optional but strongly recommended — a good cover note doubles your callback rate.</span>
+        </div>
+        <button class="btn btn-gold btn-full" style="font-size:15px;padding:14px 0">Submit Application →</button>
+        <p class="t-label text-center" style="color:#64748b;margin-top:12px">
+          Applications are reviewed within 3 business days. You'll receive an email confirmation immediately after submitting.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY INTERN WITH SODAK PARTNERS -->
+<section class="s-darker">
+  <div class="container">
+    <div class="section-header text-center">
+      <p class="section-eyebrow">Why SoDak Internships</p>
+      <h2 class="t-h2 c-white">More than just a gig</h2>
+      <p style="max-width:480px;margin:10px auto 0">Our partner companies hire interns for real work — not documentation or test data entry.</p>
+    </div>
+    <div class="grid grid-3" style="gap:20px;margin-top:8px">
+      <div class="why-card">
+        <div class="why-icon">🛠</div>
+        <p class="t-card c-white" style="margin-bottom:10px">Real Projects</p>
+        <p class="t-sm c-muted" style="line-height:1.7">Every internship involves shipping something real — features on production systems, live dashboards, or deployed infrastructure. No busywork.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🧭</div>
+        <p class="t-card c-white" style="margin-bottom:10px">Mentorship Included</p>
+        <p class="t-sm c-muted" style="line-height:1.7">Each intern is paired with a senior engineer mentor at the partner company. SoDak also checks in bi-weekly to make sure the internship is going well.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📋</div>
+        <p class="t-card c-white" style="margin-bottom:10px">Placement Support</p>
+        <p class="t-sm c-muted" style="line-height:1.7">Strong intern performers get direct referrals into full-time roles. SoDak maintains active relationships with hiring managers at all partner companies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<div id="site-float"></div>
+<script src="layout.js"></script>
+</body>
+</html>

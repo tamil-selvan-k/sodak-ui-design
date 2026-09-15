@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>College Enquiries — Admin · SoDak EduTech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin-fonts.css">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../nav.css">
+  <style>
+    body { background: var(--slate-50); }
+    .admin-wrap { display: flex; min-height: 100vh; }
+    .sidebar { width: 220px; flex-shrink: 0; background: var(--navy-950); padding: 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; display: flex; flex-direction: column; }
+    .sidebar-logo { padding: 0 20px; height: 56px; display: flex; align-items: center; gap: 6px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .sidebar-logo span { font-size: 16px; font-weight: 800; color: var(--gold-500); }
+    .sidebar-section { padding: 20px 20px 6px; font-size: 10px; font-weight: 700; color: var(--navy-600); text-transform: uppercase; letter-spacing: 0.08em; }
+    .sidebar-item { display: flex; align-items: center; gap: 10px; padding: 0 20px; height: 40px; font-size: 13px; color: var(--slate-400); cursor: pointer; transition: background 0.15s, color 0.15s; border-left: 3px solid transparent; text-decoration: none; }
+    .sidebar-item:hover { background: rgba(255,255,255,0.04); color: var(--slate-200); }
+    .sidebar-item.active { background: rgba(200,160,53,0.1); color: var(--gold-500); border-left-color: var(--gold-500); font-weight: 600; }
+    .sidebar-user { margin-top: auto; padding: 12px 16px; background: rgba(255,255,255,0.04); border-top: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; gap: 10px; }
+    .main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+    .topbar { height: 56px; background: #fff; border-bottom: 1px solid var(--slate-200); padding: 0 28px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; position: sticky; top: 0; z-index: 10; }
+    .content { padding: 28px; flex: 1; overflow-y: auto; }
+    .stat-card { background: #fff; border: 1px solid var(--slate-200); border-radius: 10px; padding: 20px 24px; }
+    .stat-num { font-size: 28px; font-weight: 800; color: var(--slate-800); line-height: 1; margin: 6px 0 3px; }
+    .stat-lbl { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--slate-400); }
+    .t-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--slate-200); background: #fff; }
+    .admin-table { width: 100%; border-collapse: collapse; }
+    .admin-table th { background: var(--slate-50); padding: 10px 14px; text-align: left; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--slate-500); border-bottom: 1px solid var(--slate-200); white-space: nowrap; }
+    .admin-table td { padding: 11px 14px; font-size: 13px; color: var(--slate-700); border-bottom: 1px solid var(--slate-100); vertical-align: middle; }
+    .admin-table tr:last-child td { border-bottom: none; }
+    .admin-table tr:hover td { background: var(--slate-50); }
+    .mail-note { font-size: 11px; color: var(--slate-400); margin-top: 4px; }
+    .detail-modal { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.5); align-items: center; justify-content: center; }
+    .detail-modal.open { display: flex; }
+    .modal-box { background: #fff; border-radius: 12px; padding: 32px; width: 560px; max-width: 95vw; max-height: 85vh; overflow-y: auto; }
+    .modal-box h3 { font-size: 18px; font-weight: 700; color: var(--slate-800); margin-bottom: 20px; }
+    .detail-row { display: flex; gap: 12px; margin-bottom: 12px; }
+    .detail-key { font-size: 12px; font-weight: 600; color: var(--slate-400); text-transform: uppercase; letter-spacing: 0.06em; width: 130px; flex-shrink: 0; padding-top: 2px; }
+    .detail-val { font-size: 13px; color: var(--slate-700); flex: 1; line-height: 1.6; }
+  </style>
+</head>
+<body>
+
+<div class="admin-wrap">
+  <aside class="sidebar">
+    <div class="sidebar-logo"><span>SoDak</span> <span style="font-weight:400;color:var(--slate-400)">Admin</span></div>
+    <nav>
+      <div class="sidebar-section">Main</div>
+      <a href="dashboard.html" class="sidebar-item">&#9632;&nbsp; Dashboard</a>
+      <a href="enquiries.html" class="sidebar-item active">✉&nbsp; Enquiries</a>
+      <a href="leads.html" class="sidebar-item">&#9632;&nbsp; Leads</a>
+      <div class="sidebar-section">Content</div>
+      <a href="trainers.html" class="sidebar-item">&#9632;&nbsp; Trainers</a>
+      <a href="mentors.html" class="sidebar-item">&#9632;&nbsp; Mentors</a>
+      <a href="courses.html" class="sidebar-item">&#9632;&nbsp; Courses</a>
+      <a href="media.html" class="sidebar-item">&#9632;&nbsp; Media / RBAC</a>
+    </nav>
+    <div class="sidebar-user">
+      <div class="avatar avatar-xs">A</div>
+      <div>
+        <p style="font-size:12px;font-weight:600;color:#e2e8f0">Admin</p>
+        <p style="font-size:11px;color:var(--slate-600)">admin@sodak.in</p>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <h1 style="font-size:17px;font-weight:700;color:var(--slate-800)">College Enquiries</h1>
+      <div class="flex items-center gap-16">
+        <span style="font-size:12px;color:var(--slate-400)">Auto-mail on submit: <strong style="color:var(--green)">Active</strong></span>
+        <a href="../index.html" style="padding:6px 12px;font-size:12px;font-weight:600;background:var(--slate-100);color:var(--slate-600);border:1px solid var(--slate-200);border-radius:6px;">← View Site</a>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <!-- Stats row -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px">
+        <div class="stat-card">
+          <div class="stat-lbl">Total Enquiries</div>
+          <div class="stat-num">38</div>
+          <div style="font-size:11px;color:var(--green);font-weight:600;margin-top:4px">+5 this week</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-lbl">New (Unread)</div>
+          <div class="stat-num" style="color:var(--dm-accent,#075892)">12</div>
+          <div style="font-size:11px;color:var(--slate-400);margin-top:4px">Awaiting review</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-lbl">In Review</div>
+          <div class="stat-num" style="color:var(--amber)">8</div>
+          <div style="font-size:11px;color:var(--slate-400);margin-top:4px">Follow-up needed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-lbl">Converted</div>
+          <div class="stat-num" style="color:var(--green)">14</div>
+          <div style="font-size:11px;color:var(--slate-400);margin-top:4px">Became programs</div>
+        </div>
+      </div>
+
+      <!-- Filter + Search bar -->
+      <div class="flex items-center gap-12" style="margin-bottom:16px;flex-wrap:wrap">
+        <input class="form-input" type="search" placeholder="Search by college, name, email…" style="flex:1;min-width:220px;max-width:360px">
+        <select class="form-select" style="min-width:140px">
+          <option>All Statuses</option>
+          <option>New</option>
+          <option>In Review</option>
+          <option>Contacted</option>
+          <option>Closed</option>
+        </select>
+        <select class="form-select" style="min-width:140px">
+          <option>All Domains</option>
+          <option>Cloud & AWS</option>
+          <option>AI & ML</option>
+          <option>DevOps</option>
+          <option>Cybersecurity</option>
+          <option>Full Stack</option>
+          <option>Data & Analytics</option>
+        </select>
+        <button class="btn btn-dm btn-sm" style="margin-left:auto">Export CSV</button>
+      </div>
+
+      <!-- Enquiries table -->
+      <div class="t-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th><input type="checkbox"></th>
+              <th>#</th>
+              <th>College</th>
+              <th>Contact Person</th>
+              <th>Role</th>
+              <th>Email / Phone</th>
+              <th>Domain Interest</th>
+              <th>Batch Size</th>
+              <th>Status</th>
+              <th>Submitted</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td style="color:var(--slate-400);font-size:12px">#038</td>
+              <td><strong>SRM Institute of Science & Technology</strong><div class="mail-note">Kattankulathur Campus</div></td>
+              <td>Dr. Ramesh Kumar</td>
+              <td style="color:var(--slate-500)">Training & Placement Officer</td>
+              <td><a href="mailto:tpo@srmist.edu.in" style="color:var(--dm-accent,#075892)">tpo@srmist.edu.in</a><div class="mail-note">+91 98400 12345</div></td>
+              <td><span class="badge badge-blue" style="font-size:10px">AI &amp; ML</span> <span class="badge badge-dark" style="font-size:10px">Cloud</span></td>
+              <td>240</td>
+              <td><span class="status-new">New</span></td>
+              <td style="color:var(--slate-400);font-size:12px">15 Jan 2026</td>
+              <td><button class="btn btn-sm btn-ghost" onclick="openDetail()">View</button></td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td style="color:var(--slate-400);font-size:12px">#037</td>
+              <td><strong>Easwari Engineering College</strong></td>
+              <td>Prof. Anitha S</td>
+              <td style="color:var(--slate-500)">HoD — CSE</td>
+              <td><a href="mailto:hod.cse@easwari.ac.in" style="color:var(--dm-accent,#075892)">hod.cse@easwari.ac.in</a><div class="mail-note">+91 97890 54321</div></td>
+              <td><span class="badge badge-red" style="font-size:10px">Cybersecurity</span></td>
+              <td>80</td>
+              <td><span class="status-review">In Review</span></td>
+              <td style="color:var(--slate-400);font-size:12px">12 Jan 2026</td>
+              <td><button class="btn btn-sm btn-ghost" onclick="openDetail()">View</button></td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td style="color:var(--slate-400);font-size:12px">#036</td>
+              <td><strong>Meenakshi Sundararajan Engg College</strong></td>
+              <td>Mr. Selvakumar P</td>
+              <td style="color:var(--slate-500)">Placement Coordinator</td>
+              <td><a href="mailto:placement@msec.ac.in" style="color:var(--dm-accent,#075892)">placement@msec.ac.in</a></td>
+              <td><span class="badge badge-green" style="font-size:10px">DevOps</span> <span class="badge badge-blue" style="font-size:10px">Cloud</span></td>
+              <td>120</td>
+              <td><span class="status-contacted">Contacted</span></td>
+              <td style="color:var(--slate-400);font-size:12px">10 Jan 2026</td>
+              <td><button class="btn btn-sm btn-ghost" onclick="openDetail()">View</button></td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td style="color:var(--slate-400);font-size:12px">#035</td>
+              <td><strong>Rajalakshmi Engineering College</strong></td>
+              <td>Dr. Priya Mohan</td>
+              <td style="color:var(--slate-500)">Dean — Academics</td>
+              <td><a href="mailto:dean@rajalakshmi.edu.in" style="color:var(--dm-accent,#075892)">dean@rajalakshmi.edu.in</a><div class="mail-note">+91 96000 88888</div></td>
+              <td><span class="badge badge-gold" style="font-size:10px">Placement Prep</span></td>
+              <td>360</td>
+              <td><span class="status-contacted">Contacted</span></td>
+              <td style="color:var(--slate-400);font-size:12px">8 Jan 2026</td>
+              <td><button class="btn btn-sm btn-ghost" onclick="openDetail()">View</button></td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td style="color:var(--slate-400);font-size:12px">#034</td>
+              <td><strong>Saveetha Engineering College</strong></td>
+              <td>Mr. Karthik V</td>
+              <td style="color:var(--slate-500)">TPO</td>
+              <td><a href="mailto:tpo@saveetha.ac.in" style="color:var(--dm-accent,#075892)">tpo@saveetha.ac.in</a></td>
+              <td><span class="badge badge-blue" style="font-size:10px">Full Stack</span></td>
+              <td>60</td>
+              <td><span class="status-closed">Closed</span></td>
+              <td style="color:var(--slate-400);font-size:12px">3 Jan 2026</td>
+              <td><button class="btn btn-sm btn-ghost" onclick="openDetail()">View</button></td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td style="color:var(--slate-400);font-size:12px">#033</td>
+              <td><strong>St. Joseph's College of Engineering</strong></td>
+              <td>Dr. Ramesh K</td>
+              <td style="color:var(--slate-500)">TPO</td>
+              <td><a href="mailto:tpo@stjosephs.ac.in" style="color:var(--dm-accent,#075892)">tpo@stjosephs.ac.in</a></td>
+              <td><span class="badge badge-gold" style="font-size:10px">All Stacks</span></td>
+              <td>200</td>
+              <td><span class="status-new">New</span></td>
+              <td style="color:var(--slate-400);font-size:12px">2 Jan 2026</td>
+              <td><button class="btn btn-sm btn-ghost" onclick="openDetail()">View</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div class="flex items-center justify-between" style="margin-top:16px">
+        <span style="font-size:12px;color:var(--slate-400)">Showing 6 of 38 enquiries</span>
+        <div class="flex gap-8">
+          <button class="btn btn-sm btn-ghost" disabled>← Prev</button>
+          <button class="btn btn-sm btn-ghost">Next →</button>
+        </div>
+      </div>
+
+      <!-- Mail config note -->
+      <div class="card card-light" style="margin-top:28px;padding:20px;display:flex;gap:16px;align-items:flex-start">
+        <span style="font-size:24px">✉</span>
+        <div>
+          <p style="font-size:14px;font-weight:600;color:var(--slate-800)">Auto-mail is active</p>
+          <p class="t-sm c-body" style="margin-top:4px">When a college submits the enquiry form, an acknowledgement email is sent to the contact immediately. The admin team receives a copy at admin@sodakedutech.in. Configure SMTP in <code style="font-size:12px;background:var(--slate-100);padding:1px 5px;border-radius:4px">.env → MAIL_HOST</code>.</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<!-- Detail modal -->
+<div class="detail-modal" id="detail-modal">
+  <div class="modal-box">
+    <div class="flex justify-between items-center" style="margin-bottom:20px">
+      <h3>Enquiry #038 — SRM Institute</h3>
+      <button onclick="closeDetail()" style="font-size:20px;color:var(--slate-400);background:none;border:none;cursor:pointer">✕</button>
+    </div>
+    <div class="detail-row"><span class="detail-key">College</span><span class="detail-val">SRM Institute of Science &amp; Technology, Kattankulathur</span></div>
+    <div class="detail-row"><span class="detail-key">Contact</span><span class="detail-val">Dr. Ramesh Kumar — Training &amp; Placement Officer</span></div>
+    <div class="detail-row"><span class="detail-key">Email</span><span class="detail-val"><a href="mailto:tpo@srmist.edu.in" style="color:var(--dm-accent,#075892)">tpo@srmist.edu.in</a></span></div>
+    <div class="detail-row"><span class="detail-key">Phone</span><span class="detail-val">+91 98400 12345</span></div>
+    <div class="detail-row"><span class="detail-key">Domains</span><span class="detail-val">AI &amp; ML, Cloud &amp; AWS</span></div>
+    <div class="detail-row"><span class="detail-key">Batch Size</span><span class="detail-val">240 students</span></div>
+    <div class="detail-row"><span class="detail-key">Timeline</span><span class="detail-val">March–April 2026 (6-week slot)</span></div>
+    <div class="detail-row"><span class="detail-key">Message</span><span class="detail-val">"We're looking for an intensive AI &amp; ML track for our final year batch before placements. Labs are important — our students need hands-on experience, not just theory."</span></div>
+    <div class="detail-row"><span class="detail-key">Submitted</span><span class="detail-val">15 Jan 2026, 3:42 PM</span></div>
+    <div class="detail-row"><span class="detail-key">Status</span><span class="detail-val"><span class="status-new">New</span></span></div>
+    <hr style="border-color:var(--slate-200);margin:20px 0">
+    <div class="flex gap-8 flex-wrap">
+      <button class="btn btn-dm btn-sm">Mark Contacted</button>
+      <button class="btn btn-ghost btn-sm">Mark In Review</button>
+      <button class="btn btn-ghost btn-sm">Close Enquiry</button>
+      <button class="btn btn-ghost btn-sm" style="margin-left:auto">Send Follow-up Email</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openDetail() { document.getElementById('detail-modal').classList.add('open'); }
+  function closeDetail() { document.getElementById('detail-modal').classList.remove('open'); }
+  document.getElementById('detail-modal').addEventListener('click', function(e) { if (e.target === this) closeDetail(); });
+</script>
+</body>
+</html>

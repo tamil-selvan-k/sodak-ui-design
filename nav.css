@@ -12,7 +12,7 @@
 .nav-logo { display: flex; align-items: center; gap: 2px; flex-shrink: 0; }
 .nav-logo-text { font-size: 18px; font-weight: 800; color: var(--gold-500); letter-spacing: -0.02em; }
 .nav-logo-sub  { font-size: 18px; font-weight: 400; color: var(--slate-400); }
-.nav-links { display: flex; align-items: center; gap: 0; list-style: none; flex: 1; }
+.nav-links { display: flex; align-items: center; gap: 0; list-style: none; flex: 1; justify-content: flex-end; }
 .nav-item { position: relative; }
 .nav-link {
   display: block; padding: 0 12px; height: 64px; line-height: 64px;
@@ -43,7 +43,7 @@
 
 /* ── Footer ── */
 .site-footer { padding: 64px 0 0; border-top: 1px solid rgba(255,255,255,0.05); }
-.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 48px; padding-bottom: 48px; }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr 1.2fr; gap: 36px; padding-bottom: 48px; }
 .footer-col-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--slate-600); margin-bottom: 16px; }
 .footer-links { display: flex; flex-direction: column; gap: 8px; }
 .footer-links a { font-size: 13px; color: var(--slate-400); transition: color 0.15s; }
@@ -65,21 +65,27 @@
 .footer-bottom a:hover { color: var(--slate-200); }
 
 /* ── Responsive nav ── */
-@media (max-width: 1100px) {
-  .nav-inner { padding: 0 24px; gap: 16px; }
-  .nav-link { padding: 0 9px; font-size: 12px; }
+@media (max-width: 1200px) {
+  .nav-inner { padding: 0 24px; gap: 8px; }
+  .nav-link { padding: 0 10px; font-size: 13px; }
 }
-@media (max-width: 900px) {
+@media (max-width: 1050px) {
+  .nav-link { padding: 0 8px; font-size: 12px; }
+  .nav-inner { gap: 6px; }
+}
+@media (max-width: 960px) {
   .nav-hamburger { display: block; margin-left: auto; }
   .nav-inner { position: relative; }
   .nav-links {
     display: none; position: absolute; top: 64px; left: 0; right: 0;
-    flex-direction: column; background: var(--navy-900);
+    flex-direction: column; justify-content: flex-start; align-items: flex-start;
+    background: var(--navy-900);
     border-bottom: 1px solid rgba(255,255,255,0.05);
     padding: 8px 0; gap: 0;
   }
   .nav-links.open { display: flex; }
-  .nav-link { height: 44px; line-height: 44px; padding: 0 24px; }
+  .nav-item { width: 100%; }
+  .nav-link { height: 44px; line-height: 44px; padding: 0 24px; text-align: left; width: 100%; }
   .nav-dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; background: transparent; border: none; padding-left: 20px; }
   .nav-item.has-dropdown .nav-dropdown { display: none; }
   .nav-item.has-dropdown.dropdown-open .nav-dropdown { display: block; }
@@ -90,4 +96,48 @@
 }
 @media (max-width: 480px) {
   .footer-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Theme overhaul: White nav ── */
+.site-nav {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 50 !important;
+  background: #ffffff !important;
+  border-bottom: 1px solid rgba(7,88,146,0.1) !important;
+  box-shadow: 0 1px 20px rgba(7,88,146,0.07) !important;
+}
+.nav-link { color: #334155 !important; }
+.nav-link:hover { color: #0d1726 !important; }
+.nav-link.active {
+  color: #075892 !important;
+  font-weight: 600 !important;
+}
+.nav-logo-text { color: #075892 !important; }
+.nav-logo-sub  { color: #475569 !important; }
+.nav-arrow { color: #94a3b8 !important; opacity: 1 !important; }
+
+.nav-dropdown {
+  background: #ffffff !important;
+  border: 1px solid rgba(7,88,146,0.12) !important;
+  box-shadow: 0 8px 36px rgba(7,88,146,0.12) !important;
+}
+.nav-dropdown-item { color: #334155 !important; }
+.nav-dropdown-item:hover {
+  background: rgba(7,88,146,0.06) !important;
+  color: #075892 !important;
+}
+
+.nav-hamburger { color: #334155 !important; }
+
+@media (max-width: 960px) {
+  .nav-links {
+    background: #ffffff !important;
+    border-bottom: 1px solid rgba(7,88,146,0.1) !important;
+    box-shadow: 0 8px 24px rgba(7,88,146,0.08) !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+  }
+  .nav-item { width: 100% !important; }
+  .nav-link { color: #334155 !important; text-align: left !important; width: 100% !important; }
 }

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mentor Profile — SoDak EduTech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="nav.css">
+  <style>
+    body { font-family: 'Open Sans', sans-serif; }
+    h1,h2,h3,.t-hero,.t-h1,.t-h2,.t-h3,.t-card { font-family: 'Instrument Sans', sans-serif; }
+    .c-dm-accent { color: #075892; }
+    .btn-dm { background: #075892; color: #fff; border-radius: 6px; padding: 10px 20px; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; transition: opacity 0.15s; cursor: pointer; border: none; text-decoration: none; width: 100%; justify-content: center; }
+    .btn-dm:hover { opacity: 0.88; }
+    .expertise-tag { display: inline-flex; align-items: center; padding: 4px 12px; border-radius: 100px; font-size: 12px; font-weight: 600; background: rgba(7,88,146,0.08); color: #075892; border: 1px solid rgba(7,88,146,0.15); }
+    .stat-box { text-align: center; padding: 16px 24px; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; background: rgba(255,255,255,0.04); }
+    .stat-box .num { font-size: 24px; font-weight: 700; color: #c8a035; font-family: 'Instrument Sans', sans-serif; }
+    .stat-box .lbl { font-size: 11px; color: #64748b; margin-top: 3px; }
+    .session-type { display: flex; gap: 16px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid #e2e8f0; }
+    .session-type:last-child { border-bottom: none; }
+    .session-icon { width: 40px; height: 40px; border-radius: 8px; background: rgba(7,88,146,0.08); border: 1px solid rgba(7,88,146,0.15); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+    .slot-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin-top: 12px; }
+    .slot-day { text-align: center; font-size: 11px; font-weight: 600; color: #64748b; margin-bottom: 4px; }
+    .slot-chip { padding: 5px 0; border-radius: 6px; font-size: 11px; text-align: center; background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.2); color: #22c55e; cursor: pointer; }
+    .slot-chip.taken { background: rgba(148,163,184,0.06); border-color: rgba(148,163,184,0.15); color: #94a3b8; cursor: default; }
+    .social-link { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); font-size: 14px; font-weight: 700; color: #94a3b8; text-decoration: none; transition: background 0.15s, color 0.15s; }
+    .social-link:hover { background: rgba(200,160,53,0.1); color: #c8a035; }
+    .back-link { font-size: 13px; color: #94a3b8; transition: color 0.15s; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 32px; }
+    .back-link:hover { color: #c8a035; }
+    .booking-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 24px; position: sticky; top: 84px; }
+    .rate-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #f1f5f9; }
+    .rate-row:last-of-type { border-bottom: none; }
+    .btn-book-disabled { width: 100%; padding: 13px 0; border-radius: 8px; background: #c8a035; color: #0a0f1e; font-size: 15px; font-weight: 700; border: none; cursor: not-allowed; opacity: 0.55; font-family: inherit; }
+    .availability-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 20px; margin-top: 16px; }
+  </style>
+</head>
+<body>
+<div id="site-nav"></div>
+
+<!-- HERO PROFILE -->
+<section class="s-darker" style="padding:60px 0 56px">
+  <div class="container">
+    <a href="mentors.html" class="back-link">← All Mentors</a>
+    <div class="two-col" style="gap:56px;align-items:flex-start">
+      <!-- Left: Avatar + identity -->
+      <div style="display:flex;flex-direction:column;align-items:flex-start;gap:16px">
+        <div class="avatar" style="width:120px;height:120px;font-size:34px;background:#1a2342;color:#c8a035">KS</div>
+        <div>
+          <h1 class="t-h1 c-white" style="margin-bottom:6px">Karthik Subramaniam</h1>
+          <p class="t-lg" style="color:#94a3b8">Principal Engineer · PayPal</p>
+        </div>
+        <div class="flex gap-8" style="flex-wrap:wrap">
+          <span class="badge badge-green">Available for sessions</span>
+          <span class="badge badge-blue">Payment Coming Soon</span>
+        </div>
+        <div class="flex gap-8" style="flex-wrap:wrap;margin-top:4px">
+          <span class="expertise-tag">System Design</span>
+          <span class="expertise-tag">AWS</span>
+          <span class="expertise-tag">Scalability</span>
+          <span class="expertise-tag">Distributed Systems</span>
+        </div>
+        <div class="flex gap-8" style="margin-top:8px">
+          <a href="#" class="social-link">in</a>
+          <a href="#" class="social-link">tw</a>
+          <a href="#" class="social-link">gh</a>
+        </div>
+      </div>
+
+      <!-- Right: Bio + stats -->
+      <div style="flex:1">
+        <p class="t-lg" style="color:#cbd5e1;line-height:1.8;margin-bottom:24px">
+          Principal Engineer at PayPal with 11 years of industry experience across fintech, e-commerce, and distributed systems. I've built and scaled payment infrastructure handling millions of transactions daily, led interview panels for 200+ engineering candidates, and mentored 40+ engineers from campus-to-product transitions.
+        </p>
+        <p class="t-lg" style="color:#94a3b8;line-height:1.8;margin-bottom:32px">
+          I mentor primarily around system design interview prep, AWS architecture, and navigating the first two years at a product company. My sessions are direct and practical — no fluff, real feedback.
+        </p>
+        <div class="flex gap-12" style="flex-wrap:wrap">
+          <div class="stat-box">
+            <div class="num">0</div>
+            <div class="lbl">Total Sessions</div>
+          </div>
+          <div class="stat-box">
+            <div class="num">—</div>
+            <div class="lbl">Rating (Coming Soon)</div>
+          </div>
+          <div class="stat-box">
+            <div class="num">&lt;24h</div>
+            <div class="lbl">Response Time</div>
+          </div>
+          <div class="stat-box">
+            <div class="num">11 yrs</div>
+            <div class="lbl">Experience</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TABS -->
+<div style="background:#fff;border-bottom:1px solid #e2e8f0;position:sticky;top:64px;z-index:10">
+  <div class="container">
+    <div class="tabs" style="border-bottom:none">
+      <a href="#about"     class="tab active">About</a>
+      <a href="#expertise" class="tab">Expertise</a>
+      <a href="#sessions"  class="tab">Sessions</a>
+      <a href="#reviews"   class="tab">Reviews</a>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<section class="s-light" style="padding:48px 0 80px" id="about">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:32px;align-items:flex-start">
+
+      <!-- Left column -->
+      <div style="display:flex;flex-direction:column;gap:24px">
+
+        <!-- About -->
+        <div class="card card-light" style="padding:28px">
+          <p class="t-card c-heading" style="margin-bottom:16px">About</p>
+          <p class="t-body c-body" style="line-height:1.8;margin-bottom:14px">
+            I joined PayPal in 2015 as a senior engineer and have grown into a principal role leading the Payments Platform team. My day-to-day involves designing systems that need to be fault-tolerant, compliant with financial regulations, and performant at scale.
+          </p>
+          <p class="t-body c-body" style="line-height:1.8;margin-bottom:14px">
+            I graduated from Anna University (CSE, 2014) and started my career at a mid-sized product company before moving to PayPal. I know exactly what the gap looks like between campus knowledge and what product companies actually need — and I built my mentoring around bridging it.
+          </p>
+          <p class="t-body c-body" style="line-height:1.8">
+            My mentoring focus: system design (real interviews at FAANG + Zoho-tier companies), AWS architecture decisions, and career trajectory for engineers 0–5 years in.
+          </p>
+        </div>
+
+        <!-- Expertise Areas -->
+        <div class="card card-light" style="padding:28px" id="expertise">
+          <p class="t-card c-heading" style="margin-bottom:16px">Expertise Areas</p>
+          <div class="flex gap-8" style="flex-wrap:wrap">
+            <span class="expertise-tag">System Design</span>
+            <span class="expertise-tag">AWS Architecture</span>
+            <span class="expertise-tag">Distributed Systems</span>
+            <span class="expertise-tag">DSA Interview Prep</span>
+            <span class="expertise-tag">Scalability Patterns</span>
+            <span class="expertise-tag">Microservices</span>
+            <span class="expertise-tag">Database Design</span>
+            <span class="expertise-tag">API Design</span>
+            <span class="expertise-tag">Tech Leadership</span>
+            <span class="expertise-tag">Career Navigation</span>
+          </div>
+        </div>
+
+        <!-- Session Types -->
+        <div class="card card-light" style="padding:28px" id="sessions">
+          <p class="t-card c-heading" style="margin-bottom:8px">Session Types</p>
+          <div class="session-type">
+            <div class="session-icon">⚡</div>
+            <div>
+              <p class="t-sm c-heading" style="font-weight:700;margin-bottom:4px">30-min Intro Call</p>
+              <p class="t-sm c-body" style="line-height:1.65">Career direction Q&amp;A, quick roadmap advice, or figuring out what kind of session you need next. Great for first-time bookings.</p>
+              <p class="t-label c-muted" style="margin-top:6px">₹1,500 · Video call</p>
+            </div>
+          </div>
+          <div class="session-type">
+            <div class="session-icon">🔍</div>
+            <div>
+              <p class="t-sm c-heading" style="font-weight:700;margin-bottom:4px">60-min Deep Dive</p>
+              <p class="t-sm c-body" style="line-height:1.65">Technical review of a system design problem, live code walkthrough, project feedback, or mock technical screening round.</p>
+              <p class="t-label c-muted" style="margin-top:6px">₹2,500 · Video call + screen share</p>
+            </div>
+          </div>
+          <div class="session-type">
+            <div class="session-icon">🎯</div>
+            <div>
+              <p class="t-sm c-heading" style="font-weight:700;margin-bottom:4px">90-min Mock Interview</p>
+              <p class="t-sm c-body" style="line-height:1.65">Full technical interview simulation — system design + coding + behavioural rounds — followed by detailed debrief and written feedback.</p>
+              <p class="t-label c-muted" style="margin-top:6px">₹3,500 · Video call + written debrief</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reviews -->
+        <div class="card card-light" style="padding:28px" id="reviews">
+          <p class="t-card c-heading" style="margin-bottom:16px">Reviews</p>
+          <div style="text-align:center;padding:32px 0">
+            <p style="font-size:40px;margin-bottom:12px">⭐</p>
+            <p class="t-sm c-muted">No reviews yet — be the first to book a session.</p>
+            <p class="t-label c-muted" style="margin-top:6px">Reviews will appear here once sessions are live.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right column: booking + availability -->
+      <div>
+        <!-- Booking Card -->
+        <div class="booking-card">
+          <p class="t-card c-heading" style="margin-bottom:4px">Book a 1-on-1 Session</p>
+          <p class="t-label c-muted" style="margin-bottom:20px">Payment integration in progress</p>
+
+          <div class="rate-row">
+            <span class="t-sm c-body">30 min · Intro Call</span>
+            <span class="t-sm c-heading" style="font-weight:700">₹1,500</span>
+          </div>
+          <div class="rate-row">
+            <span class="t-sm c-body">60 min · Deep Dive</span>
+            <span class="t-sm c-heading" style="font-weight:700">₹2,500</span>
+          </div>
+          <div class="rate-row" style="margin-bottom:20px">
+            <span class="t-sm c-body">90 min · Mock Interview</span>
+            <span class="t-sm c-heading" style="font-weight:700">₹3,500</span>
+          </div>
+
+          <button class="btn-book-disabled" disabled>Book a Session — Coming Soon</button>
+
+          <div style="background:#f8fafc;border-radius:8px;padding:14px;margin-top:16px">
+            <p class="t-label c-muted" style="margin-bottom:10px">Get notified when booking goes live:</p>
+            <div class="form-group">
+              <input class="form-input" type="email" placeholder="your@email.com" />
+              <button class="btn-dm" style="margin-top:8px">Notify Me</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Availability Card -->
+        <div class="availability-card">
+          <p class="t-sm c-heading" style="font-weight:700;margin-bottom:4px">Typical Availability</p>
+          <p class="t-label c-muted" style="margin-bottom:14px">Weekday evenings IST · Subject to change</p>
+          <div>
+            <div class="slot-grid">
+              <div class="slot-day">Mon</div>
+              <div class="slot-day">Tue</div>
+              <div class="slot-day">Wed</div>
+              <div class="slot-day">Thu</div>
+              <div class="slot-day">Fri</div>
+              <div class="slot-chip">7 PM</div>
+              <div class="slot-chip taken">—</div>
+              <div class="slot-chip">7 PM</div>
+              <div class="slot-chip taken">—</div>
+              <div class="slot-chip">6 PM</div>
+              <div class="slot-chip">8 PM</div>
+              <div class="slot-chip">8 PM</div>
+              <div class="slot-chip taken">—</div>
+              <div class="slot-chip">8 PM</div>
+              <div class="slot-chip taken">—</div>
+            </div>
+          </div>
+          <p class="t-label" style="color:#94a3b8;margin-top:12px">🔒 Booking opens with payment launch</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<div id="site-float"></div>
+<script src="layout.js"></script>
+</body>
+</html>

@@ -1,3 +1,50 @@
+/* ── Local fonts (no internet needed) ── */
+@font-face {
+  font-family: 'Open Sans';
+  src: url('decisionminds-design/fonts/OpenSans-Regular.ttf') format('truetype');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Open Sans';
+  src: url('decisionminds-design/fonts/OpenSans-Medium.ttf') format('truetype');
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Open Sans';
+  src: url('decisionminds-design/fonts/OpenSans-SemiBold.ttf') format('truetype');
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Open Sans';
+  src: url('decisionminds-design/fonts/OpenSans-Bold.ttf') format('truetype');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Open Sans';
+  src: url('decisionminds-design/fonts/OpenSans-ExtraBold.ttf') format('truetype');
+  font-weight: 800; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Instrument Sans';
+  src: url('decisionminds-design/fonts/InstrumentSans-Regular.ttf') format('truetype');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Instrument Sans';
+  src: url('decisionminds-design/fonts/InstrumentSans-Medium.ttf') format('truetype');
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Instrument Sans';
+  src: url('decisionminds-design/fonts/InstrumentSans-SemiBold.ttf') format('truetype');
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Instrument Sans';
+  src: url('decisionminds-design/fonts/InstrumentSans-Bold.ttf') format('truetype');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
 /* ─────────────────────────────────────────────
    SoDak EduTech — Wireframe Design System
    ───────────────────────────────────────────── */
@@ -13,7 +60,7 @@
   --gold-400: #d4b04a;
   --gold-300: #e0c470;
   --gold-600: #a88520;
-  --slate-50:  #f8fafc;
+  --slate-50:  #ffffff;
   --slate-100: #f1f5f9;
   --slate-200: #e2e8f0;
   --slate-400: #94a3b8;
@@ -35,7 +82,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
   background: var(--navy-950);
   color: var(--slate-800);
   line-height: 1.6;
@@ -49,11 +96,12 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 input, textarea, select { font-family: inherit; }
 
 /* ── Typography ── */
-.t-hero    { font-size: clamp(36px, 4.5vw, 56px); font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; }
-.t-page    { font-size: clamp(28px, 3vw, 40px);   font-weight: 800; line-height: 1.1; }
-.t-h1      { font-size: clamp(26px, 3.2vw, 44px); font-weight: 800; line-height: 1.1; letter-spacing: -0.015em; }
-.t-h2      { font-size: clamp(22px, 2.5vw, 30px); font-weight: 700; line-height: 1.2; }
-.t-h3      { font-size: 20px; font-weight: 700; line-height: 1.3; }
+.t-hero    { font-size: clamp(36px, 4.5vw, 56px); font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; font-family: 'Instrument Sans', 'Open Sans', system-ui, sans-serif; }
+.t-page    { font-size: clamp(28px, 3vw, 40px);   font-weight: 800; line-height: 1.1;  font-family: 'Instrument Sans', 'Open Sans', system-ui, sans-serif; }
+.t-h1      { font-size: clamp(26px, 3.2vw, 44px); font-weight: 800; line-height: 1.1; letter-spacing: -0.015em; font-family: 'Instrument Sans', 'Open Sans', system-ui, sans-serif; }
+.t-h2      { font-size: clamp(22px, 2.5vw, 30px); font-weight: 700; line-height: 1.2; font-family: 'Instrument Sans', 'Open Sans', system-ui, sans-serif; }
+.t-h3      { font-size: 20px; font-weight: 700; line-height: 1.3; font-family: 'Instrument Sans', 'Open Sans', system-ui, sans-serif; }
+.t-card    { font-family: 'Instrument Sans', 'Open Sans', system-ui, sans-serif; }
 .t-card    { font-size: 16px; font-weight: 600; line-height: 1.4; }
 .t-lg      { font-size: 16px; line-height: 1.7; }
 .t-body    { font-size: 14px; line-height: 1.65; }
@@ -72,8 +120,8 @@ input, textarea, select { font-family: inherit; }
 .c-gold    { color: var(--gold-500); }
 .c-gold-lt { color: var(--gold-300); }
 .c-muted   { color: var(--slate-400); }
-.c-body    { color: var(--slate-600); }
-.c-heading { color: var(--slate-800); }
+.c-body    { color: #475569; }
+.c-heading { color: #0d1726; }
 .c-dark    { color: var(--navy-950); }
 .c-green   { color: var(--green); }
 .c-amber   { color: var(--amber); }
@@ -84,7 +132,7 @@ input, textarea, select { font-family: inherit; }
 .s-dark    { background: var(--navy-900); }
 .s-darker  { background: var(--navy-950); }
 .s-navy800 { background: var(--navy-800); }
-.s-light   { background: var(--slate-50); }
+.s-light   { background: #ffffff; }
 .s-white   { background: #fff; }
 .s-gold    { background: var(--gold-500); }
 section { padding: 64px 0; }
@@ -187,8 +235,7 @@ section.s-lg { padding: 88px 0; }
 }
 .card-dark  { background: var(--navy-800); border: 1px solid rgba(200,160,53,0.1); }
 .card-dark:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
-.card-light { background: #fff; border: 1px solid var(--slate-200); }
-.card-light:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
+.card-light { background: #fff; border: 1px solid var(--dm-border, #e5e7eb); }
 .card-ghost { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: var(--radius-lg); padding: 24px; }
 .card-gold  { background: rgba(200,160,53,0.06); border: 1px solid rgba(200,160,53,0.2); border-radius: var(--radius-lg); padding: 24px; }
 
@@ -244,7 +291,7 @@ section.s-lg { padding: 88px 0; }
 
 /* ── Filter Bar ── */
 .filter-bar {
-  background: #fff; border-bottom: 1px solid var(--slate-200);
+  background: #ffffff; border-bottom: 1px solid var(--dm-border, #e5e7eb);
   padding: 14px 0; position: sticky; top: 64px; z-index: 10;
 }
 .filter-bar .container { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
@@ -292,7 +339,6 @@ section.s-lg { padding: 88px 0; }
 /* ── Marquee ── */
 .marquee-wrap { overflow: hidden; }
 .marquee-track { display: flex; gap: 16px; animation: marquee 28s linear infinite; width: max-content; }
-.marquee-track:hover { animation-play-state: paused; }
 @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 .marquee-item {
   padding: 10px 22px; border-radius: var(--radius-sm);
@@ -422,16 +468,17 @@ tbody tr:hover { background: var(--slate-50); }
 /* ── Section header ── */
 .section-header { margin-bottom: 40px; }
 .section-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-500); margin-bottom: 8px; }
+.s-light .section-eyebrow, .s-white .section-eyebrow, .s-dm-white .section-eyebrow { color: #075892; }
 .section-header p { font-size: 16px; color: var(--slate-400); max-width: 620px; margin-top: 10px; line-height: 1.7; }
-.section-header p.dark { color: var(--slate-600); }
+.section-header p.dark { color: #475569; }
 
 /* ── Blog / Content ── */
-.prose h2 { font-size: 22px; font-weight: 700; color: var(--slate-800); margin: 32px 0 12px; }
-.prose h3 { font-size: 18px; font-weight: 700; color: var(--slate-800); margin: 24px 0 8px; }
-.prose p  { color: var(--slate-600); line-height: 1.8; margin-bottom: 16px; }
-.prose ul  { list-style: disc; padding-left: 22px; color: var(--slate-600); }
+.prose h2 { font-size: 22px; font-weight: 700; color: #0d1726; margin: 32px 0 12px; font-family: 'Instrument Sans', 'Open Sans', sans-serif; }
+.prose h3 { font-size: 18px; font-weight: 700; color: #0d1726; margin: 24px 0 8px; font-family: 'Instrument Sans', 'Open Sans', sans-serif; }
+.prose p  { color: #475569; line-height: 1.8; margin-bottom: 16px; }
+.prose ul  { list-style: disc; padding-left: 22px; color: #475569; }
 .prose ul li { margin-bottom: 6px; line-height: 1.7; }
-.prose code { font-family: 'Space Mono', monospace; background: var(--slate-100); padding: 2px 6px; border-radius: 4px; font-size: 13px; color: var(--slate-800); }
+.prose code { font-family: 'Space Mono', monospace; background: #f3f4f6; padding: 2px 6px; border-radius: 4px; font-size: 13px; color: #0d1726; }
 .prose blockquote { border-left: 3px solid var(--gold-500); padding-left: 20px; color: var(--slate-500); font-style: italic; margin: 24px 0; }
 
 /* ── Stack accent colors ── */
@@ -468,3 +515,468 @@ tbody tr:hover { background: var(--slate-50); }
   /* Contact sidebar — no top padding when stacked */
   .contact-sidebar { padding-top: 0 !important; }
 }
+
+/* ─────────────────────────────────────────────
+   DecisionMinds Design Integration + New Features
+   ───────────────────────────────────────────── */
+
+h1, h2, h3, h4, .t-hero, .t-page, .t-h1, .t-h2, .t-h3 {
+  font-family: 'Instrument Sans', 'Open Sans', system-ui, sans-serif;
+}
+
+:root {
+  --dm-accent:     #075892;
+  --dm-accent-lt:  #29b6f6;
+  --dm-white:      #ffffff;
+  --dm-surface:    #f3f4f6;
+  --dm-text:       #0d1726;
+  --dm-muted:      #9ca3af;
+  --dm-border:     #e5e7eb;
+  --dm-foreground: #1d3658;
+}
+
+.c-dm-accent  { color: var(--dm-accent); }
+.c-dm-lt      { color: var(--dm-accent-lt); }
+.c-dm-muted   { color: var(--dm-muted); }
+.c-foreground { color: var(--dm-foreground); }
+
+.btn-dm       { background: var(--dm-accent); color: #fff; border: none; }
+.btn-dm:hover { background: #0669ab; }
+.btn-dm-ghost { background: transparent; color: var(--dm-accent); border: 1px solid rgba(7,88,146,0.35); }
+.btn-dm-ghost:hover { background: rgba(7,88,146,0.08); }
+
+.s-dm-white   { background: var(--dm-white); }
+.s-dm-surface { background: var(--dm-surface); }
+
+.glass-card {
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.13);
+  border-radius: var(--radius-lg);
+}
+.glass-card-light {
+  background: rgba(255,255,255,0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.45);
+  border-radius: var(--radius-lg);
+}
+.glass-card-blue {
+  background: rgba(7,88,146,0.13);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(7,88,146,0.28);
+  border-radius: var(--radius-lg);
+}
+
+.hero-stat-glass {
+  padding: 24px 32px;
+  text-align: center;
+  flex: 1;
+  min-width: 160px;
+}
+.hero-stat-glass .stat-value { color: #fff; }
+.hero-stat-glass .stat-label { color: rgba(255,255,255,0.58); font-size: 13px; }
+
+.course-card {
+  background: #fff;
+  border: 1px solid var(--dm-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform 0.18s, box-shadow 0.18s;
+}
+.course-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.1); }
+.course-card-thumb { height: 120px; display: flex; align-items: center; justify-content: center; font-size: 44px; }
+.course-card-body { padding: 20px; }
+.course-card-dark { background: var(--navy-800); border: 1px solid rgba(7,88,146,0.18); }
+.course-card-dark:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+
+.domain-tag {
+  display: inline-flex; align-items: center; padding: 3px 9px; border-radius: 100px;
+  font-size: 11px; font-weight: 600; background: rgba(7,88,146,0.1); color: var(--dm-accent);
+  border: 1px solid rgba(7,88,146,0.2);
+}
+.institution-tag {
+  display: inline-flex; align-items: center; padding: 3px 9px; border-radius: 100px;
+  font-size: 11px; font-weight: 600; background: rgba(34,197,94,0.1); color: var(--green);
+  border: 1px solid rgba(34,197,94,0.2);
+}
+.locked-tag {
+  display: inline-flex; align-items: center; padding: 3px 9px; border-radius: 100px;
+  font-size: 11px; font-weight: 600; background: rgba(239,68,68,0.1); color: var(--red);
+  border: 1px solid rgba(239,68,68,0.2);
+}
+
+.mentor-card {
+  background: #fff; border: 1px solid var(--dm-border); border-radius: var(--radius-lg);
+  padding: 28px; text-align: center; transition: transform 0.18s, box-shadow 0.18s;
+}
+.mentor-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+.mentor-card-dark { background: var(--navy-800); border: 1px solid rgba(255,255,255,0.07); }
+.expertise-tag {
+  display: inline-flex; padding: 3px 9px; border-radius: 100px;
+  font-size: 11px; font-weight: 600; background: rgba(200,160,53,0.1); color: var(--gold-500);
+  border: 1px solid rgba(200,160,53,0.2); margin: 2px;
+}
+
+.webinar-card {
+  background: #fff; border: 1px solid var(--dm-border);
+  border-radius: var(--radius-lg); padding: 24px; transition: transform 0.18s;
+}
+.webinar-card:hover { transform: translateY(-2px); }
+.webinar-upcoming {
+  display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 100px;
+  font-size: 11px; font-weight: 600; background: rgba(7,88,146,0.1); color: var(--dm-accent);
+  border: 1px solid rgba(7,88,146,0.2);
+}
+.webinar-past {
+  display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 100px;
+  font-size: 11px; font-weight: 600; background: rgba(148,163,184,0.1); color: var(--slate-400);
+  border: 1px solid rgba(148,163,184,0.15);
+}
+.webinar-live {
+  display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 100px;
+  font-size: 11px; font-weight: 700; background: rgba(239,68,68,0.1); color: var(--red);
+  border: 1px solid rgba(239,68,68,0.25);
+}
+
+.internship-card {
+  background: #fff; border: 1px solid var(--dm-border);
+  border-radius: var(--radius-lg); padding: 24px; transition: transform 0.18s;
+}
+.internship-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+.internship-card-dark { background: var(--navy-800); border: 1px solid rgba(255,255,255,0.07); }
+
+.apply-panel { background: var(--dm-surface); border: 1px solid var(--dm-border); border-radius: var(--radius-xl); padding: 36px; }
+.apply-panel-dark { background: var(--navy-800); border: 1px solid rgba(255,255,255,0.07); }
+
+.review-card {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.09);
+  border-radius: var(--radius-lg); padding: 20px 24px; min-width: 300px; max-width: 320px; flex-shrink: 0;
+}
+.review-card-light { background: #fff; border: 1px solid var(--dm-border); }
+.review-stars { color: var(--gold-500); font-size: 14px; letter-spacing: 1px; }
+.marquee-track-reverse {
+  display: flex; gap: 16px; animation: marquee-reverse 34s linear infinite; width: max-content;
+}
+@keyframes marquee-reverse { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+
+.rbac-admin       { background: rgba(200,160,53,0.1);  color: var(--gold-500);  border: 1px solid rgba(200,160,53,0.25); }
+.rbac-trainer     { background: rgba(7,88,146,0.1);    color: var(--dm-accent); border: 1px solid rgba(7,88,146,0.25); }
+.rbac-student     { background: rgba(34,197,94,0.1);   color: var(--green);     border: 1px solid rgba(34,197,94,0.25); }
+.rbac-institution { background: rgba(124,58,237,0.1);  color: var(--plum);      border: 1px solid rgba(124,58,237,0.25); }
+
+.status-new       { background: rgba(7,88,146,0.1);    color: var(--dm-accent); border: 1px solid rgba(7,88,146,0.25);    border-radius: 100px; padding: 3px 9px; font-size: 11px; font-weight: 600; }
+.status-review    { background: rgba(234,179,8,0.1);   color: var(--amber);     border: 1px solid rgba(234,179,8,0.25);   border-radius: 100px; padding: 3px 9px; font-size: 11px; font-weight: 600; }
+.status-contacted { background: rgba(34,197,94,0.1);   color: var(--green);     border: 1px solid rgba(34,197,94,0.25);   border-radius: 100px; padding: 3px 9px; font-size: 11px; font-weight: 600; }
+.status-closed    { background: rgba(148,163,184,0.1); color: var(--slate-400); border: 1px solid rgba(148,163,184,0.15); border-radius: 100px; padding: 3px 9px; font-size: 11px; font-weight: 600; }
+
+/* ── DecisionMinds Blue Theme — Light Section Overrides ────────────────────
+   On .s-light / .s-white sections, gold interactive elements become DM blue.
+   Dark sections keep gold. This makes the dual-tone theme visible.
+   ─────────────────────────────────────────────────────────────────────── */
+
+/* Links that use c-gold → DM blue on white sections */
+.s-light .c-gold,
+.s-white .c-gold { color: var(--dm-accent); }
+.s-light .c-gold:hover,
+.s-white .c-gold:hover { color: #0669ab; }
+
+/* Ghost buttons → DM blue border/text on white sections */
+.s-light .btn-ghost,
+.s-white .btn-ghost {
+  color: var(--dm-accent);
+  border-color: rgba(7,88,146,0.4);
+}
+.s-light .btn-ghost:hover,
+.s-white .btn-ghost:hover {
+  background: rgba(7,88,146,0.07);
+  border-color: var(--dm-accent);
+}
+
+/* Badges on light sections → DM blue pill style */
+.s-light .badge-light,
+.s-white .badge-light {
+  background: rgba(7,88,146,0.08);
+  color: var(--dm-accent);
+  border: 1px solid rgba(7,88,146,0.2);
+}
+
+/* Card hover on light → DM blue glow instead of generic shadow */
+.card-light:hover {
+  box-shadow: 0 4px 20px rgba(7,88,146,0.12);
+  border-color: rgba(7,88,146,0.25);
+  transform: translateY(-2px);
+}
+
+/* Section eyebrow on light → DM blue with left-bar accent */
+.s-light .section-eyebrow,
+.s-white .section-eyebrow {
+  color: var(--dm-accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.s-light .section-eyebrow::before,
+.s-white .section-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  background: var(--dm-accent);
+  flex-shrink: 0;
+  border-radius: 2px;
+}
+
+/* Form focus rings → DM blue globally */
+.form-input:focus {
+  border-color: var(--dm-accent);
+  box-shadow: 0 0 0 3px rgba(7,88,146,0.12);
+}
+.form-select:focus {
+  border-color: var(--dm-accent);
+  box-shadow: 0 0 0 3px rgba(7,88,146,0.12);
+}
+.filter-select:focus {
+  border-color: var(--dm-accent);
+  box-shadow: 0 0 0 3px rgba(7,88,146,0.12);
+}
+.filter-search:focus {
+  border-color: var(--dm-accent);
+  box-shadow: 0 0 0 3px rgba(7,88,146,0.12);
+}
+
+/* Accordion icon → DM blue on light sections */
+.s-light .accordion-icon,
+.s-white .accordion-icon { color: var(--dm-accent); }
+
+/* Timeline dot → DM blue on light sections */
+.s-light .timeline-dot,
+.s-white .timeline-dot { background: var(--dm-accent); }
+
+/* "View all" / CTA links on s-light section bottom row */
+.s-light a.c-gold,
+.s-white a.c-gold { color: var(--dm-accent); }
+
+@media (max-width: 768px) {
+  .glass-card { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(255,255,255,0.1); }
+  .hero-stat-glass { min-width: 140px; padding: 16px 20px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   FULL THEME OVERHAUL — White Dominant + Blue Glassmorphism
+   Overrides the old dark-navy/gold theme. All overrides are at bottom
+   so they win the cascade. Body: white. Nav: white. Cards: blue glass.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── 1. Page foundation ── */
+body {
+  background: #f0f7ff;
+  color: #0d1726;
+}
+
+/* ── 2. Section backgrounds ── */
+.s-light, .s-white { background: #ffffff; }
+.s-dark    { background: linear-gradient(160deg, #0a1628 0%, #0c2040 100%); }
+.s-darker  { background: linear-gradient(160deg, #060d1f 0%, #091830 100%); }
+.s-navy800 { background: #0d1f38; }
+
+/* ── 3. Blue Glassmorphism — Card Light ── */
+.card-light {
+  background: rgba(255,255,255,0.72) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(7,88,146,0.18) !important;
+  box-shadow: 0 4px 28px rgba(7,88,146,0.10), inset 0 1px 0 rgba(255,255,255,0.95) !important;
+  border-radius: 16px !important;
+}
+.card-light:hover {
+  background: rgba(255,255,255,0.92) !important;
+  border-color: rgba(7,88,146,0.32) !important;
+  box-shadow: 0 12px 44px rgba(7,88,146,0.16), inset 0 1px 0 rgba(255,255,255,1) !important;
+  transform: translateY(-4px) !important;
+}
+
+/* ── 4. Blue Glassmorphism — Card Dark (on dark sections) ── */
+.card-dark {
+  background: rgba(6,13,31,0.65) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(7,88,146,0.22) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3), inset 0 1px 0 rgba(7,88,146,0.18) !important;
+}
+.card-dark:hover {
+  border-color: rgba(7,88,146,0.45) !important;
+  box-shadow: 0 8px 36px rgba(7,88,146,0.22), inset 0 1px 0 rgba(7,88,146,0.25) !important;
+  transform: translateY(-3px) !important;
+}
+
+/* ── 5. Card ghost/gold ── */
+.card-ghost {
+  background: rgba(7,88,146,0.05) !important;
+  border: 1px solid rgba(7,88,146,0.15) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+.card-gold {
+  background: rgba(7,88,146,0.06) !important;
+  border: 1px solid rgba(7,88,146,0.18) !important;
+}
+
+/* ── 6. Buttons: DM Blue primary (replaces gold) ── */
+.btn-gold {
+  background: #075892 !important;
+  color: #fff !important;
+}
+.btn-gold:hover { background: #0669ab !important; }
+
+.btn-ghost {
+  color: #075892 !important;
+  border-color: rgba(7,88,146,0.4) !important;
+  background: transparent !important;
+}
+.btn-ghost:hover {
+  background: rgba(7,88,146,0.07) !important;
+  border-color: #075892 !important;
+}
+
+.btn-outline {
+  background: rgba(255,255,255,0.08) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,0.25) !important;
+}
+.btn-outline:hover { background: rgba(255,255,255,0.15) !important; }
+
+/* ── 7. Section eyebrows — DM blue globally ── */
+.section-eyebrow { color: #075892 !important; }
+.s-dark .section-eyebrow,
+.s-darker .section-eyebrow { color: rgba(147,197,253,0.9) !important; }
+
+/* ── 8. Color utility: c-gold → DM blue; keep gold on dark ── */
+.c-gold { color: #075892 !important; }
+.s-dark .c-gold,
+.s-darker .c-gold { color: var(--gold-500) !important; }
+
+/* ── 9. Badges: DM blue pill ── */
+.badge-gold {
+  background: rgba(7,88,146,0.09) !important;
+  color: #075892 !important;
+  border: 1px solid rgba(7,88,146,0.2) !important;
+}
+.s-dark .badge-gold,
+.s-darker .badge-gold {
+  background: rgba(200,160,53,0.12) !important;
+  color: var(--gold-500) !important;
+  border-color: rgba(200,160,53,0.25) !important;
+}
+.badge-light {
+  background: rgba(7,88,146,0.08) !important;
+  color: #075892 !important;
+  border: 1px solid rgba(7,88,146,0.18) !important;
+}
+
+/* ── 10. Gold CTA section → DM blue background ── */
+.cta-gold { background: #075892 !important; }
+.cta-gold h2 { color: #ffffff !important; }
+.cta-gold p  { color: rgba(255,255,255,0.82) !important; }
+.cta-gold .btn-cta {
+  background: #ffffff !important;
+  color: #075892 !important;
+}
+
+/* ── 11. Hero stat glass cards ── */
+.glass-card {
+  background: rgba(7,88,146,0.12) !important;
+  border-color: rgba(7,88,146,0.28) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+}
+
+/* ── 12. Form focus: DM blue ── */
+.form-input:focus {
+  border-color: #075892 !important;
+  box-shadow: 0 0 0 3px rgba(7,88,146,0.13) !important;
+}
+.form-select:focus {
+  border-color: #075892 !important;
+  box-shadow: 0 0 0 3px rgba(7,88,146,0.13) !important;
+}
+.filter-select:focus {
+  border-color: #075892 !important;
+  box-shadow: 0 0 0 3px rgba(7,88,146,0.13) !important;
+}
+.filter-search:focus {
+  border-color: #075892 !important;
+  box-shadow: 0 0 0 3px rgba(7,88,146,0.13) !important;
+}
+
+/* ── 13. Tabs: DM blue active ── */
+.tab.active {
+  color: #075892 !important;
+  border-bottom-color: #075892 !important;
+}
+.tab:hover { color: #075892 !important; }
+
+/* ── 14. Accordion: DM blue icon ── */
+.accordion-icon { color: #075892 !important; }
+
+/* ── 15. Timeline dot: DM blue ── */
+.timeline-dot { background: #075892 !important; }
+
+/* ── 16. Marquee items: DM blue tint on light sections ── */
+.s-light .marquee-item,
+.s-white .marquee-item {
+  background: rgba(7,88,146,0.06) !important;
+  border-color: rgba(7,88,146,0.14) !important;
+  color: #334155 !important;
+}
+
+/* ── 17. Stat values: DM blue on white sections ── */
+.s-light .stat-value,
+.s-white .stat-value { color: #075892 !important; }
+
+/* ── 18. Page hero background ── */
+.page-hero { background: linear-gradient(160deg, #060d1f 0%, #091830 100%) !important; }
+
+/* ── 19. Filter bar ── */
+.filter-bar {
+  background: #ffffff !important;
+  border-bottom: 1px solid rgba(7,88,146,0.1) !important;
+}
+
+/* ── Mobile: disable blur on low-perf devices ── */
+@media (max-width: 480px) {
+  .card-light, .card-dark, .card-ghost {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  .card-light { background: rgba(255,255,255,0.96) !important; }
+  .card-dark  { background: rgba(6,13,31,0.9) !important; }
+}
+
+/* ── FAQ collapsible cards ── */
+.faq-list { display: flex; flex-direction: column; gap: 12px; margin-top: 32px; }
+.faq-item { padding: 0 !important; overflow: hidden; }
+.faq-header {
+  width: 100%; display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 24px; background: none; border: none; cursor: pointer; text-align: left;
+  gap: 16px;
+}
+.faq-header:hover { background: rgba(7,88,146,0.03); }
+.faq-header-inner { display: flex; align-items: center; gap: 14px; flex: 1; min-width: 0; }
+.faq-badge {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: rgba(7,88,146,0.1); border: 1px solid rgba(7,88,146,0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; color: #075892; flex-shrink: 0;
+}
+.faq-question { font-size: 15px; font-weight: 700; color: #0d1726; line-height: 1.4; }
+.faq-chevron { font-size: 18px; color: #075892; flex-shrink: 0; transition: transform 0.25s ease; line-height: 1; }
+.faq-item.open .faq-chevron { transform: rotate(180deg); }
+.faq-body {
+  display: none;
+  padding: 0 24px 20px 66px;
+  border-top: 1px solid rgba(7,88,146,0.1);
+}
+.faq-item.open .faq-body { display: block; }

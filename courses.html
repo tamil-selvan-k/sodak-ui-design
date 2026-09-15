@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Courses — SoDak EduTech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="nav.css">
+  <style>
+    body { font-family: 'Open Sans', sans-serif; }
+    h1,h2,h3,.t-hero,.t-h1,.t-h2,.t-h3,.t-card { font-family: 'Instrument Sans', sans-serif; }
+    .c-dm-accent { color: #075892; }
+    .btn-dm { background: #075892; color: #fff; border-radius: 6px; padding: 10px 20px; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; transition: opacity 0.15s; cursor: pointer; border: none; text-decoration: none; }
+    .btn-dm:hover { opacity: 0.88; }
+    .domain-tag { display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 100px; font-size: 11px; font-weight: 600; letter-spacing: 0.02em; }
+    .domain-cloud  { background: rgba(59,130,246,0.12); color: #3b82f6; }
+    .domain-devops { background: rgba(34,197,94,0.12); color: #22c55e; }
+    .domain-ai     { background: rgba(139,92,246,0.12); color: #8b5cf6; }
+    .domain-dev    { background: rgba(234,179,8,0.12); color: #ca8a04; }
+    .domain-sec    { background: rgba(239,68,68,0.12); color: #ef4444; }
+    .domain-data   { background: rgba(200,160,53,0.12); color: #c8a035; }
+    .institution-tag { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: 100px; font-size: 11px; font-weight: 600; background: rgba(34,197,94,0.1); color: #22c55e; border: 1px solid rgba(34,197,94,0.25); }
+    .locked-tag { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: 100px; font-size: 11px; font-weight: 600; background: rgba(148,163,184,0.1); color: #94a3b8; border: 1px solid rgba(148,163,184,0.2); }
+    .course-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 12px; transition: transform 0.18s, box-shadow 0.18s; }
+    .course-card:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,0,0,0.08); }
+    .course-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+    .course-stats { display: flex; gap: 12px; font-size: 12px; color: #94a3b8; }
+    .course-bottom { margin-top: auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+    .filter-pill { padding: 6px 16px; border-radius: 100px; font-size: 12px; font-weight: 600; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: #94a3b8; cursor: pointer; transition: all 0.15s; white-space: nowrap; }
+    .filter-pill:hover { background: rgba(200,160,53,0.1); color: #c8a035; border-color: rgba(200,160,53,0.3); }
+    .filter-pill.active { background: rgba(200,160,53,0.12); color: #c8a035; border-color: rgba(200,160,53,0.4); font-weight: 700; }
+    .step-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 28px 24px; flex: 1; }
+    .step-num { width: 36px; height: 36px; border-radius: 50%; background: rgba(200,160,53,0.12); border: 1px solid rgba(200,160,53,0.3); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: #c8a035; margin-bottom: 16px; }
+    .search-input { padding: 10px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.06); color: #fff; font-size: 14px; font-family: inherit; width: 100%; max-width: 360px; }
+    .search-input::placeholder { color: #64748b; }
+    .search-input:focus { outline: none; border-color: rgba(200,160,53,0.4); }
+  </style>
+</head>
+<body>
+<div id="site-nav"></div>
+
+<!-- HERO -->
+<section class="s-darker" style="padding:80px 0 64px">
+  <div class="container">
+    <p class="section-eyebrow">Courses</p>
+    <h1 class="t-hero c-white" style="max-width:720px;margin-top:10px">
+      Domain-Based<br>Courses
+    </h1>
+    <p class="t-lg" style="color:#94a3b8;max-width:580px;margin-top:20px;line-height:1.75">
+      Structured learning paths across six technology domains. Available to students whose institution has licensed the course.
+    </p>
+    <div class="flex items-center gap-16" style="margin-top:32px;flex-wrap:wrap">
+      <input class="search-input" type="text" placeholder="🔍  Search courses…" />
+      <div class="flex gap-8 items-center" style="flex-wrap:wrap">
+        <span class="badge badge-gold">12 Courses</span>
+        <span class="badge badge-dark">6 Domains</span>
+      </div>
+    </div>
+    <!-- Domain Filter Pills -->
+    <div class="flex gap-8" style="margin-top:28px;flex-wrap:wrap">
+      <button class="filter-pill active">All</button>
+      <button class="filter-pill">☁ Cloud &amp; AWS</button>
+      <button class="filter-pill">🤖 AI &amp; ML</button>
+      <button class="filter-pill">⚙ DevOps</button>
+      <button class="filter-pill">💻 Development</button>
+      <button class="filter-pill">🔐 Cybersecurity</button>
+      <button class="filter-pill">📊 Data &amp; Analytics</button>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES GRID -->
+<section class="s-light">
+  <div class="container">
+    <div class="grid grid-3" style="gap:20px">
+
+      <!-- 1. AWS Solutions Architect — licensed -->
+      <div class="course-card">
+        <div class="flex items-center gap-12">
+          <div class="course-icon" style="background:rgba(59,130,246,0.12)">☁</div>
+          <span class="domain-tag domain-cloud">Cloud &amp; AWS</span>
+        </div>
+        <p class="t-card c-heading">AWS Solutions Architect</p>
+        <p class="t-sm c-body" style="line-height:1.65">Design scalable, highly available architectures on AWS — EC2, S3, VPC, IAM, RDS, and beyond.</p>
+        <div class="course-stats">
+          <span>24 modules</span><span>·</span><span>52+ hrs</span><span>·</span><span>3 labs</span>
+        </div>
+        <div class="course-bottom">
+          <span class="institution-tag">✓ Licensed by 4 colleges</span>
+          <a href="#" class="t-sm c-dm-accent" style="font-weight:600">View Course →</a>
+        </div>
+      </div>
+
+      <!-- 2. Docker & Kubernetes — licensed -->
+      <div class="course-card">
+        <div class="flex items-center gap-12">
+          <div class="course-icon" style="background:rgba(34,197,94,0.12)">⚙</div>
+          <span class="domain-tag domain-devops">DevOps</span>
+        </div>
+        <p class="t-card c-heading">Docker &amp; Kubernetes Mastery</p>
+        <p class="t-sm c-body" style="line-height:1.65">From container basics to production-grade Kubernetes clusters — deployments, scaling, secrets, and Helm.</p>
+        <div class="course-stats">
+          <span>20 modules</span><span>·</span><span>44+ hrs</span><span>·</span><span>5 labs</span>
+        </div>
+        <div class="course-bottom">
+          <span class="institution-tag">✓ Licensed by 3 colleges</span>
+          <a href="#" class="t-sm c-dm-accent" style="font-weight:600">View Course →</a>
+        </div>
+      </div>
+
+      <!-- 3. Generative AI — locked -->
+      <div class="course-card">
+        <div class="flex items-center gap-12">
+          <div class="course-icon" style="background:rgba(139,92,246,0.12)">🤖</div>
+          <span class="domain-tag domain-ai">AI &amp; ML</span>
+        </div>
+        <p class="t-card c-heading">Generative AI with LangChain</p>
+        <p class="t-sm c-body" style="line-height:1.65">Build production LLM applications using LangChain, RAG pipelines, vector databases, and OpenAI APIs.</p>
+        <div class="course-stats">
+          <span>18 modules</span><span>·</span><span>40+ hrs</span><span>·</span><span>4 labs</span>
+        </div>
+        <div class="course-bottom">
+          <span class="locked-tag">🔒 Institution license required</span>
+          <a href="contact.html" class="t-sm c-dm-accent" style="font-weight:600">Get Access →</a>
+        </div>
+      </div>
+
+      <!-- 4. React + Node — licensed -->
+      <div class="course-card">
+        <div class="flex items-center gap-12">
+          <div class="course-icon" style="background:rgba(234,179,8,0.12)">💻</div>
+          <span class="domain-tag domain-dev">Development</span>
+        </div>
+        <p class="t-card c-heading">React + Node Full Stack</p>
+        <p class="t-sm c-body" style="line-height:1.65">Build end-to-end web applications with React 18, Node.js, Express, MongoDB, and RESTful APIs.</p>
+        <div class="course-stats">
+          <span>22 modules</span><span>·</span><span>48+ hrs</span><span>·</span><span>3 projects</span>
+        </div>
+        <div class="course-bottom">
+          <span class="institution-tag">✓ Licensed by 5 colleges</span>
+          <a href="#" class="t-sm c-dm-accent" style="font-weight:600">View Course →</a>
+        </div>
+      </div>
+
+      <!-- 5. Ethical Hacking — locked -->
+      <div class="course-card">
+        <div class="flex items-center gap-12">
+          <div class="course-icon" style="background:rgba(239,68,68,0.12)">🔐</div>
+          <span class="domain-tag domain-sec">Cybersecurity</span>
+        </div>
+        <p class="t-card c-heading">Ethical Hacking &amp; VAPT</p>
+        <p class="t-sm c-body" style="line-height:1.65">Hands-on penetration testing, vulnerability assessment, Kali Linux tools, and responsible disclosure.</p>
+        <div class="course-stats">
+          <span>16 modules</span><span>·</span><span>36+ hrs</span><span>·</span><span>CTF labs</span>
+        </div>
+        <div class="course-bottom">
+          <span class="locked-tag">🔒 Institution license required</span>
+          <a href="contact.html" class="t-sm c-dm-accent" style="font-weight:600">Get Access →</a>
+        </div>
+      </div>
+
+      <!-- 6. DSA — licensed -->
+      <div class="course-card">
+        <div class="flex items-center gap-12">
+          <div class="course-icon" style="background:rgba(234,179,8,0.12)">💻</div>
+          <span class="domain-tag domain-dev">Development</span>
+        </div>
+        <p class="t-card c-heading">DSA &amp; Competitive Programming</p>
+        <p class="t-sm c-body" style="line-height:1.65">Arrays to graphs, dynamic programming to system design — everything Amazon and Zoho actually test.</p>
+        <div class="course-stats">
+          <span>30 modules</span><span>·</span><span>60+ hrs</span><span>·</span><span>200+ problems</span>
+        </div>
+        <div class="course-bottom">
+          <span class="institution-tag">✓ Licensed by 6 colleges</span>
+          <a href="#" class="t-sm c-dm-accent" style="font-weight:600">View Course →</a>
+        </div>
+      </div>
+
+      <!-- 7. Azure — locked -->
+      <div class="course-card">
+        <div class="flex items-center gap-12">
+          <div class="course-icon" style="background:rgba(59,130,246,0.12)">☁</div>
+          <span class="domain-tag domain-cloud">Cloud &amp; AWS</span>
+        </div>
+        <p class="t-card c-heading">Azure Cloud Fundamentals</p>
+        <p class="t-sm c-body" style="line-height:1.65">Core Azure services — VMs, storage, networking, Azure DevOps, and AZ-900 exam preparation.</p>
+        <div class="course-stats">
+          <span>14 modules</span><span>·</span><span>30+ hrs</span><span>·</span><span>2 labs</span>
+        </div>
+        <div class="course-bottom">
+          <span class="locked-tag">🔒 Institution license required</span>
+          <a href="contact.html" class="t-sm c-dm-accent" style="font-weight:600">Get Access →</a>
+        </div>
+      </div>
+
+      <!-- 8. Python for Data Science — licensed -->
+      <div class="course-card">
+        <div class="flex items-center gap-12">
+          <div class="course-icon" style="background:rgba(200,160,53,0.12)">📊</div>
+          <span class="domain-tag domain-data">Data &amp; Analytics</span>
+        </div>
+        <p class="t-card c-heading">Python for Data Science</p>
+        <p class="t-sm c-body" style="line-height:1.65">NumPy, Pandas, Matplotlib, Seaborn, and scikit-learn — from data cleaning to predictive modelling.</p>
+        <div class="course-stats">
+          <span>18 modules</span><span>·</span><span>42+ hrs</span><span>·</span><span>2 projects</span>
+        </div>
+        <div class="course-bottom">
+          <span class="institution-tag">✓ Licensed by 3 colleges</span>
+          <a href="#" class="t-sm c-dm-accent" style="font-weight:600">View Course →</a>
+        </div>
+      </div>
+
+      <!-- 9. Prompt Engineering — licensed -->
+      <div class="course-card">
+        <div class="flex items-center gap-12">
+          <div class="course-icon" style="background:rgba(139,92,246,0.12)">🤖</div>
+          <span class="domain-tag domain-ai">AI &amp; ML</span>
+        </div>
+        <p class="t-card c-heading">Prompt Engineering &amp; LLMs</p>
+        <p class="t-sm c-body" style="line-height:1.65">Chain-of-thought, few-shot, system prompts, evaluation, and building reliable AI applications.</p>
+        <div class="course-stats">
+          <span>12 modules</span><span>·</span><span>24+ hrs</span><span>·</span><span>3 projects</span>
+        </div>
+        <div class="course-bottom">
+          <span class="institution-tag">✓ Licensed by 2 colleges</span>
+          <a href="#" class="t-sm c-dm-accent" style="font-weight:600">View Course →</a>
+        </div>
+      </div>
+
+      <!-- 10. CI/CD — locked -->
+      <div class="course-card">
+        <div class="flex items-center gap-12">
+          <div class="course-icon" style="background:rgba(34,197,94,0.12)">⚙</div>
+          <span class="domain-tag domain-devops">DevOps</span>
+        </div>
+        <p class="t-card c-heading">CI/CD with GitHub Actions</p>
+        <p class="t-sm c-body" style="line-height:1.65">Automate build, test, and deploy pipelines using GitHub Actions, ArgoCD, and GitOps principles.</p>
+        <div class="course-stats">
+          <span>10 modules</span><span>·</span><span>20+ hrs</span><span>·</span><span>4 pipelines</span>
+        </div>
+        <div class="course-bottom">
+          <span class="locked-tag">🔒 Institution license required</span>
+          <a href="contact.html" class="t-sm c-dm-accent" style="font-weight:600">Get Access →</a>
+        </div>
+      </div>
+
+      <!-- 11. SQL & Data Analytics — licensed -->
+      <div class="course-card">
+        <div class="flex items-center gap-12">
+          <div class="course-icon" style="background:rgba(200,160,53,0.12)">📊</div>
+          <span class="domain-tag domain-data">Data &amp; Analytics</span>
+        </div>
+        <p class="t-card c-heading">SQL &amp; Data Analytics</p>
+        <p class="t-sm c-body" style="line-height:1.65">From SELECT basics to window functions, query optimisation, dashboarding with Tableau and Power BI.</p>
+        <div class="course-stats">
+          <span>16 modules</span><span>·</span><span>32+ hrs</span><span>·</span><span>50+ queries</span>
+        </div>
+        <div class="course-bottom">
+          <span class="institution-tag">✓ Licensed by 4 colleges</span>
+          <a href="#" class="t-sm c-dm-accent" style="font-weight:600">View Course →</a>
+        </div>
+      </div>
+
+      <!-- 12. Network Security & SOC — locked -->
+      <div class="course-card">
+        <div class="flex items-center gap-12">
+          <div class="course-icon" style="background:rgba(239,68,68,0.12)">🔐</div>
+          <span class="domain-tag domain-sec">Cybersecurity</span>
+        </div>
+        <p class="t-card c-heading">Network Security &amp; SOC</p>
+        <p class="t-sm c-body" style="line-height:1.65">Intrusion detection, SIEM tools, incident response, and live threat-hunting in a simulated SOC environment.</p>
+        <div class="course-stats">
+          <span>14 modules</span><span>·</span><span>30+ hrs</span><span>·</span><span>Live SOC sim</span>
+        </div>
+        <div class="course-bottom">
+          <span class="locked-tag">🔒 Institution license required</span>
+          <a href="contact.html" class="t-sm c-dm-accent" style="font-weight:600">Get Access →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="s-dark">
+  <div class="container">
+    <div class="section-header text-center">
+      <p class="section-eyebrow">How It Works</p>
+      <h2 class="t-h2 c-white">Institution-gated access</h2>
+      <p style="max-width:520px;margin:10px auto 0">Courses are licensed at the institution level — not by individual students. This keeps quality high and cohorts aligned.</p>
+    </div>
+    <div class="flex gap-20" style="margin-top:8px;flex-wrap:wrap">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <p class="t-card c-white" style="margin-bottom:10px">Institution Licenses</p>
+        <p class="t-sm c-muted" style="line-height:1.7">Your college's Training & Placement Office or CSE/IT department licenses a course domain bundle from SoDak. A single license covers the entire eligible batch.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <p class="t-card c-white" style="margin-bottom:10px">Students Get Access</p>
+        <p class="t-sm c-muted" style="line-height:1.7">Once your institution licenses a course, all enrolled students of that institution are automatically granted access — no individual purchases or codes required.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <p class="t-card c-white" style="margin-bottom:10px">Track on the LMS</p>
+        <p class="t-sm c-muted" style="line-height:1.7">Student progress, completion rates, and assessment scores are tracked on the SoDak LMS dashboard — visible to both the student and the institution's coordinator.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="s-darker" style="padding:64px 0">
+  <div class="container flex justify-between items-center gap-48" style="flex-wrap:wrap">
+    <div>
+      <p class="section-eyebrow">For Institutions</p>
+      <h2 class="t-h2 c-white" style="margin-top:8px">Is your college listed?</h2>
+      <p style="color:#94a3b8;margin-top:10px;max-width:480px;line-height:1.7">Talk to your Training &amp; Placement Officer about licensing SoDak courses. We'll walk you through the process in one call.</p>
+    </div>
+    <div class="flex gap-12" style="flex-wrap:wrap">
+      <a href="contact.html" class="btn btn-gold btn-lg">Talk to us →</a>
+      <a href="institutions.html" class="btn btn-outline btn-lg">View partner colleges</a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<div id="site-float"></div>
+<script src="layout.js"></script>
+<script>
+  document.querySelectorAll('.filter-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

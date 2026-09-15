@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mentor Management — Admin · SoDak EduTech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin-fonts.css">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../nav.css">
+  <style>
+    body { background: var(--slate-50); }
+    .admin-wrap { display: flex; min-height: 100vh; }
+    .sidebar { width: 220px; flex-shrink: 0; background: var(--navy-950); position: sticky; top: 0; height: 100vh; overflow-y: auto; display: flex; flex-direction: column; }
+    .sidebar-logo { padding: 0 20px; height: 56px; display: flex; align-items: center; gap: 6px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .sidebar-logo span { font-size: 16px; font-weight: 800; color: var(--gold-500); }
+    .sidebar-section { padding: 20px 20px 6px; font-size: 10px; font-weight: 700; color: var(--navy-600); text-transform: uppercase; letter-spacing: 0.08em; }
+    .sidebar-item { display: flex; align-items: center; gap: 10px; padding: 0 20px; height: 40px; font-size: 13px; color: var(--slate-400); border-left: 3px solid transparent; text-decoration: none; transition: background 0.15s, color 0.15s; }
+    .sidebar-item:hover { background: rgba(255,255,255,0.04); color: var(--slate-200); }
+    .sidebar-item.active { background: rgba(200,160,53,0.1); color: var(--gold-500); border-left-color: var(--gold-500); font-weight: 600; }
+    .sidebar-user { margin-top: auto; padding: 12px 16px; background: rgba(255,255,255,0.04); border-top: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; gap: 10px; }
+    .main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+    .topbar { height: 56px; background: #fff; border-bottom: 1px solid var(--slate-200); padding: 0 28px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; position: sticky; top: 0; z-index: 10; }
+    .content { padding: 28px; flex: 1; overflow-y: auto; }
+    .mentor-row { background: #fff; border: 1px solid var(--slate-200); border-radius: 10px; padding: 16px 20px; display: flex; align-items: center; gap: 16px; margin-bottom: 10px; transition: box-shadow 0.15s; }
+    .mentor-row:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+    .mentor-info { flex: 1; }
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 200; align-items: center; justify-content: center; }
+    .modal-overlay.open { display: flex; }
+    .modal-box { background: #fff; border-radius: 12px; padding: 32px; width: 600px; max-width: 95vw; max-height: 88vh; overflow-y: auto; }
+  </style>
+</head>
+<body>
+
+<div class="admin-wrap">
+  <aside class="sidebar">
+    <div class="sidebar-logo"><span>SoDak</span> <span style="font-weight:400;color:var(--slate-400)">Admin</span></div>
+    <nav>
+      <div class="sidebar-section">Main</div>
+      <a href="dashboard.html" class="sidebar-item">&#9632;&nbsp; Dashboard</a>
+      <a href="enquiries.html" class="sidebar-item">✉&nbsp; Enquiries</a>
+      <a href="leads.html" class="sidebar-item">&#9632;&nbsp; Leads</a>
+      <div class="sidebar-section">Content</div>
+      <a href="trainers.html" class="sidebar-item">&#9632;&nbsp; Trainers</a>
+      <a href="mentors.html" class="sidebar-item active">&#9632;&nbsp; Mentors</a>
+      <a href="courses.html" class="sidebar-item">&#9632;&nbsp; Courses</a>
+      <a href="media.html" class="sidebar-item">&#9632;&nbsp; Media / RBAC</a>
+    </nav>
+    <div class="sidebar-user">
+      <div class="avatar avatar-xs">A</div>
+      <div>
+        <p style="font-size:12px;font-weight:600;color:#e2e8f0">Admin</p>
+        <p style="font-size:11px;color:var(--slate-600)">admin@sodak.in</p>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <h1 style="font-size:17px;font-weight:700;color:var(--slate-800)">Mentor Management</h1>
+      <div class="flex items-center gap-12">
+        <button class="btn btn-dm btn-sm" onclick="openAddModal()">+ Add Mentor</button>
+        <a href="../index.html" style="padding:6px 12px;font-size:12px;font-weight:600;background:var(--slate-100);color:var(--slate-600);border:1px solid var(--slate-200);border-radius:6px;">← View Site</a>
+      </div>
+    </div>
+
+    <div class="content">
+      <!-- Stats -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px">
+        <div class="card card-light" style="padding:18px">
+          <div class="stat-lbl" style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--slate-400)">Total Mentors</div>
+          <div style="font-size:28px;font-weight:800;color:var(--slate-800);margin:4px 0">9</div>
+        </div>
+        <div class="card card-light" style="padding:18px">
+          <div class="stat-lbl" style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--slate-400)">Active Profiles</div>
+          <div style="font-size:28px;font-weight:800;color:var(--green);margin:4px 0">7</div>
+        </div>
+        <div class="card card-light" style="padding:18px">
+          <div class="stat-lbl" style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--slate-400)">Session Requests</div>
+          <div style="font-size:28px;font-weight:800;color:var(--dm-accent,#075892);margin:4px 0">0</div>
+          <div style="font-size:11px;color:var(--slate-400);margin-top:2px">Payment not live yet</div>
+        </div>
+        <div class="card card-light" style="padding:18px">
+          <div class="stat-lbl" style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--slate-400)">Domains Covered</div>
+          <div style="font-size:28px;font-weight:800;color:var(--slate-800);margin:4px 0">6</div>
+        </div>
+      </div>
+
+      <!-- Filter -->
+      <div class="flex gap-12 items-center" style="margin-bottom:16px">
+        <input class="form-input" type="search" placeholder="Search mentors…" style="flex:1;max-width:300px">
+        <select class="form-select" style="min-width:160px">
+          <option>All Domains</option>
+          <option>Cloud & Infrastructure</option>
+          <option>Full Stack</option>
+          <option>AI & ML</option>
+          <option>Cybersecurity</option>
+          <option>Career & Leadership</option>
+        </select>
+        <select class="form-select" style="min-width:130px">
+          <option>All Statuses</option>
+          <option>Active</option>
+          <option>Hidden</option>
+          <option>Draft</option>
+        </select>
+      </div>
+
+      <!-- Mentor list -->
+      <div class="mentor-row">
+        <div class="avatar avatar-md" style="background:var(--navy-800)">KS</div>
+        <div class="mentor-info">
+          <p style="font-size:14px;font-weight:600;color:var(--slate-800)">Karthik Subramaniam</p>
+          <p class="t-sm c-body">Principal Engineer · PayPal</p>
+          <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap">
+            <span class="expertise-tag">System Design</span>
+            <span class="expertise-tag">AWS</span>
+            <span class="expertise-tag">Scalability</span>
+          </div>
+        </div>
+        <div style="text-align:right">
+          <span class="badge badge-green" style="margin-bottom:6px">Active</span><br>
+          <span class="t-label c-muted">₹2,500/hr · Coming Soon</span>
+        </div>
+        <div class="flex gap-8" style="margin-left:16px">
+          <button class="btn btn-sm btn-ghost" onclick="openEditModal()">Edit</button>
+          <button class="btn btn-sm btn-ghost" style="color:var(--red)">Hide</button>
+        </div>
+      </div>
+
+      <div class="mentor-row">
+        <div class="avatar avatar-md" style="background:var(--navy-800)">DR</div>
+        <div class="mentor-info">
+          <p style="font-size:14px;font-weight:600;color:var(--slate-800)">Divya Rajan</p>
+          <p class="t-sm c-body">Senior Data Scientist · Amazon</p>
+          <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap">
+            <span class="expertise-tag">ML</span>
+            <span class="expertise-tag">Python</span>
+            <span class="expertise-tag">Career Transition</span>
+          </div>
+        </div>
+        <div style="text-align:right">
+          <span class="badge badge-green" style="margin-bottom:6px">Active</span><br>
+          <span class="t-label c-muted">₹2,000/hr · Coming Soon</span>
+        </div>
+        <div class="flex gap-8" style="margin-left:16px">
+          <button class="btn btn-sm btn-ghost" onclick="openEditModal()">Edit</button>
+          <button class="btn btn-sm btn-ghost" style="color:var(--red)">Hide</button>
+        </div>
+      </div>
+
+      <div class="mentor-row">
+        <div class="avatar avatar-md" style="background:var(--navy-800)">AM</div>
+        <div class="mentor-info">
+          <p style="font-size:14px;font-weight:600;color:var(--slate-800)">Aravind Mohan</p>
+          <p class="t-sm c-body">Security Architect · Accenture</p>
+          <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap">
+            <span class="expertise-tag">VAPT</span>
+            <span class="expertise-tag">Cloud Security</span>
+            <span class="expertise-tag">SOC</span>
+          </div>
+        </div>
+        <div style="text-align:right">
+          <span class="badge badge-green" style="margin-bottom:6px">Active</span><br>
+          <span class="t-label c-muted">₹2,500/hr · Coming Soon</span>
+        </div>
+        <div class="flex gap-8" style="margin-left:16px">
+          <button class="btn btn-sm btn-ghost" onclick="openEditModal()">Edit</button>
+          <button class="btn btn-sm btn-ghost" style="color:var(--red)">Hide</button>
+        </div>
+      </div>
+
+      <div class="mentor-row" style="opacity:0.6">
+        <div class="avatar avatar-md" style="background:var(--navy-800)">PA</div>
+        <div class="mentor-info">
+          <p style="font-size:14px;font-weight:600;color:var(--slate-800)">Priya Nair</p>
+          <p class="t-sm c-body">Engineering Manager · Zoho</p>
+          <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap">
+            <span class="expertise-tag">Leadership</span>
+            <span class="expertise-tag">Career Growth</span>
+          </div>
+        </div>
+        <div style="text-align:right">
+          <span class="badge badge-dark" style="margin-bottom:6px">Hidden</span><br>
+          <span class="t-label c-muted">₹3,000/hr · Coming Soon</span>
+        </div>
+        <div class="flex gap-8" style="margin-left:16px">
+          <button class="btn btn-sm btn-ghost" onclick="openEditModal()">Edit</button>
+          <button class="btn btn-sm btn-ghost" style="color:var(--green)">Show</button>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:16px">
+        <button class="btn btn-ghost btn-sm">Load more (5 remaining)</button>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<!-- Add/Edit Mentor Modal -->
+<div class="modal-overlay" id="mentor-modal">
+  <div class="modal-box">
+    <div class="flex justify-between items-center" style="margin-bottom:24px">
+      <h3 style="font-size:18px;font-weight:700;color:var(--slate-800)" id="modal-title">Add Mentor</h3>
+      <button onclick="closeModal()" style="font-size:20px;color:var(--slate-400);background:none;border:none;cursor:pointer">✕</button>
+    </div>
+    <div class="form-row" style="margin-bottom:16px">
+      <div class="form-group"><label class="form-label">Full Name *</label><input class="form-input" type="text" placeholder="e.g. Karthik Subramaniam"></div>
+      <div class="form-group"><label class="form-label">Designation *</label><input class="form-input" type="text" placeholder="e.g. Principal Engineer"></div>
+    </div>
+    <div class="form-row" style="margin-bottom:16px">
+      <div class="form-group"><label class="form-label">Company *</label><input class="form-input" type="text" placeholder="e.g. PayPal"></div>
+      <div class="form-group"><label class="form-label">Domain</label>
+        <select class="form-select">
+          <option>Cloud & Infrastructure</option>
+          <option>Full Stack</option>
+          <option>AI & ML</option>
+          <option>Cybersecurity</option>
+          <option>Career & Leadership</option>
+          <option>DevOps</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group" style="margin-bottom:16px"><label class="form-label">Bio</label><textarea class="form-input form-textarea" placeholder="Short bio (2–4 sentences shown on profile page)…"></textarea></div>
+    <div class="form-row" style="margin-bottom:16px">
+      <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" placeholder="mentor@company.com"></div>
+      <div class="form-group"><label class="form-label">LinkedIn URL</label><input class="form-input" type="url" placeholder="https://linkedin.com/in/…"></div>
+    </div>
+    <div class="form-row" style="margin-bottom:16px">
+      <div class="form-group"><label class="form-label">Session Rate (₹/hr)</label><input class="form-input" type="text" placeholder="e.g. 2500"></div>
+      <div class="form-group"><label class="form-label">Expertise Tags (comma-separated)</label><input class="form-input" type="text" placeholder="e.g. System Design, AWS, Scalability"></div>
+    </div>
+    <div class="form-row" style="margin-bottom:16px">
+      <div class="form-group"><label class="form-label">Profile Photo URL</label><input class="form-input" type="url" placeholder="https://…/photo.jpg (or upload via Media)"></div>
+      <div class="form-group"><label class="form-label">Status</label>
+        <select class="form-select">
+          <option>Active</option>
+          <option>Hidden</option>
+          <option>Draft</option>
+        </select>
+      </div>
+    </div>
+    <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:8px">
+      <button class="btn btn-ghost btn-sm" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-dm btn-sm">Save Mentor</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openAddModal() { document.getElementById('modal-title').textContent = 'Add Mentor'; document.getElementById('mentor-modal').classList.add('open'); }
+  function openEditModal() { document.getElementById('modal-title').textContent = 'Edit Mentor'; document.getElementById('mentor-modal').classList.add('open'); }
+  function closeModal() { document.getElementById('mentor-modal').classList.remove('open'); }
+  document.getElementById('mentor-modal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
+</script>
+</body>
+</html>

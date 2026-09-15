@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mentors — SoDak EduTech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="nav.css">
+  <style>
+    body { font-family: 'Open Sans', sans-serif; }
+    h1,h2,h3,.t-hero,.t-h1,.t-h2,.t-h3,.t-card { font-family: 'Instrument Sans', sans-serif; }
+    .c-dm-accent { color: #075892; }
+    .btn-dm { background: #075892; color: #fff; border-radius: 6px; padding: 10px 20px; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; transition: opacity 0.15s; cursor: pointer; border: none; text-decoration: none; }
+    .btn-dm:hover { opacity: 0.88; }
+    .glass-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 28px 32px; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); text-align: center; }
+    .mentor-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 28px 24px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; transition: transform 0.18s, box-shadow 0.18s; }
+    .mentor-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.09); }
+    .expertise-tag { display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 100px; font-size: 11px; font-weight: 600; background: rgba(7,88,146,0.08); color: #075892; border: 1px solid rgba(7,88,146,0.15); }
+    .filter-pill { padding: 6px 16px; border-radius: 100px; font-size: 12px; font-weight: 600; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: #94a3b8; cursor: pointer; transition: all 0.15s; white-space: nowrap; }
+    .filter-pill:hover { background: rgba(200,160,53,0.1); color: #c8a035; border-color: rgba(200,160,53,0.3); }
+    .filter-pill.active { background: rgba(200,160,53,0.12); color: #c8a035; border-color: rgba(200,160,53,0.4); font-weight: 700; }
+    .step-process { display: flex; gap: 0; align-items: flex-start; flex-wrap: wrap; }
+    .step-block { flex: 1; min-width: 180px; text-align: center; padding: 0 16px; position: relative; }
+    .step-block + .step-block::before { content: '→'; position: absolute; left: -10px; top: 20px; color: #c8a035; font-size: 18px; }
+    .step-icon { width: 52px; height: 52px; border-radius: 50%; background: rgba(200,160,53,0.1); border: 1px solid rgba(200,160,53,0.25); display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 14px; }
+    .notify-form { display: flex; gap: 10px; max-width: 400px; margin: 0 auto; }
+    .notify-form input { flex: 1; padding: 11px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.06); color: #fff; font-size: 14px; font-family: inherit; }
+    .notify-form input::placeholder { color: #64748b; }
+    .notify-form input:focus { outline: none; border-color: rgba(200,160,53,0.4); }
+  </style>
+</head>
+<body>
+<div id="site-nav"></div>
+
+<!-- HERO -->
+<section class="s-darker" style="padding:80px 0 0">
+  <div class="container">
+    <div class="flex gap-10" style="margin-bottom:18px;flex-wrap:wrap">
+      <span class="badge badge-gold">1-on-1 Sessions</span>
+      <span class="badge badge-blue">Payment Coming Soon</span>
+    </div>
+    <h1 class="t-hero c-white" style="max-width:760px">
+      Expert Mentors for<br>1-on-1 Sessions
+    </h1>
+    <p class="t-lg" style="color:#94a3b8;max-width:600px;margin-top:20px;line-height:1.75">
+      Book private sessions with industry veterans — for career pivots, interview prep, startup advice, and technical deep-dives. Payment integration coming soon; register your interest below.
+    </p>
+    <!-- Stats glass cards -->
+    <div class="flex gap-20 items-center" style="margin-top:40px;padding-bottom:48px;flex-wrap:wrap">
+      <div class="glass-card" style="flex:1;min-width:160px">
+        <p style="font-size:36px;font-weight:800;color:#c8a035;font-family:'Instrument Sans',sans-serif;line-height:1">12+</p>
+        <p class="t-sm" style="color:#94a3b8;margin-top:4px">Expert Mentors</p>
+      </div>
+      <div class="glass-card" style="flex:1;min-width:160px">
+        <p style="font-size:36px;font-weight:800;color:#c8a035;font-family:'Instrument Sans',sans-serif;line-height:1">5+</p>
+        <p class="t-sm" style="color:#94a3b8;margin-top:4px">Domains Covered</p>
+      </div>
+      <div class="glass-card" style="flex:1;min-width:160px">
+        <p style="font-size:36px;font-weight:800;color:#075892;font-family:'Instrument Sans',sans-serif;line-height:1">1-on-1</p>
+        <p class="t-sm" style="color:#94a3b8;margin-top:4px">Dedicated Focus</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTER + MENTOR GRID -->
+<section class="s-light" style="padding-top:48px">
+  <div class="container">
+    <div class="flex gap-8" style="margin-bottom:32px;flex-wrap:wrap">
+      <button class="filter-pill active">All</button>
+      <button class="filter-pill">Cloud &amp; Infrastructure</button>
+      <button class="filter-pill">Full Stack</button>
+      <button class="filter-pill">AI &amp; ML</button>
+      <button class="filter-pill">Cybersecurity</button>
+      <button class="filter-pill">Career &amp; Leadership</button>
+    </div>
+
+    <div class="grid grid-3" style="gap:20px">
+
+      <!-- Karthik Subramaniam -->
+      <div class="mentor-card">
+        <div class="avatar avatar-xl" style="background:#1a2342;color:#c8a035;margin:0 auto">KS</div>
+        <p class="t-card c-heading" style="margin-top:4px">Karthik Subramaniam</p>
+        <p class="t-sm c-body">Principal Engineer · PayPal</p>
+        <div class="flex gap-6 justify-center" style="flex-wrap:wrap;margin:4px 0">
+          <span class="expertise-tag">System Design</span>
+          <span class="expertise-tag">AWS</span>
+          <span class="expertise-tag">Scalability</span>
+        </div>
+        <div class="flex items-center justify-between" style="width:100%;margin-top:4px">
+          <span class="badge badge-green">Available</span>
+          <span class="t-sm c-muted">₹1,500/hr (soon)</span>
+        </div>
+        <a href="mentor-profile.html" class="t-sm c-dm-accent" style="font-weight:600;margin-top:8px">View Profile →</a>
+      </div>
+
+      <!-- Divya Rajan -->
+      <div class="mentor-card">
+        <div class="avatar avatar-xl" style="background:#1a2342;color:#8b5cf6;margin:0 auto">DR</div>
+        <p class="t-card c-heading" style="margin-top:4px">Divya Rajan</p>
+        <p class="t-sm c-body">Senior Data Scientist · Amazon</p>
+        <div class="flex gap-6 justify-center" style="flex-wrap:wrap;margin:4px 0">
+          <span class="expertise-tag">ML</span>
+          <span class="expertise-tag">Python</span>
+          <span class="expertise-tag">Career Transition</span>
+        </div>
+        <div class="flex items-center justify-between" style="width:100%;margin-top:4px">
+          <span class="badge badge-green">Available</span>
+          <span class="t-sm c-muted">₹2,000/hr (soon)</span>
+        </div>
+        <a href="mentor-profile.html" class="t-sm c-dm-accent" style="font-weight:600;margin-top:8px">View Profile →</a>
+      </div>
+
+      <!-- Aravind Mohan -->
+      <div class="mentor-card">
+        <div class="avatar avatar-xl" style="background:#1a2342;color:#ef4444;margin:0 auto">AM</div>
+        <p class="t-card c-heading" style="margin-top:4px">Aravind Mohan</p>
+        <p class="t-sm c-body">Security Architect · Accenture</p>
+        <div class="flex gap-6 justify-center" style="flex-wrap:wrap;margin:4px 0">
+          <span class="expertise-tag">VAPT</span>
+          <span class="expertise-tag">Cloud Security</span>
+          <span class="expertise-tag">SOC</span>
+        </div>
+        <div class="flex items-center justify-between" style="width:100%;margin-top:4px">
+          <span class="badge badge-amber">Limited</span>
+          <span class="t-sm c-muted">₹1,500/hr (soon)</span>
+        </div>
+        <a href="mentor-profile.html" class="t-sm c-dm-accent" style="font-weight:600;margin-top:8px">View Profile →</a>
+      </div>
+
+      <!-- Priya Nair -->
+      <div class="mentor-card">
+        <div class="avatar avatar-xl" style="background:#1a2342;color:#22c55e;margin:0 auto">PN</div>
+        <p class="t-card c-heading" style="margin-top:4px">Priya Nair</p>
+        <p class="t-sm c-body">Engineering Manager · Zoho</p>
+        <div class="flex gap-6 justify-center" style="flex-wrap:wrap;margin:4px 0">
+          <span class="expertise-tag">Leadership</span>
+          <span class="expertise-tag">Career Growth</span>
+          <span class="expertise-tag">Full Stack</span>
+        </div>
+        <div class="flex items-center justify-between" style="width:100%;margin-top:4px">
+          <span class="badge badge-green">Available</span>
+          <span class="t-sm c-muted">₹2,500/hr (soon)</span>
+        </div>
+        <a href="mentor-profile.html" class="t-sm c-dm-accent" style="font-weight:600;margin-top:8px">View Profile →</a>
+      </div>
+
+      <!-- Suresh Venkataraman -->
+      <div class="mentor-card">
+        <div class="avatar avatar-xl" style="background:#1a2342;color:#3b82f6;margin:0 auto">SV</div>
+        <p class="t-card c-heading" style="margin-top:4px">Suresh Venkataraman</p>
+        <p class="t-sm c-body">DevOps Lead · TCS</p>
+        <div class="flex gap-6 justify-center" style="flex-wrap:wrap;margin:4px 0">
+          <span class="expertise-tag">Kubernetes</span>
+          <span class="expertise-tag">CI/CD</span>
+          <span class="expertise-tag">SRE</span>
+        </div>
+        <div class="flex items-center justify-between" style="width:100%;margin-top:4px">
+          <span class="badge badge-green">Available</span>
+          <span class="t-sm c-muted">₹1,500/hr (soon)</span>
+        </div>
+        <a href="mentor-profile.html" class="t-sm c-dm-accent" style="font-weight:600;margin-top:8px">View Profile →</a>
+      </div>
+
+      <!-- Meena Krishnan -->
+      <div class="mentor-card">
+        <div class="avatar avatar-xl" style="background:#1a2342;color:#a78bfa;margin:0 auto">MK</div>
+        <p class="t-card c-heading" style="margin-top:4px">Meena Krishnan</p>
+        <p class="t-sm c-body">AI Research Engineer · IIT Chennai</p>
+        <div class="flex gap-6 justify-center" style="flex-wrap:wrap;margin:4px 0">
+          <span class="expertise-tag">LLMs</span>
+          <span class="expertise-tag">Research</span>
+          <span class="expertise-tag">Deep Learning</span>
+        </div>
+        <div class="flex items-center justify-between" style="width:100%;margin-top:4px">
+          <span class="badge badge-amber">Limited</span>
+          <span class="t-sm c-muted">₹3,000/hr (soon)</span>
+        </div>
+        <a href="mentor-profile.html" class="t-sm c-dm-accent" style="font-weight:600;margin-top:8px">View Profile →</a>
+      </div>
+
+      <!-- Raj Chandrasekaran -->
+      <div class="mentor-card">
+        <div class="avatar avatar-xl" style="background:#1a2342;color:#f97316;margin:0 auto">RC</div>
+        <p class="t-card c-heading" style="margin-top:4px">Raj Chandrasekaran</p>
+        <p class="t-sm c-body">Startup Founder &amp; Advisor</p>
+        <div class="flex gap-6 justify-center" style="flex-wrap:wrap;margin:4px 0">
+          <span class="expertise-tag">Product</span>
+          <span class="expertise-tag">Entrepreneurship</span>
+          <span class="expertise-tag">Growth</span>
+        </div>
+        <div class="flex items-center justify-between" style="width:100%;margin-top:4px">
+          <span class="badge badge-green">Available</span>
+          <span class="t-sm c-muted">₹2,000/hr (soon)</span>
+        </div>
+        <a href="mentor-profile.html" class="t-sm c-dm-accent" style="font-weight:600;margin-top:8px">View Profile →</a>
+      </div>
+
+      <!-- Anand Pillai -->
+      <div class="mentor-card">
+        <div class="avatar avatar-xl" style="background:#1a2342;color:#38bdf8;margin:0 auto">AP</div>
+        <p class="t-card c-heading" style="margin-top:4px">Anand Pillai</p>
+        <p class="t-sm c-body">Cloud Solutions Architect · AWS</p>
+        <div class="flex gap-6 justify-center" style="flex-wrap:wrap;margin:4px 0">
+          <span class="expertise-tag">AWS</span>
+          <span class="expertise-tag">Cost Optimisation</span>
+          <span class="expertise-tag">Architecture</span>
+        </div>
+        <div class="flex items-center justify-between" style="width:100%;margin-top:4px">
+          <span class="badge badge-green">Available</span>
+          <span class="t-sm c-muted">₹2,500/hr (soon)</span>
+        </div>
+        <a href="mentor-profile.html" class="t-sm c-dm-accent" style="font-weight:600;margin-top:8px">View Profile →</a>
+      </div>
+
+      <!-- Latha Balakrishnan -->
+      <div class="mentor-card">
+        <div class="avatar avatar-xl" style="background:#1a2342;color:#c8a035;margin:0 auto">LB</div>
+        <p class="t-card c-heading" style="margin-top:4px">Latha Balakrishnan</p>
+        <p class="t-sm c-body">Full Stack Lead · Juspay</p>
+        <div class="flex gap-6 justify-center" style="flex-wrap:wrap;margin:4px 0">
+          <span class="expertise-tag">React</span>
+          <span class="expertise-tag">Node.js</span>
+          <span class="expertise-tag">System Design</span>
+        </div>
+        <div class="flex items-center justify-between" style="width:100%;margin-top:4px">
+          <span class="badge badge-amber">Limited</span>
+          <span class="t-sm c-muted">₹1,500/hr (soon)</span>
+        </div>
+        <a href="mentor-profile.html" class="t-sm c-dm-accent" style="font-weight:600;margin-top:8px">View Profile →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="s-dark">
+  <div class="container">
+    <div class="section-header text-center">
+      <p class="section-eyebrow">Process</p>
+      <h2 class="t-h2 c-white">How 1-on-1 sessions work</h2>
+    </div>
+    <div class="step-process" style="justify-content:center;gap:40px;margin-top:8px">
+      <div class="step-block">
+        <div class="step-icon">📅</div>
+        <p class="t-card c-white" style="margin-bottom:6px">Browse &amp; Book</p>
+        <p class="t-sm c-muted" style="line-height:1.65">Pick a mentor, choose a session type and duration that fits your goal.</p>
+      </div>
+      <div class="step-block">
+        <div class="step-icon">✅</div>
+        <p class="t-card c-white" style="margin-bottom:6px">Confirm &amp; Pay</p>
+        <p class="t-sm c-muted" style="line-height:1.65">Secure your slot with payment (integration coming soon — currently free to register interest).</p>
+      </div>
+      <div class="step-block">
+        <div class="step-icon">💬</div>
+        <p class="t-card c-white" style="margin-bottom:6px">Meet Your Mentor</p>
+        <p class="t-sm c-muted" style="line-height:1.65">Join the video call and get focused, real-world guidance tailored to your situation.</p>
+      </div>
+      <div class="step-block">
+        <div class="step-icon">🚀</div>
+        <p class="t-card c-white" style="margin-bottom:6px">Grow</p>
+        <p class="t-sm c-muted" style="line-height:1.65">Leave with an action plan, resources, and the option to book follow-up sessions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="s-light">
+  <div class="container container-sm">
+    <div class="section-header text-center">
+      <p class="section-eyebrow">FAQ</p>
+      <h2 class="t-h2 c-heading">Common questions</h2>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item card card-light">
+        <button class="faq-header">
+          <div class="faq-header-inner">
+            <span class="faq-badge">Q</span>
+            <span class="faq-question">How are 1-on-1 sessions different from group training?</span>
+          </div>
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-body">
+          <p class="t-sm c-body" style="line-height:1.75">Group training covers curriculum with an entire batch. 1-on-1 sessions are entirely personalised — the mentor spends the full time on your specific goal, whether that's a system design interview, a career pivot question, or a code review of your project.</p>
+        </div>
+      </div>
+
+      <div class="faq-item card card-light">
+        <button class="faq-header">
+          <div class="faq-header-inner">
+            <span class="faq-badge">Q</span>
+            <span class="faq-question">When will payment and booking go live?</span>
+          </div>
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-body">
+          <p class="t-sm c-body" style="line-height:1.75">We're integrating a payment gateway and scheduling system. We expect to launch in early 2026. Register your interest below and we'll email you as soon as booking opens — early registrants get priority access.</p>
+        </div>
+      </div>
+
+      <div class="faq-item card card-light">
+        <button class="faq-header">
+          <div class="faq-header-inner">
+            <span class="faq-badge">Q</span>
+            <span class="faq-question">Can I request a specific mentor for my topic?</span>
+          </div>
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-body">
+          <p class="t-sm c-body" style="line-height:1.75">Yes. Each mentor lists their expertise areas and availability. You'll be able to choose a mentor based on the topic you want to cover. If a mentor's slots are full, you can join their waitlist.</p>
+        </div>
+      </div>
+
+      <div class="faq-item card card-light">
+        <button class="faq-header">
+          <div class="faq-header-inner">
+            <span class="faq-badge">Q</span>
+            <span class="faq-question">How long is a typical session?</span>
+          </div>
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-body">
+          <p class="t-sm c-body" style="line-height:1.75">Sessions run 30 minutes (intro/quick Q&amp;A), 60 minutes (deep dive), or 90 minutes (mock interview + debrief). Most first-time bookings start with a 30-min intro call at a lower rate.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EARLY ACCESS CTA -->
+<section class="s-dark" style="padding:64px 0">
+  <div class="container text-center">
+    <p class="section-eyebrow">Early Access</p>
+    <h2 class="t-h2 c-white" style="margin-top:8px">Want early access?</h2>
+    <p class="t-lg" style="color:#94a3b8;margin:12px auto 28px;max-width:480px;line-height:1.7">Drop your email and we'll notify you the moment 1-on-1 booking goes live. Early registrants get the first available slots.</p>
+    <div class="notify-form" style="justify-content:center">
+      <input type="email" placeholder="your@email.com" />
+      <button class="btn btn-gold">Notify me</button>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<div id="site-float"></div>
+<script src="layout.js"></script>
+<script>
+  document.querySelectorAll('.filter-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

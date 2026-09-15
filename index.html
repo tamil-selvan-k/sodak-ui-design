@@ -4,7 +4,7 @@
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Home — SoDak EduTech</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="nav.css">
 </head>
@@ -33,25 +33,29 @@
   </div>
 </section>
 
-<!-- STATS BAR -->
-<section class="s-light" style="padding:48px 0">
+<!-- STATS BAR (glassmorphism) -->
+<section class="s-darker" style="padding:40px 0 48px">
   <div class="container">
-    <div class="flex justify-center gap-48 items-center" style="flex-wrap:wrap;gap:40px">
-      <div class="stat-item">
-        <span class="stat-value" data-countup="6" data-suffix="">6</span>
-        <span class="stat-label c-body">Training Stacks</span>
+    <div class="flex justify-center items-stretch" style="gap:16px;flex-wrap:wrap">
+      <div class="glass-card hero-stat-glass">
+        <span class="stat-value" data-countup="6" data-suffix="" style="color:#fff">6</span>
+        <span class="stat-label" style="color:rgba(255,255,255,0.58);display:block;margin-top:4px">Training Stacks</span>
       </div>
-      <div class="stat-item">
-        <span class="stat-value" data-countup="50" data-suffix="+">50+</span>
-        <span class="stat-label c-body">Technologies</span>
+      <div class="glass-card hero-stat-glass">
+        <span class="stat-value" data-countup="50" data-suffix="+" style="color:#fff">50+</span>
+        <span class="stat-label" style="color:rgba(255,255,255,0.58);display:block;margin-top:4px">Technologies</span>
       </div>
-      <div class="stat-item">
-        <span class="stat-value" data-countup="100" data-suffix="">100</span>
-        <span class="stat-label c-body">Assessment Seats</span>
+      <div class="glass-card hero-stat-glass">
+        <span class="stat-value" data-countup="30" data-suffix="+" style="color:#fff">30+</span>
+        <span class="stat-label" style="color:rgba(255,255,255,0.58);display:block;margin-top:4px">Expert Trainers</span>
       </div>
-      <div class="stat-item">
-        <span class="stat-value" data-countup="2100" data-suffix="+">2100+</span>
-        <span class="stat-label c-body">Practice Questions</span>
+      <div class="glass-card hero-stat-glass">
+        <span class="stat-value" data-countup="100" data-suffix="" style="color:#fff">100</span>
+        <span class="stat-label" style="color:rgba(255,255,255,0.58);display:block;margin-top:4px">Concurrent Exam Seats</span>
+      </div>
+      <div class="glass-card hero-stat-glass">
+        <span class="stat-value" data-countup="2100" data-suffix="+" style="color:#fff">2100+</span>
+        <span class="stat-label" style="color:rgba(255,255,255,0.58);display:block;margin-top:4px">Practice Questions</span>
       </div>
     </div>
   </div>
@@ -306,6 +310,46 @@
         </ul>
         <a href="platform-assessments.html" class="t-sm c-gold" style="display:block;margin-top:16px">Learn more →</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS MARQUEE -->
+<section class="s-darker" style="padding:56px 0;overflow:hidden">
+  <div class="container" style="margin-bottom:28px">
+    <p class="section-eyebrow text-center">What students & placement officers say</p>
+    <h2 class="t-h2 c-white text-center" style="margin-top:8px">Real outcomes. Real engineers. Real feedback.</h2>
+  </div>
+  <!-- Track 1 — left scroll -->
+  <div class="marquee-wrap" style="margin-bottom:12px">
+    <div class="marquee-track" style="gap:12px">
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="t-sm c-muted" style="margin-top:8px;line-height:1.7">"The trainer knew exactly what Amazon SDE rounds look like. Best training my department has ever arranged."</p><div class="flex items-center gap-8" style="margin-top:12px"><div class="avatar avatar-xs">AK</div><span class="t-label" style="color:var(--slate-400)">Arun K · SRM Institute</span></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="t-sm c-muted" style="margin-top:8px;line-height:1.7">"94% of our batch got interview calls within 3 months. No other training partner has delivered these numbers."</p><div class="flex items-center gap-8" style="margin-top:12px"><div class="avatar avatar-xs">RK</div><span class="t-label" style="color:var(--slate-400)">Dr. Ramesh K · SJCE TPO</span></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="t-sm c-muted" style="margin-top:8px;line-height:1.7">"The CTF platform is unreal — solving real labs instead of simulations makes all the difference for security."</p><div class="flex items-center gap-8" style="margin-top:12px"><div class="avatar avatar-xs">MP</div><span class="t-label" style="color:var(--slate-400)">Mani Priya · Final Year CSE</span></div></div>
+      <div class="review-card"><div class="review-stars">★★★★☆</div><p class="t-sm c-muted" style="margin-top:8px;line-height:1.7">"Cloud labs were hands-on from day one. I got an AWS certification within 6 weeks of the training completing."</p><div class="flex items-center gap-8" style="margin-top:12px"><div class="avatar avatar-xs">VR</div><span class="t-label" style="color:var(--slate-400)">Vishnu R · Saveetha Engg</span></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="t-sm c-muted" style="margin-top:8px;line-height:1.7">"SoDak built a fully custom curriculum for our batch in 2 weeks. Nobody else came close in responsiveness."</p><div class="flex items-center gap-8" style="margin-top:12px"><div class="avatar avatar-xs">SN</div><span class="t-label" style="color:var(--slate-400)">Sunil N · Rajalakshmi Engg</span></div></div>
+      <!-- duplicate for seamless loop -->
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="t-sm c-muted" style="margin-top:8px;line-height:1.7">"The trainer knew exactly what Amazon SDE rounds look like. Best training my department has ever arranged."</p><div class="flex items-center gap-8" style="margin-top:12px"><div class="avatar avatar-xs">AK</div><span class="t-label" style="color:var(--slate-400)">Arun K · SRM Institute</span></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="t-sm c-muted" style="margin-top:8px;line-height:1.7">"94% of our batch got interview calls within 3 months. No other training partner has delivered these numbers."</p><div class="flex items-center gap-8" style="margin-top:12px"><div class="avatar avatar-xs">RK</div><span class="t-label" style="color:var(--slate-400)">Dr. Ramesh K · SJCE TPO</span></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="t-sm c-muted" style="margin-top:8px;line-height:1.7">"The CTF platform is unreal — solving real labs instead of simulations makes all the difference for security."</p><div class="flex items-center gap-8" style="margin-top:12px"><div class="avatar avatar-xs">MP</div><span class="t-label" style="color:var(--slate-400)">Mani Priya · Final Year CSE</span></div></div>
+      <div class="review-card"><div class="review-stars">★★★★☆</div><p class="t-sm c-muted" style="margin-top:8px;line-height:1.7">"Cloud labs were hands-on from day one. I got an AWS certification within 6 weeks of the training completing."</p><div class="flex items-center gap-8" style="margin-top:12px"><div class="avatar avatar-xs">VR</div><span class="t-label" style="color:var(--slate-400)">Vishnu R · Saveetha Engg</span></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="t-sm c-muted" style="margin-top:8px;line-height:1.7">"SoDak built a fully custom curriculum for our batch in 2 weeks. Nobody else came close in responsiveness."</p><div class="flex items-center gap-8" style="margin-top:12px"><div class="avatar avatar-xs">SN</div><span class="t-label" style="color:var(--slate-400)">Sunil N · Rajalakshmi Engg</span></div></div>
+    </div>
+  </div>
+  <!-- Track 2 — right scroll -->
+  <div class="marquee-wrap">
+    <div class="marquee-track-reverse" style="gap:12px">
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="t-sm c-muted" style="margin-top:8px;line-height:1.7">"The DevOps track turned our students into deployment-confident engineers. Real CI/CD from week one."</p><div class="flex items-center gap-8" style="margin-top:12px"><div class="avatar avatar-xs">TJ</div><span class="t-label" style="color:var(--slate-400)">Tamil Jothi · Easwari Engg</span></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="t-sm c-muted" style="margin-top:8px;line-height:1.7">"I cleared 3 rounds at Zoho because the training built habits, not just knowledge. Highly recommend."</p><div class="flex items-center gap-8" style="margin-top:12px"><div class="avatar avatar-xs">KR</div><span class="t-label" style="color:var(--slate-400)">Karan R · 2024 Batch MSEC</span></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="t-sm c-muted" style="margin-top:8px;line-height:1.7">"Our LLM + RAG project was built using exactly the stack taught in the AI module. Now in production."</p><div class="flex items-center gap-8" style="margin-top:12px"><div class="avatar avatar-xs">PV</div><span class="t-label" style="color:var(--slate-400)">Preethi V · 3rd Year IT</span></div></div>
+      <div class="review-card"><div class="review-stars">★★★★☆</div><p class="t-sm c-muted" style="margin-top:8px;line-height:1.7">"Assessment platform gave real interview pressure. The 2,100-question bank is genuinely comprehensive."</p><div class="flex items-center gap-8" style="margin-top:12px"><div class="avatar avatar-xs">SR</div><span class="t-label" style="color:var(--slate-400)">Sriram N · Placement Officer</span></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="t-sm c-muted" style="margin-top:8px;line-height:1.7">"The trainers are actual engineers — they tell war stories. That authenticity is what makes the sessions land."</p><div class="flex items-center gap-8" style="margin-top:12px"><div class="avatar avatar-xs">DA</div><span class="t-label" style="color:var(--slate-400)">Deepa A · 4th Year ECE</span></div></div>
+      <!-- duplicate for seamless loop -->
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="t-sm c-muted" style="margin-top:8px;line-height:1.7">"The DevOps track turned our students into deployment-confident engineers. Real CI/CD from week one."</p><div class="flex items-center gap-8" style="margin-top:12px"><div class="avatar avatar-xs">TJ</div><span class="t-label" style="color:var(--slate-400)">Tamil Jothi · Easwari Engg</span></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="t-sm c-muted" style="margin-top:8px;line-height:1.7">"I cleared 3 rounds at Zoho because the training built habits, not just knowledge. Highly recommend."</p><div class="flex items-center gap-8" style="margin-top:12px"><div class="avatar avatar-xs">KR</div><span class="t-label" style="color:var(--slate-400)">Karan R · 2024 Batch MSEC</span></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="t-sm c-muted" style="margin-top:8px;line-height:1.7">"Our LLM + RAG project was built using exactly the stack taught in the AI module. Now in production."</p><div class="flex items-center gap-8" style="margin-top:12px"><div class="avatar avatar-xs">PV</div><span class="t-label" style="color:var(--slate-400)">Preethi V · 3rd Year IT</span></div></div>
+      <div class="review-card"><div class="review-stars">★★★★☆</div><p class="t-sm c-muted" style="margin-top:8px;line-height:1.7">"Assessment platform gave real interview pressure. The 2,100-question bank is genuinely comprehensive."</p><div class="flex items-center gap-8" style="margin-top:12px"><div class="avatar avatar-xs">SR</div><span class="t-label" style="color:var(--slate-400)">Sriram N · Placement Officer</span></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="t-sm c-muted" style="margin-top:8px;line-height:1.7">"The trainers are actual engineers — they tell war stories. That authenticity is what makes the sessions land."</p><div class="flex items-center gap-8" style="margin-top:12px"><div class="avatar avatar-xs">DA</div><span class="t-label" style="color:var(--slate-400)">Deepa A · 4th Year ECE</span></div></div>
     </div>
   </div>
 </section>
