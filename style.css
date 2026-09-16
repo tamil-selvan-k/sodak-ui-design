@@ -980,3 +980,82 @@ body {
   border-top: 1px solid rgba(7,88,146,0.1);
 }
 .faq-item.open .faq-body { display: block; }
+
+/* ── Cautilya-style gradient overrides ── */
+
+/* Dark sections */
+.s-dark {
+  background: linear-gradient(103.78deg, #001c2c 0.34%, #005a8b 50.54%, #001825 98.84%) !important;
+}
+.s-darker {
+  background: linear-gradient(103.78deg, #000d18 0%, #003d6e 50%, #000810 100%) !important;
+}
+.page-hero {
+  background: linear-gradient(103.78deg, #001c2c 0.34%, #005a8b 50.54%, #001825 98.84%) !important;
+}
+
+/* Primary CTA button: Cautilya bright blue gradient */
+.btn-gold {
+  background: linear-gradient(99.27deg, #00a0ff 0%, #3dc8ef 100%) !important;
+  color: #fff !important;
+  border: none !important;
+}
+.btn-gold:hover {
+  background: linear-gradient(99.27deg, #0090e6 0%, #28b5dc 100%) !important;
+}
+
+/* CTA section block */
+.cta-gold {
+  background: linear-gradient(103.78deg, #001c2c 0.34%, #005a8b 50.54%, #001825 98.84%) !important;
+}
+
+/* Dark cards: Cautilya card gradient */
+.card-dark {
+  background: linear-gradient(160deg, rgba(61,117,150,0.65) 0%, rgba(0,114,187,0.65) 100%) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(0,160,255,0.2) !important;
+}
+.card-dark:hover {
+  background: linear-gradient(160deg, rgba(61,117,150,0.85) 0%, rgba(0,114,187,0.85) 100%) !important;
+  border-color: rgba(0,160,255,0.4) !important;
+}
+
+/* Eyebrow, accent, active states */
+.section-eyebrow { color: #00a0ff !important; }
+.s-dark .section-eyebrow,
+.s-darker .section-eyebrow { color: #58dbff !important; }
+
+.tab.active { color: #00a0ff !important; border-bottom-color: #00a0ff !important; }
+
+.form-input:focus, .form-select:focus {
+  border-color: #00a0ff !important;
+  box-shadow: 0 0 0 3px rgba(0,160,255,0.15) !important;
+}
+
+/* Light card hover glow matches Cautilya palette */
+.card-light:hover {
+  border-color: rgba(0,160,255,0.35) !important;
+  box-shadow: 0 12px 44px rgba(0,160,255,0.14) !important;
+}
+
+/* FAQ badge: gradient circle */
+.faq-badge {
+  background: linear-gradient(135deg, #00a0ff 0%, #3dc8ef 100%) !important;
+  color: #fff !important;
+  border-color: transparent !important;
+}
+.faq-chevron { color: #00a0ff !important; }
+.faq-header:hover { background: rgba(0,160,255,0.04) !important; }
+
+/* Badge & light badge */
+.badge-gold  { background: rgba(0,160,255,0.1) !important; color: #00a0ff !important; }
+.badge-light { background: rgba(0,160,255,0.1) !important; color: #00a0ff !important; }
+
+/* Stat value accent */
+.s-light .stat-value,
+.s-white .stat-value { color: #00a0ff !important; }
+
+/* c-gold accent text: Cautilya bright blue */
+.c-gold { color: #00a0ff !important; }
+.s-dark .c-gold, .s-darker .c-gold { color: #58dbff !important; }

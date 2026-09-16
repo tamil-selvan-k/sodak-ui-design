@@ -126,7 +126,7 @@
   /* ── Build footer HTML ── */
   function buildFooter() {
     return `
-<footer class="site-footer" style="background:#0a1628;border-top:1px solid rgba(7,88,146,0.2);">
+<footer class="site-footer" style="background:linear-gradient(135deg, #092848 0%, #0d4d8a 50%, #1661ae 100%);border-top:1px solid rgba(0,160,255,0.15);">
   <div class="container" style="padding-top:64px;">
 
     <!-- Top strip: brand + CTA -->
@@ -138,10 +138,10 @@
         </div>
         <p style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.75;margin-bottom:20px;">Campus training by engineers who cleared the interviews your students are preparing for. Placement-first. Practice-led. Industry-backed.</p>
         <div style="display:flex;gap:8px;">
-          <a href="#" style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:rgba(255,255,255,0.6);transition:background 0.15s,color 0.15s;" onmouseover="this.style.background='rgba(7,88,146,0.4)';this.style.color='#fff'" onmouseout="this.style.background='rgba(255,255,255,0.07)';this.style.color='rgba(255,255,255,0.6)'">in</a>
-          <a href="#" style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:rgba(255,255,255,0.6);transition:background 0.15s,color 0.15s;" onmouseover="this.style.background='rgba(7,88,146,0.4)';this.style.color='#fff'" onmouseout="this.style.background='rgba(255,255,255,0.07)';this.style.color='rgba(255,255,255,0.6)'">tw</a>
-          <a href="#" style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:rgba(255,255,255,0.6);transition:background 0.15s,color 0.15s;" onmouseover="this.style.background='rgba(7,88,146,0.4)';this.style.color='#fff'" onmouseout="this.style.background='rgba(255,255,255,0.07)';this.style.color='rgba(255,255,255,0.6)'">yt</a>
-          <a href="https://wa.me/918939366259" target="_blank" style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:14px;color:rgba(255,255,255,0.6);" onmouseover="this.style.background='rgba(7,88,146,0.4)';this.style.color='#fff'" onmouseout="this.style.background='rgba(255,255,255,0.07)';this.style.color='rgba(255,255,255,0.6)'">💬</a>
+          <a href="#" style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:rgba(255,255,255,0.6);transition:background 0.15s,color 0.15s;" onmouseover="this.style.background='rgba(0,160,255,0.35)';this.style.color='#fff'" onmouseout="this.style.background='rgba(255,255,255,0.07)';this.style.color='rgba(255,255,255,0.6)'">in</a>
+          <a href="#" style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:rgba(255,255,255,0.6);transition:background 0.15s,color 0.15s;" onmouseover="this.style.background='rgba(0,160,255,0.35)';this.style.color='#fff'" onmouseout="this.style.background='rgba(255,255,255,0.07)';this.style.color='rgba(255,255,255,0.6)'">tw</a>
+          <a href="#" style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:rgba(255,255,255,0.6);transition:background 0.15s,color 0.15s;" onmouseover="this.style.background='rgba(0,160,255,0.35)';this.style.color='#fff'" onmouseout="this.style.background='rgba(255,255,255,0.07)';this.style.color='rgba(255,255,255,0.6)'">yt</a>
+          <a href="https://wa.me/918939366259" target="_blank" style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:14px;color:rgba(255,255,255,0.6);" onmouseover="this.style.background='rgba(0,160,255,0.35)';this.style.color='#fff'" onmouseout="this.style.background='rgba(255,255,255,0.07)';this.style.color='rgba(255,255,255,0.6)'">💬</a>
         </div>
       </div>
       <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
@@ -149,7 +149,7 @@
           <p style="font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:4px;">Ready to upskill your campus?</p>
           <p style="font-size:13px;color:rgba(255,255,255,0.6);">📞 +91 89393 66259 &nbsp;·&nbsp; ✉ hello@sodakedutech.in</p>
         </div>
-        <a href="${ROOT}contact.html" style="display:inline-flex;align-items:center;gap:8px;padding:10px 22px;background:#075892;color:#fff;border-radius:8px;font-size:14px;font-weight:600;white-space:nowrap;transition:background 0.15s;" onmouseover="this.style.background='#0669ab'" onmouseout="this.style.background='#075892'">Book a Program →</a>
+        <a href="${ROOT}contact.html" style="display:inline-flex;align-items:center;gap:8px;padding:10px 22px;background:linear-gradient(99.27deg,#00a0ff 0%,#3dc8ef 100%);color:#fff;border-radius:8px;font-size:14px;font-weight:600;white-space:nowrap;transition:opacity 0.15s;" onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">Book a Program →</a>
       </div>
     </div>
 
@@ -213,7 +213,7 @@
       <div style="display:flex;align-items:center;gap:20px;font-size:13px;">
         <a href="${ROOT}privacy.html" style="color:rgba(255,255,255,0.35);transition:color 0.12s;" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Privacy Policy</a>
         <a href="${ROOT}terms.html" style="color:rgba(255,255,255,0.35);transition:color 0.12s;" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Terms of Service</a>
-        <a href="${ROOT}admin/dashboard.html" style="color:rgba(7,88,146,0.5);transition:color 0.12s;" onmouseover="this.style.color='rgba(7,88,146,0.9)'" onmouseout="this.style.color='rgba(7,88,146,0.5)'">Admin ↗</a>
+        <a href="${ROOT}admin/dashboard.html" style="color:rgba(0,160,255,0.5);transition:color 0.12s;" onmouseover="this.style.color='rgba(0,160,255,0.9)'" onmouseout="this.style.color='rgba(0,160,255,0.5)'">Admin ↗</a>
       </div>
     </div>
 
