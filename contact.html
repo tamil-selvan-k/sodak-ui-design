@@ -33,7 +33,7 @@
         <p class="t-sm c-body" style="margin-bottom:28px">We read every message. Typical response time: <strong>under 24 hours</strong> on working days.</p>
         <form class="form-card" onsubmit="return false;">
 
-          <!-- Contact type -->
+          <!-- Role -->
           <div class="form-group">
             <label class="form-label">I am a <span style="color:#e05252">*</span></label>
             <div class="radio-group">
@@ -68,90 +68,25 @@
             </div>
           </div>
 
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label" for="name">Full name <span style="color:#e05252">*</span></label>
-              <input type="text" id="name" class="form-input" placeholder="Dr. Ramesh Kumar" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="role">Designation</label>
-              <input type="text" id="role" class="form-input" placeholder="T&P Officer">
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label" for="institution">Institution / Organisation <span style="color:#e05252">*</span></label>
-              <input type="text" id="institution" class="form-input" placeholder="St. Joseph's College of Engineering" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="city">City</label>
-              <input type="text" id="city" class="form-input" placeholder="Chennai">
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label" for="email">Email <span style="color:#e05252">*</span></label>
-              <input type="email" id="email" class="form-input" placeholder="tpo@sjce.ac.in" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="phone">WhatsApp / Phone <span style="color:#e05252">*</span></label>
-              <input type="tel" id="phone" class="form-input" placeholder="+91 98765 43210" required>
-            </div>
-          </div>
-
-          <!-- Programs of interest -->
+          <!-- Name -->
           <div class="form-group">
-            <label class="form-label">Program(s) of interest</label>
-            <div class="checkbox-group">
-              <label class="checkbox-option"><input type="checkbox" name="programs" value="placement"><span>Track A — Elite Placement Prep</span></label>
-              <label class="checkbox-option"><input type="checkbox" name="programs" value="cloud"><span>Track B — Cloud & DevOps</span></label>
-              <label class="checkbox-option"><input type="checkbox" name="programs" value="ai"><span>Track C — Generative AI</span></label>
-              <label class="checkbox-option"><input type="checkbox" name="programs" value="cyber"><span>Track D — Cybersecurity & CTF</span></label>
-              <label class="checkbox-option"><input type="checkbox" name="programs" value="assess"><span>Track E — Assessment & Screening</span></label>
-              <label class="checkbox-option"><input type="checkbox" name="programs" value="custom"><span>Custom / FDP</span></label>
-            </div>
+            <label class="form-label" for="name">Name <span style="color:#e05252">*</span></label>
+            <input type="text" id="name" class="form-input" placeholder="Dr. Ramesh Kumar" required>
           </div>
 
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label" for="batch_size">Estimated batch size</label>
-              <select id="batch_size" class="form-select">
-                <option value="">Select…</option>
-                <option>Under 30</option>
-                <option>30 – 60</option>
-                <option>60 – 120</option>
-                <option>120 – 250</option>
-                <option>250+</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="timeline">Preferred timeline</label>
-              <input type="text" id="timeline" class="form-input" placeholder="e.g. Oct – Nov 2026">
-            </div>
-          </div>
-
+          <!-- Email -->
           <div class="form-group">
-            <label class="form-label" for="message">Message / Requirements</label>
-            <textarea id="message" class="form-textarea" rows="4" placeholder="Tell us about your batch, branch, target companies, or any specific needs…"></textarea>
+            <label class="form-label" for="email">Email <span style="color:#e05252">*</span></label>
+            <input type="email" id="email" class="form-input" placeholder="you@college.ac.in" required>
           </div>
 
-          <!-- How did you hear -->
+          <!-- Message -->
           <div class="form-group">
-            <label class="form-label" for="source">How did you hear about us?</label>
-            <select id="source" class="form-select">
-              <option value="">Select…</option>
-              <option>LinkedIn</option>
-              <option>Referral from another college</option>
-              <option>Google Search</option>
-              <option>WhatsApp forward</option>
-              <option>From a trainer directly</option>
-              <option>Other</option>
-            </select>
+            <label class="form-label" for="message">Message <span style="color:#e05252">*</span></label>
+            <textarea id="message" class="form-textarea" rows="5" placeholder="Tell us what you need — program, batch size, timeline, or anything else…" required></textarea>
           </div>
 
-          <button type="submit" class="btn btn-gold btn-lg" style="width:100%;margin-top:8px">Submit enquiry →</button>
+          <button type="submit" class="btn btn-gold btn-lg" style="width:100%;margin-top:8px">Send message →</button>
           <p class="t-label c-muted text-center" style="margin-top:10px">We reply within 24 hours on working days. No spam.</p>
         </form>
       </div>
